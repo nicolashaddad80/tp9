@@ -122,9 +122,6 @@ public class Menu extends CommonMenuComponent {
         return this.choice;
     }
 
-    public void setChoice(MenuComponent a_Comp){
-        this.choice=a_Comp;
-    }
 
     public Menu getParent(){
         return this.parent;
