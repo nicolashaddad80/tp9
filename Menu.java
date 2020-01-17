@@ -19,10 +19,8 @@ public class Menu extends CommonMenuComponent {
    public Menu(String a_text){
 
        super(a_text);
-       this.setCommand(new NoopCommand());
        this.choice=this;
-       CommonMenuComponent menuExitEntry =new Entry("Quitter");
-       menuExitEntry.setCommand(new ExitCommand());
+       CommonMenuComponent menuExitEntry =new Entry("Quitter",new ExitCommand());
        this.add(menuExitEntry);
 
    }
@@ -84,21 +82,15 @@ public class Menu extends CommonMenuComponent {
     public void add(MenuComponent menuComp){
         if(menuComp.isMenu())
         {
-            Entry back = new Entry("Retour");
-            back.setCommand(new MenuUpCommand());
+            Entry back = new Entry("Retour",new MenuUpCommand());
             ((Menu)menuComp).add(back);
             ((Menu)menuComp).parent=this;
-
-
 
         }
         this.entree[this.nbElements++]=menuComp;
 
     }
 
-    public void setCommand(Command a_Command){
-        super.setCommand(a_Command);
-    }
 
     public boolean choiceIsQuit() {
         return choice.getCommand() instanceof ExitCommand;
@@ -122,7 +114,7 @@ public class Menu extends CommonMenuComponent {
     }
 
     @Override
-    public boolean isMenu(){
+    public final boolean isMenu(){
         return true;
     }
 

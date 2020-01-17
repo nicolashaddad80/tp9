@@ -28,15 +28,10 @@ public class Editor {
 
         Menu cursorSubMenu = new Menu("Cursor Operations Sub Menu");
 
+        subMenuList[i++]=new Entry("Placer le curseur au debut de la ligne", new MoveBeginningCommand(this.line));
+        subMenuList[i++]=new Entry("Avancer le curseur d une position a droite", new MoveRightCommand(this.line));
+        subMenuList[i++]=new Entry("Reculer le curseur d une position a gauche", new MoveLeftCommand(this.line));
 
-        subMenuList[i]=new Entry("Placer le curseur au debut de la ligne");
-        subMenuList[i++].setCommand(new MoveBeginningCommand(this.line));
-
-        subMenuList[i]=new Entry("Avancer le curseur d une position a droite");
-        subMenuList[i++].setCommand(new MoveRightCommand(this.line));
-
-        subMenuList[i]=new Entry("Reculer le curseur d une position a gauche");
-        subMenuList[i++].setCommand(new MoveLeftCommand(this.line));
 
         for (int k = 0; k < subMenuList.length; k++) {
             cursorSubMenu.add(subMenuList[k]);
@@ -44,28 +39,14 @@ public class Editor {
 
         //filling main menu
 
-        mainMenuList[j]=new Entry("Ajouter un caractere au debut de la ligne");
-        mainMenuList[j++].setCommand(new AddBeginningCommand(this.line));
-
-        mainMenuList[j]=new Entry("Ajouter un caractere a la fin de la ligne");
-        mainMenuList[j++].setCommand(new AddEndCommand(this.line));
-
+        mainMenuList[j++]=new Entry("Ajouter un caractere au debut de la ligne", new AddBeginningCommand(this.line));
+        mainMenuList[j++]=new Entry("Ajouter un caractere a la fin de la ligne", new AddEndCommand(this.line));
         mainMenuList[j++]=cursorSubMenu;
-
-        mainMenuList[j]=new Entry("Remplacer le caractere sous le curseur");
-        mainMenuList[j++].setCommand(new ReplaceCommand(this.line));
-
-        mainMenuList[j]=new Entry("Supprimer le caractere sous le curseur");
-        mainMenuList[j++].setCommand(new DeleteCommand(this.line));
-
-        mainMenuList[j]=new Entry("Ajouter un caractere avant le curseur");
-        mainMenuList[j++].setCommand(new AddBeforeCommand(this.line));
-
-        mainMenuList[j]=new Entry("Ajouter un caractere apres le curseur");
-        mainMenuList[j++].setCommand(new AddAfterCommand(this.line));
-
-        mainMenuList[j]=new Entry("Supprimer tous les caracteres de la ligne");
-        mainMenuList[j++].setCommand(new DeleteAllCommand(this.line));
+        mainMenuList[j++]=new Entry("Remplacer le caractere sous le curseur", new ReplaceCommand(this.line));
+        mainMenuList[j++]=new Entry("Supprimer le caractere sous le curseur", new DeleteCommand(this.line));
+        mainMenuList[j++]=new Entry("Ajouter un caractere avant le curseur", new AddBeforeCommand(this.line));
+        mainMenuList[j++]=new Entry("Ajouter un caractere apres le curseur", new AddAfterCommand(this.line));
+        mainMenuList[j++]=new Entry("Supprimer tous les caracteres de la ligne", new DeleteAllCommand(this.line));
 
         for (int k = 0; k < mainMenuList.length; k++) {
             this.menu.add(mainMenuList[k]);
@@ -89,14 +70,12 @@ public class Editor {
             MenuComponent choice = this.menu.getChoice();
             if (choice.isMenu()) {
                 this.menu = (Menu) choice;
-            }
-            else {
-                    if(this.menu.choiceIsBack()){
-                        this.menu=this.menu.getParent();
-                    }
-                    else{
-                        choice.getCommand().executer();
-                    }
+            } else {
+                if (this.menu.choiceIsBack()) {
+                    this.menu = this.menu.getParent();
+                } else {
+                    ((Entry) choice).getCommand().executer();
+                }
             }
         } while (!this.menu.choiceIsQuit());
     }
