@@ -1,6 +1,4 @@
 package fr.cnam.tp9;
-
-
 import java.util.Scanner;
 
 public class Menu extends CommonMenuComponent {
@@ -56,7 +54,7 @@ public class Menu extends CommonMenuComponent {
         System.out.print("--------------------------------------------------------\n");
     }
 
-    void  proposer() {
+    public void  proposer() {
         boolean ok = false;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Veuillez choisir le numero de la commande :");
@@ -96,21 +94,8 @@ public class Menu extends CommonMenuComponent {
         return choice.getCommand() instanceof ExitCommand;
     }
 
-    public boolean choiceIsBack() {
+    public boolean choiceIsNavigateUp() {
         return choice.getCommand() instanceof MenuUpCommand;
-    }
-
-
-
-    int getNbElements(){
-        return this.nbElements;
-    }
-
-    MenuComponent getCompAt(int i){
-
-        //Add to exception to throw when no component is present at position i (no component yet or i is > nbElements
-
-        return this.entree[i];
     }
 
     @Override

@@ -71,7 +71,7 @@ public class Editor {
             if (choice.isMenu()) {
                 this.menu = (Menu) choice;
             } else {
-                if (this.menu.choiceIsBack()) {
+                if (this.menu.choiceIsNavigateUp()) {
                     this.menu = this.menu.getParent();
                 } else {
                     ((Entry) choice).getCommand().executer();
