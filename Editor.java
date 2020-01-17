@@ -10,24 +10,24 @@ public class Editor {
 
     public Editor() {
 
-        this.line=new LineTab();
+        this.line = new LineTab();
 
         this.menu = new Menu("Main Menu");
-        this.menu.setCommand(new MenuCommandDecorator(this.menu,this.line));
+
 
         this.fillMenu();
     }
 
-    private void fillMenu(){
+    private void fillMenu() {
         //filling the Menu
-        int i=0,j=0;
-        CommonMenuComponent[] mainMenuList=new  CommonMenuComponent[8];
-        CommonMenuComponent[] subMenuList=new  CommonMenuComponent[3];
+        int i = 0, j = 0;
+        CommonMenuComponent[] mainMenuList = new CommonMenuComponent[8];
+        CommonMenuComponent[] subMenuList = new CommonMenuComponent[3];
 
         //Creating and filling CursorSubMenu
 
         Menu cursorSubMenu = new Menu("Cursor Operations Sub Menu");
-        cursorSubMenu.setCommand(new MenuCommandDecorator(cursorSubMenu ,this.line));
+
 
         subMenuList[i]=new Entry("Placer le curseur au debut de la ligne");
         subMenuList[i++].setCommand(new MoveBeginningCommand(this.line));
@@ -38,7 +38,7 @@ public class Editor {
         subMenuList[i]=new Entry("Reculer le curseur d une position a gauche");
         subMenuList[i++].setCommand(new MoveLeftCommand(this.line));
 
-        for(int k=0;k<subMenuList.length;k++){
+        for (int k = 0; k < subMenuList.length; k++) {
             cursorSubMenu.add(subMenuList[k]);
         }
 
@@ -67,7 +67,7 @@ public class Editor {
         mainMenuList[j]=new Entry("Supprimer tous les caracteres de la ligne");
         mainMenuList[j++].setCommand(new DeleteAllCommand(this.line));
 
-        for(int k=0;k<mainMenuList.length;k++){
+        for (int k = 0; k < mainMenuList.length; k++) {
             this.menu.add(mainMenuList[k]);
         }
 
@@ -81,8 +81,24 @@ public class Editor {
     public void editer() {
 
         //Launching Editor
-         this.menu.getCommand().executer();
 
+        do {
+            this.line.print();
+            this.menu.afficher();
+            this.menu.proposer();
+            MenuComponent choice = this.menu.getChoice();
+            if (choice.isMenu()) {
+                this.menu = (Menu) choice;
+            }
+            else {
+                    if(this.menu.choiceIsBack()){
+                        this.menu=this.menu.getParent();
+                    }
+                    else{
+                        choice.getCommand().executer();
+                    }
+            }
+        } while (!this.menu.choiceIsQuit());
     }
 }
 

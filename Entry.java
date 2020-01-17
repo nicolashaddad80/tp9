@@ -10,4 +10,9 @@ public class Entry extends CommonMenuComponent {
 
     }
 
+    @Override
+    public boolean isMenu(){
+        return false;
+    }
+
 }

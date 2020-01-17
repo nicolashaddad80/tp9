@@ -8,7 +8,7 @@ public class NoopCommand implements Command {
 
     @Override
     public  boolean isExecutable(){
-        return false;
+        return true;
     }
 
 }

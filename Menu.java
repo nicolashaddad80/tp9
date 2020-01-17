@@ -11,13 +11,16 @@ public class Menu extends CommonMenuComponent {
      * Attributes
      */
    private MenuComponent[] entree = new MenuComponent[20];
-   private Command choice;
+   private MenuComponent choice;
    private int nbElements = 0;
+   private Menu parent=this;
+
+
    public Menu(String a_text){
 
        super(a_text);
-       this.setCommand(new MenuCommand((this)));
-       this.choice=new NoopCommand();
+       this.setCommand(new NoopCommand());
+       this.choice=this;
        CommonMenuComponent menuExitEntry =new Entry("Quitter");
        menuExitEntry.setCommand(new ExitCommand());
        this.add(menuExitEntry);
@@ -70,8 +73,7 @@ public class Menu extends CommonMenuComponent {
                 } finally {
                     if (choix >= 0 && choix < this.nbElements && this.entree[choix].getCommand().isExecutable()) {
                         ok = true;
-                        choice = this.entree[choix].getCommand();
-                        this.choice.executer();
+                        choice = this.entree[choix];
                     } else
                         System.out.println("Il faut choisir un numero parmis les commandes valides:");
                 }
@@ -80,7 +82,16 @@ public class Menu extends CommonMenuComponent {
 
     }
     public void add(MenuComponent menuComp){
+        if(menuComp.isMenu())
+        {
+            Entry back = new Entry("Retour");
+            back.setCommand(new MenuUpCommand());
+            ((Menu)menuComp).add(back);
+            ((Menu)menuComp).parent=this;
 
+
+
+        }
         this.entree[this.nbElements++]=menuComp;
 
     }
@@ -90,8 +101,13 @@ public class Menu extends CommonMenuComponent {
     }
 
     public boolean choiceIsQuit() {
-        return choice instanceof ExitCommand;
+        return choice.getCommand() instanceof ExitCommand;
     }
+
+    public boolean choiceIsBack() {
+        return choice.getCommand() instanceof MenuUpCommand;
+    }
+
 
 
     int getNbElements(){
@@ -103,5 +119,22 @@ public class Menu extends CommonMenuComponent {
         //Add to exception to throw when no component is present at position i (no component yet or i is > nbElements
 
         return this.entree[i];
+    }
+
+    @Override
+    public boolean isMenu(){
+        return true;
+    }
+
+    public MenuComponent getChoice(){
+        return this.choice;
+    }
+
+    public void setChoice(MenuComponent a_Comp){
+        this.choice=a_Comp;
+    }
+
+    public Menu getParent(){
+        return this.parent;
     }
 }
