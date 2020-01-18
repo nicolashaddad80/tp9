@@ -1,9 +1,11 @@
 package fr.cnam.tp9;
 
 
+import fr.cnam.tp10b.NoopCommand;
+
 import java.util.Scanner;
 
-public class Menu extends CommonMenuComponent {
+public class Menu extends Entry {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_GREEN = "\u001B[32m";
     private static final String ANSI_RED = "\u001B[31m";
@@ -18,9 +20,9 @@ public class Menu extends CommonMenuComponent {
 
    public Menu(String a_text){
 
-       super(a_text);
+       super(a_text,new NoopCommand());
        this.choice=this;
-       CommonMenuComponent menuExitEntry =new Entry("Quitter",new ExitCommand());
+      MenuComponent menuExitEntry =new Entry("Quitter",new ExitCommand());
        this.add(menuExitEntry);
 
    }
@@ -122,9 +124,6 @@ public class Menu extends CommonMenuComponent {
         return this.choice;
     }
 
-    public void setChoice(MenuComponent a_Comp){
-        this.choice=a_Comp;
-    }
 
     public Menu getParent(){
         return this.parent;
