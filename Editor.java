@@ -21,8 +21,8 @@ public class Editor {
     private void fillMenu() {
         //filling the Menu
         int i = 0, j = 0;
-        CommonMenuComponent[] mainMenuList = new CommonMenuComponent[8];
-        CommonMenuComponent[] subMenuList = new CommonMenuComponent[3];
+        MenuComponent[] mainMenuList = new MenuComponent[8];
+        MenuComponent[] subMenuList = new MenuComponent[3];
 
         //Creating and filling CursorSubMenu
 

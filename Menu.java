@@ -1,7 +1,7 @@
 package fr.cnam.tp9;
 import java.util.Scanner;
 
-public class Menu extends CommonMenuComponent {
+public class Menu extends Entry {
     public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_GREEN = "\u001B[32m";
     private static final String ANSI_RED = "\u001B[31m";
@@ -13,10 +13,9 @@ public class Menu extends CommonMenuComponent {
    private int nbElements = 0;
    private Menu parent=this;
    private MenuComponent choice=this;
-
    public Menu(String a_text){
+       super(a_text, new NoopCommand());
 
-       super(a_text);
        this.add(new Entry("Quitter",new ExitCommand()));
 
    }
