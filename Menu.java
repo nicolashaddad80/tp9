@@ -13,10 +13,10 @@ public class Menu extends Entry {
    private int nbElements = 0;
    private Menu parent=this;
    private MenuComponent choice=this;
-   public Menu(String a_text){
-       super(a_text, new NoopCommand());
+   public Menu(String a_text,String a_Shortcut){
+       super(a_text, new NoopCommand(),a_Shortcut);
 
-       this.add(new Entry("Quitter",new ExitCommand()));
+       this.add(new Entry("Quitter",new ExitCommand(),"Q"));
 
    }
     /**
@@ -24,7 +24,7 @@ public class Menu extends Entry {
      */
     public void afficher(){
         System.out.print("--------------------------------------------------------\n");
-        System.out.print(this.toString()+"\n");
+        System.out.print(this.text+"\n");
         System.out.print("--------------------------------------------------------\n");
         for(int i = 1; i<this.nbElements; i++){
             if(this.entree[i].getCommand().isExecutable()) {
@@ -81,7 +81,7 @@ public class Menu extends Entry {
     public void add(MenuComponent menuComp){
         if(menuComp.isMenu())
         {
-            Entry back = new Entry("Retour",new MenuUpCommand());
+            Entry back = new Entry("Retour",new MenuUpCommand(),"U");
             ((Menu)menuComp).add(back);
             ((Menu)menuComp).parent=this;
 

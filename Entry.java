@@ -2,13 +2,14 @@ package fr.cnam.tp9;
 
 
 public class Entry implements MenuComponent {
-    private String text;
+    protected String text;
     private Command command;
-    public Entry(String a_text,Command a_Command){
+    private String shortcut;
+    public Entry(String a_text,Command a_Command,String a_Shortcut){
 
         this.text = a_text;
         this.command=a_Command;
-
+        this.shortcut=a_Shortcut;
     }
 
     @Override
@@ -23,7 +24,7 @@ public class Entry implements MenuComponent {
 
     @Override
     public String toString(){
-        return this.text;
+        return (this.text+"\t\t["+this.shortcut+"]");
     }
 
 

@@ -12,7 +12,7 @@ public class Editor {
 
         this.line = new LineTab();
 
-        this.currentMenu = new Menu("Main Menu");
+        this.currentMenu = new Menu("Main Menu","");
 
 
         this.fillMenu();
@@ -28,25 +28,23 @@ public class Editor {
 
 
 
-        subMenuList[i++]=new Entry("Placer le curseur au debut de la ligne", new MoveBeginningCommand(this.line));
-        subMenuList[i++]=new Entry("Avancer le curseur d une position a droite", new MoveRightCommand(this.line));
-        subMenuList[i++]=new Entry("Reculer le curseur d une position a gauche", new MoveLeftCommand(this.line));
-
-        Menu cursorSubMenu = new Menu("Cursor Operations Sub Menu");
+        subMenuList[i++]=new Entry("Placer le curseur au debut de la ligne    ", new MoveBeginningCommand(this.line),"o");
+        subMenuList[i++]=new Entry("Avancer le curseur d une position a droite", new MoveRightCommand(this.line),"l");
+        subMenuList[i++]=new Entry("Reculer le curseur d une position a gauche", new MoveLeftCommand(this.line),"h");
+        Menu cursorSubMenu = new Menu("Cursor Operations Sub Menu  ","Cur");
         for (int k = 0; k < subMenuList.length; k++) {
             cursorSubMenu.add(subMenuList[k]);
         }
-
         //filling main menu
 
-        mainMenuList[j++]=new Entry("Ajouter un caractere au debut de la ligne", new AddBeginningCommand(this.line));
-        mainMenuList[j++]=new Entry("Ajouter un caractere a la fin de la ligne", new AddEndCommand(this.line));
+        mainMenuList[j++]=new Entry("Ajouter un caractere au debut de la ligne", new AddBeginningCommand(this.line),"I");
+        mainMenuList[j++]=new Entry("Ajouter un caractere a la fin de la ligne", new AddEndCommand(this.line),"A");
         mainMenuList[j++]=cursorSubMenu;
-        mainMenuList[j++]=new Entry("Remplacer le caractere sous le curseur", new ReplaceCommand(this.line));
-        mainMenuList[j++]=new Entry("Supprimer le caractere sous le curseur", new DeleteCommand(this.line));
-        mainMenuList[j++]=new Entry("Ajouter un caractere avant le curseur", new AddBeforeCommand(this.line));
-        mainMenuList[j++]=new Entry("Ajouter un caractere apres le curseur", new AddAfterCommand(this.line));
-        mainMenuList[j++]=new Entry("Supprimer tous les caracteres de la ligne", new DeleteAllCommand(this.line));
+        mainMenuList[j++]=new Entry("Remplacer le caractere sous le curseur   ", new ReplaceCommand(this.line),"r");
+        mainMenuList[j++]=new Entry("Supprimer le caractere sous le curseur   ", new DeleteCommand(this.line),"x");
+        mainMenuList[j++]=new Entry("Ajouter un caractere avant le curseur    ", new AddBeforeCommand(this.line),"i");
+        mainMenuList[j++]=new Entry("Ajouter un caractere apres le curseur    ", new AddAfterCommand(this.line),"a");
+        mainMenuList[j++]=new Entry("Supprimer tous les caracteres de la ligne", new DeleteAllCommand(this.line),"dd");
 
 
         for (int k = 0; k < mainMenuList.length; k++) {
