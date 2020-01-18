@@ -9,17 +9,15 @@ public class Menu extends CommonMenuComponent {
      * Attributes
      */
    private MenuComponent[] entree = new MenuComponent[20];
-   private MenuComponent choice;
+
    private int nbElements = 0;
    private Menu parent=this;
-
+   private MenuComponent choice=this;
 
    public Menu(String a_text){
 
        super(a_text);
-       this.choice=this;
-       CommonMenuComponent menuExitEntry =new Entry("Quitter",new ExitCommand());
-       this.add(menuExitEntry);
+       this.add(new Entry("Quitter",new ExitCommand()));
 
    }
     /**
@@ -54,8 +52,9 @@ public class Menu extends CommonMenuComponent {
         System.out.print("--------------------------------------------------------\n");
     }
 
-    public void  proposer() {
+    public MenuComponent  proposer() {
         boolean ok = false;
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Veuillez choisir le numero de la commande :");
 
@@ -69,12 +68,15 @@ public class Menu extends CommonMenuComponent {
                 } finally {
                     if (choix >= 0 && choix < this.nbElements && this.entree[choix].getCommand().isExecutable()) {
                         ok = true;
-                        choice = this.entree[choix];
+                        this.choice = this.entree[choix];
+                        if(this.choiceIsNavigateUp()){
+                            choice=this.parent;
+                        }
                     } else
                         System.out.println("Il faut choisir un numero parmis les commandes valides:");
                 }
             }
-
+        return this.choice;
 
     }
     public void add(MenuComponent menuComp){
@@ -91,26 +93,15 @@ public class Menu extends CommonMenuComponent {
 
 
     public boolean choiceIsQuit() {
-        return choice.getCommand() instanceof ExitCommand;
+        return this.choice.getCommand() instanceof ExitCommand;
     }
 
     public boolean choiceIsNavigateUp() {
-        return choice.getCommand() instanceof MenuUpCommand;
+        return this.choice.getCommand() instanceof MenuUpCommand;
     }
 
     @Override
     public final boolean isMenu(){
         return true;
-    }
-
-
-
-    public MenuComponent getChoice(){
-        return this.choice;
-    }
-
-
-    public Menu getParent(){
-        return this.parent;
     }
 }

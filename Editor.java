@@ -5,14 +5,14 @@ public class Editor {
     /**
      * Attibuts
      */
-    private Menu menu;
+    private Menu currentMenu;
     private Line line;
 
     public Editor() {
 
         this.line = new LineTab();
 
-        this.menu = new Menu("Main Menu");
+        this.currentMenu = new Menu("Main Menu");
 
 
         this.fillMenu();
@@ -26,13 +26,13 @@ public class Editor {
 
         //Creating and filling CursorSubMenu
 
-        Menu cursorSubMenu = new Menu("Cursor Operations Sub Menu");
+
 
         subMenuList[i++]=new Entry("Placer le curseur au debut de la ligne", new MoveBeginningCommand(this.line));
         subMenuList[i++]=new Entry("Avancer le curseur d une position a droite", new MoveRightCommand(this.line));
         subMenuList[i++]=new Entry("Reculer le curseur d une position a gauche", new MoveLeftCommand(this.line));
 
-
+        Menu cursorSubMenu = new Menu("Cursor Operations Sub Menu");
         for (int k = 0; k < subMenuList.length; k++) {
             cursorSubMenu.add(subMenuList[k]);
         }
@@ -48,8 +48,9 @@ public class Editor {
         mainMenuList[j++]=new Entry("Ajouter un caractere apres le curseur", new AddAfterCommand(this.line));
         mainMenuList[j++]=new Entry("Supprimer tous les caracteres de la ligne", new DeleteAllCommand(this.line));
 
+
         for (int k = 0; k < mainMenuList.length; k++) {
-            this.menu.add(mainMenuList[k]);
+            currentMenu.add(mainMenuList[k]);
         }
 
     }
@@ -65,19 +66,24 @@ public class Editor {
 
         do {
             this.line.print();
-            this.menu.afficher();
-            this.menu.proposer();
-            MenuComponent choice = this.menu.getChoice();
+            this.currentMenu.afficher();
+
+            MenuComponent choice = this.currentMenu.proposer();
             if (choice.isMenu()) {
-                this.menu = (Menu) choice;
-            } else {
-                if (this.menu.choiceIsNavigateUp()) {
-                    this.menu = this.menu.getParent();
-                } else {
-                    ((Entry) choice).getCommand().executer();
-                }
+                this.currentMenu= (Menu) choice;
             }
-        } while (!this.menu.choiceIsQuit());
+            else { //delegate to a proxy in further version
+                    Command commndCondidate=choice.getCommand();
+                    if(commndCondidate.isExecutable()){
+                        commndCondidate.executer();
+
+                }
+
+                    else{
+                        //Tghrout Exception
+                    }
+            }
+        } while (!this.currentMenu.choiceIsQuit());
     }
 }
 
