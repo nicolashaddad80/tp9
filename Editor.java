@@ -64,25 +64,26 @@ public class Editor {
 
         //Launching Editor
 
+
         do {
             this.line.print();
             this.currentMenu.afficher();
 
             MenuComponent choice = this.currentMenu.proposer();
+
+            //si le choix de l'utilisation est un sous menu
             if (choice.isMenu()) {
                 this.currentMenu= (Menu) choice;
             }
-            else { //delegate to a proxy in further version
+            else { //sinon le choix de l'utilisateur est forcement une entry
                     Command commndCondidate=choice.getCommand();
+                   //delegate to a proxy in further version
                     if(commndCondidate.isExecutable()){
                         commndCondidate.executer();
 
                 }
-
-                    else{
-                        //Tghrout Exception
-                    }
             }
+            // L'utilisateur n'a pas choisi de quitter l'editeur
         } while (!this.currentMenu.choiceIsQuit());
     }
 }
