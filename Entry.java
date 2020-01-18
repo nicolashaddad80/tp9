@@ -27,5 +27,8 @@ public class Entry implements MenuComponent {
         return (this.text+"\t\t["+this.shortcut+"]");
     }
 
-
+    @Override
+    public String getShortcut() {
+        return this.shortcut;
+    }
 }

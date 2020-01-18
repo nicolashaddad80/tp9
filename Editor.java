@@ -31,7 +31,7 @@ public class Editor {
         subMenuList[i++]=new Entry("Placer le curseur au debut de la ligne    ", new MoveBeginningCommand(this.line),"o");
         subMenuList[i++]=new Entry("Avancer le curseur d une position a droite", new MoveRightCommand(this.line),"l");
         subMenuList[i++]=new Entry("Reculer le curseur d une position a gauche", new MoveLeftCommand(this.line),"h");
-        Menu cursorSubMenu = new Menu("Cursor Operations Sub Menu  ","Cur");
+        Menu cursorSubMenu = new Menu("Cursor Operations Sub Menu                 ","C");
         for (int k = 0; k < subMenuList.length; k++) {
             cursorSubMenu.add(subMenuList[k]);
         }

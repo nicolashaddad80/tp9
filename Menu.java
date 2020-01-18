@@ -1,4 +1,6 @@
 package fr.cnam.tp9;
+import java.util.Hashtable;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu extends Entry {
@@ -13,6 +15,7 @@ public class Menu extends Entry {
    private int nbElements = 0;
    private Menu parent=this;
    private MenuComponent choice=this;
+   private Hashtable<String,MenuComponent> shortcutTable=new Hashtable<String,MenuComponent>(20);
    public Menu(String a_text,String a_Shortcut){
        super(a_text, new NoopCommand(),a_Shortcut);
 
@@ -52,27 +55,47 @@ public class Menu extends Entry {
     }
 
     public MenuComponent  proposer() {
+        System.out.println("Veuillez choisir la commande :");
         boolean ok = false;
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Veuillez choisir le numero de la commande :");
+
 
             while (!ok) {
-                int choix = -1;
+                int choix;
+                String shortcut;
                 try {
                     choix = scanner.nextInt();
 
-                } catch (Exception e) {
-                    scanner.nextLine();
-                } finally {
                     if (choix >= 0 && choix < this.nbElements && this.entree[choix].getCommand().isExecutable()) {
                         ok = true;
                         this.choice = this.entree[choix];
-                        if(this.choiceIsNavigateUp()){
-                            choice=this.parent;
+                    }
+
+                } catch (InputMismatchException e) {
+                    try {
+                        shortcut = scanner.nextLine();
+                        if (this.shortcutTable.containsKey(shortcut)) {
+                            MenuComponent tempChoice = this.shortcutTable.get(shortcut);
+                            if (tempChoice.getCommand().isExecutable()) {
+                                ok = true;
+                                this.choice = tempChoice;
+                            }
                         }
-                    } else
-                        System.out.println("Il faut choisir un numero parmis les commandes valides:");
+
+                    } catch (Exception e1) {
+                        System.out.println("Exception trown but muted for the moment");
+                    }
+
+                } finally {
+                    if(ok) {
+                        if (this.choiceIsNavigateUp()) {
+                            this.choice = this.parent;
+                        }
+                    }
+                    else{
+                        System.out.println("Il faut choisir une commande valide:");
+                    }
                 }
             }
         return this.choice;
@@ -87,7 +110,7 @@ public class Menu extends Entry {
 
         }
         this.entree[this.nbElements++]=menuComp;
-
+        this.shortcutTable.put(menuComp.getShortcut(),menuComp);
     }
 
 
