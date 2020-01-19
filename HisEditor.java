@@ -1,5 +1,8 @@
 package fr.cnam.tp9;
 
 public interface HisEditor {
-public void undo();
+    void undo();
+    void redo();
+    CommandHistory  getRedoHistory();
+    CommandHistory getUndoHistory();
 }
