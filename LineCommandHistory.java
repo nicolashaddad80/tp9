@@ -4,9 +4,9 @@ import java.util.Stack;
 
 public class LineCommandHistory implements CommandHistory{
 
-    private Stack<Line> linesStack = new Stack<Line>();
+    private Stack<Line> linesStack;
     public  LineCommandHistory(){
-
+        this.linesStack= new Stack<Line>();
    }
 
     @Override
