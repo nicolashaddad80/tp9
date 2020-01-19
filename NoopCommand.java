@@ -7,6 +7,11 @@ public class NoopCommand implements Command {
     }
 
     @Override
+    public boolean isCancellable() {
+        return false;
+    }
+
+    @Override
     public  boolean isExecutable(){
         return true;
     }

@@ -6,7 +6,7 @@ package fr.cnam.tp9;
  * @author Anaël Megna
  * @version 1.0
  */
-public interface Line {
+public interface Line extends Cloneable {
     /**
      * Obtient le nombre de caractères dans une ligne.
      *
@@ -122,4 +122,6 @@ public interface Line {
      * Si la ligne est vide, un seul caractère tilde(~) est affiché.
      */
     void print();
+
+public Line clone();
 }

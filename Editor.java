@@ -5,10 +5,10 @@ public class Editor {
     /**
      * Attibuts
      */
-    private Menu currentMenu;
-    private Line line;
+    protected Menu currentMenu;
+    protected Line line;
 
-    public Editor() {
+    public Editor(Line a_Line) {
 
         this.line = new LineTab();
 
@@ -74,15 +74,20 @@ public class Editor {
                 this.currentMenu= (Menu) choice;
             }
             else { //sinon le choix de l'utilisateur est forcement une entry
-                    Command commndCondidate=choice.getCommand();
+                    this.execute(choice.getCommand());
                    //delegate to a proxy in further version
-                    if(commndCondidate.isExecutable()){
-                        commndCondidate.executer();
 
-                }
             }
             // L'utilisateur n'a pas choisi de quitter l'editeur
         } while (!this.currentMenu.choiceIsQuit());
+    }
+
+    protected void execute(Command a_Command){
+
+        if(a_Command.isExecutable()){
+
+            a_Command.executer();
+        }
     }
 }
 

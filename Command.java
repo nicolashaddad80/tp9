@@ -11,4 +11,5 @@ public  interface Command {
 
     public void executer();
     public boolean isExecutable();
+    public boolean  isCancellable();
 }

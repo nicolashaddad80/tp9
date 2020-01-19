@@ -1,6 +1,6 @@
 package fr.cnam.tp9;
 
-public class LineTab implements Line {
+public class LineTab implements Line,Cloneable{
     //some constants to manage output text colors
     private static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
@@ -336,4 +336,15 @@ public class LineTab implements Line {
         System.out.print("\n");
     }
 
+
+    @Override
+    public Line clone(){
+        LineTab clone_Line=new LineTab();
+        clone_Line.cursorPosition=this.cursorPosition;
+        clone_Line.carTable= new char[this.getLength()];
+        System.arraycopy(this.carTable, 0, clone_Line.carTable, 0, this.getLength());
+
+
+        return clone_Line;
+    }
 }
