@@ -14,4 +14,7 @@ public abstract class  LineComm implements Command {
         line=a_Line;
     }
 
+    public void setLine(Line a_Line){
+        this.line=a_Line;
+    }
 }

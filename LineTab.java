@@ -1,6 +1,6 @@
 package fr.cnam.tp9;
 
-public class LineTab implements Line,Cloneable{
+public class LineTab implements Line{
     //some constants to manage output text colors
     private static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
 
@@ -14,12 +14,12 @@ public class LineTab implements Line,Cloneable{
      * Tableau de stockage des carastères de la ligne
      */
 
-    private char [] carTable=null;
+    protected char [] carTable=null;
     /**
      * La position du curseur pointant sur le caractère courant
      */
 
-   private int cursorPosition=0;
+   protected int cursorPosition=0;
 
     /**
      * Constructeur de notre ligne  "ligne vide a la créationé
@@ -347,4 +347,5 @@ public class LineTab implements Line,Cloneable{
 
         return clone_Line;
     }
+
 }

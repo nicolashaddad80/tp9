@@ -123,5 +123,5 @@ public interface Line extends Cloneable {
      */
     void print();
 
-public Line clone();
+    Line clone();
 }
