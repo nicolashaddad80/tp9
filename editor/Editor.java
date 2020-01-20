@@ -7,6 +7,10 @@ import fr.cnam.tp9.line.linecommands.*;
 import fr.cnam.tp9.menu.Entry;
 import fr.cnam.tp9.menu.Menu;
 import fr.cnam.tp9.menu.MenuComponent;
+import fr.cnam.tp9.printer.Printer;
+
+import java.io.PrintStream;
+
 
 public class Editor {
     /**
@@ -14,14 +18,16 @@ public class Editor {
      */
     protected Menu currentMenu = new Menu(0,"Main Menu","");
     protected Line line;
+    protected Printer editorOutputArea;
 
     protected LineComm[] lineCommandsTable = new LineComm[20];
     protected int nbLineCommands =0;
 
-    public Editor(Line a_Line) {
+    public Editor(Line a_Line, Printer a_OutputArea) {
 
         this.line = new LineTab();
         this.fillMenu();
+        this.editorOutputArea=a_OutputArea;
     }
 
     private void fillMenu() {
@@ -84,7 +90,7 @@ public class Editor {
 
         do {
             this.line.print();
-            System.out.print(this.currentMenu.afficher());
+            editorOutputArea.print(this.currentMenu.afficher());
 
             MenuComponent choice = this.currentMenu.proposer();
 

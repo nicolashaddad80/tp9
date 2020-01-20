@@ -2,14 +2,11 @@ package fr.cnam.tp9;
 
 import fr.cnam.tp9.editor.Heditor;
 import fr.cnam.tp9.line.LineTab;
+import fr.cnam.tp9.printer.Printer;
 
 public class EditorTest {
 
-    public static void main(String[] Args)
-    {
-        Heditor myEditor1;
-        LineTab line1=new LineTab();
-        myEditor1=new Heditor(line1);
-        myEditor1.editer();
+    public static void main(String[] Args) {
+        new Heditor(new LineTab(), new Printer(System.out)).editer();
     }
 }
