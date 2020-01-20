@@ -1,20 +1,38 @@
 package fr.cnam.tp9.menu;
 
 import fr.cnam.tp9.menu.menucommands.*;
+import fr.cnam.tp9.printer.Printable;
+import fr.cnam.tp9.printer.Printer;
 
+import java.io.PrintStream;
 import java.util.*;
 
-public class Menu extends Entry {
+public class Menu extends Entry implements Printable {
+
 
     /**
      * Attributes
      */
+
+    private class MenuPrinter  implements Printer {
+        private PrintStream menuPrinterPort;
+        public MenuPrinter(PrintStream a_MenuPrinterPort){
+            this.menuPrinterPort=a_MenuPrinterPort;
+        }
+        @Override
+        public void print() {
+            this.menuPrinterPort.print(afficher());
+        }
+    };
+
+
 
     private Hashtable<Integer, MenuComponent> entree = new Hashtable<>(20);
     private Hashtable<String, MenuComponent> shortcutTable = new Hashtable<>(20);
 
     private Menu parent = this;
     private MenuComponent choice = this;
+    private MenuPrinter menuPrinter = new MenuPrinter(System.out);
 
     public Menu(int a_MenuNum, String a_text, String a_Shortcut) {
         super(a_MenuNum, a_text, new NoopCommand(), a_Shortcut);
@@ -26,6 +44,12 @@ public class Menu extends Entry {
     /**
      * Methods
      */
+
+    @Override
+    public Printer getPrinter() {
+        return menuPrinter;
+    }
+
     public String afficher() {
         String menuElementsString = "--------------------------------------------------------\n" + this.text + '\n' + "--------------------------------------------------------\n";
 

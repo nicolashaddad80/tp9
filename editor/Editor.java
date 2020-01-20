@@ -84,7 +84,9 @@ public class Editor {
 
         do {
             this.line.print();
-            System.out.print(this.currentMenu.afficher());
+            //System.out.print(this.currentMenu.afficher());
+
+            currentMenu.getPrinter().print();
 
             MenuComponent choice = this.currentMenu.proposer();
 
