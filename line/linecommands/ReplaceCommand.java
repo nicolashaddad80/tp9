@@ -1,7 +1,7 @@
-package fr.cnam.tp9.editor;
+package fr.cnam.tp9.line.linecommands;
 
 
-import fr.cnam.tp9.line.AddCommand;
+import fr.cnam.tp9.line.linecommands.AddCommand;
 import fr.cnam.tp9.line.Line;
 
 public class ReplaceCommand extends AddCommand {

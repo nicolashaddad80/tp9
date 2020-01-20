@@ -1,10 +1,10 @@
-package fr.cnam.tp9.editor;
+package fr.cnam.tp9.editor.editorhistory;
 
 import fr.cnam.tp9.line.Line;
 
 import java.util.Stack;
 
-public class LineCommandHistory implements CommandHistory{
+public class LineCommandHistory implements CommandHistory {
 
     private Stack<Line> linesStack;
     public  LineCommandHistory(){

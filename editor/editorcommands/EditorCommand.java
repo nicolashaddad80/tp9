@@ -1,6 +1,7 @@
-package fr.cnam.tp9.editor;
+package fr.cnam.tp9.editor.editorcommands;
 
 import fr.cnam.tp9.command.Command;
+import fr.cnam.tp9.editor.HisEditor;
 
 abstract public class EditorCommand implements Command {
     public HisEditor editor;

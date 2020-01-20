@@ -1,5 +1,9 @@
 package fr.cnam.tp9.menu;
 
+import fr.cnam.tp9.menu.menucommands.ExitCommand;
+import fr.cnam.tp9.menu.menucommands.MenuUpCommand;
+import fr.cnam.tp9.menu.menucommands.NoopCommand;
+
 import java.util.Hashtable;
 import java.util.InputMismatchException;
 import java.util.Scanner;

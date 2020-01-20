@@ -1,4 +1,6 @@
-package fr.cnam.tp9.editor;
+package fr.cnam.tp9.editor.editorcommands;
+
+import fr.cnam.tp9.editor.HisEditor;
 
 public class RedoCommand extends EditorCommand {
 

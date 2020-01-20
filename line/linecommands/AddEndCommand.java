@@ -1,5 +1,7 @@
-package fr.cnam.tp9.line;
+package fr.cnam.tp9.line.linecommands;
 
+
+import fr.cnam.tp9.line.Line;
 
 public class AddEndCommand extends AddCommand {
 

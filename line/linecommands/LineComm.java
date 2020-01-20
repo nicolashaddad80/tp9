@@ -1,7 +1,8 @@
-package fr.cnam.tp9.line;
+package fr.cnam.tp9.line.linecommands;
 
 
 import fr.cnam.tp9.command.Command;
+import fr.cnam.tp9.line.Line;
 
 public abstract class  LineComm implements Command {
 
