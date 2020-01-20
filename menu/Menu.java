@@ -5,9 +5,7 @@ import fr.cnam.tp9.menu.menucommands.*;
 import java.util.*;
 
 public class Menu extends Entry {
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    private static final String ANSI_RED = "\u001B[31m";
+
     /**
      * Attributes
      */
@@ -18,40 +16,62 @@ public class Menu extends Entry {
     private Menu parent = this;
     private MenuComponent choice = this;
 
-    public Menu(int a_MenuNum,String a_text, String a_Shortcut) {
-        super(a_MenuNum,a_text, new NoopCommand(), a_Shortcut);
+    public Menu(int a_MenuNum, String a_text, String a_Shortcut) {
+        super(a_MenuNum, a_text, new NoopCommand(), a_Shortcut);
 
-        this.add(new Entry(0,"Quitter", new ExitCommand(), "Q"));
+        this.add(new Entry(0, "Quitter", new ExitCommand(), "Q"));
 
     }
 
     /**
      * Methods
      */
-    public void afficher() {
-        System.out.print("--------------------------------------------------------\n");
-        System.out.print(this.text + "\n");
-        System.out.print("--------------------------------------------------------\n");
+    public String afficher() {
+        String menuElementsString = "--------------------------------------------------------\n" + this.text + '\n' + "--------------------------------------------------------\n";
+
 
         Vector sortedEntry = new Vector(entree.keySet());
         Collections.sort(sortedEntry);
+
+
+
 
         Iterator it = sortedEntry.iterator();
 
         while (it.hasNext()) {
             Integer entryKey = (Integer) it.next();
             MenuComponent entry = entree.get(entryKey);
-
-            if (entry.getCommand().isExecutable()) {
-                System.out.print(ANSI_GREEN + entryKey + ANSI_RESET);
-            } else {
-                System.out.print(ANSI_RED + "X" + ANSI_RESET);
+            if (entryKey.intValue() > 0) {
+                if (entry.getCommand().isExecutable()) {
+                    menuElementsString = menuElementsString + ANSI_GREEN + entryKey + ANSI_RESET;
+                } else {
+                    menuElementsString = menuElementsString + ANSI_RED + "X" + ANSI_RESET;
+                }
+                menuElementsString = menuElementsString +") " + entry.toString()+'\n';
             }
-            System.out.print(") " + entry.toString());
-            System.out.println("\n");
+
         }
 
-        System.out.print("--------------------------------------------------------\n");
+        Collections.reverse(sortedEntry);
+        it = sortedEntry.iterator();
+
+        while (it.hasNext()) {
+            Integer entryKey = (Integer) it.next();
+            MenuComponent entry = entree.get(entryKey);
+            if (entryKey.intValue() <= 0) {
+                if (entry.getCommand().isExecutable()) {
+                    menuElementsString = menuElementsString + ANSI_GREEN + entryKey + ANSI_RESET;
+                } else {
+                    menuElementsString = menuElementsString + ANSI_RED + "X" + ANSI_RESET;
+                }
+                menuElementsString = menuElementsString +") " + entry.toString()+'\n';
+            }
+
+        }
+
+        menuElementsString = menuElementsString +"--------------------------------------------------------\n";
+
+        return menuElementsString;
     }
 
     public MenuComponent proposer() {
@@ -103,12 +123,12 @@ public class Menu extends Entry {
 
     public void add(MenuComponent menuComp) {
         if (menuComp.isMenu()) {
-            Entry back = new Entry(this.entree.size()+1,"Retour", new MenuUpCommand(), "U");
+            Entry back = new Entry(this.entree.size() + 1, "Retour", new MenuUpCommand(), "U");
             ((Menu) menuComp).add(back);
             ((Menu) menuComp).parent = this;
 
         }
-        this.entree.put(menuComp.getNumber(),menuComp);
+        this.entree.put(menuComp.getNumber(), menuComp);
         this.shortcutTable.put(menuComp.getShortcut(), menuComp);
     }
 
