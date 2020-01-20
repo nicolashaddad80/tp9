@@ -17,8 +17,8 @@ public class Heditor extends Editor implements HisEditor {
         super(a_Line);
         this.undoHistory = new LineCommandHistory();
         this.redoHistory = new LineCommandHistory();
-        this.currentMenu.add(new Entry("Undo", new UndoCommand(this), "-"));
-        this.currentMenu.add(new Entry("Redo", new RedoCommand(this), "+"));
+        this.currentMenu.add(new Entry(-1,"Undo", new UndoCommand(this), "-"));
+        this.currentMenu.add(new Entry(-2,"Redo", new RedoCommand(this), "+"));
     }
 
     @Override

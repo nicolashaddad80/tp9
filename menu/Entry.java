@@ -2,17 +2,19 @@ package fr.cnam.tp9.menu;
 
 
 import fr.cnam.tp9.command.Command;
-import fr.cnam.tp9.menu.MenuComponent;
 
 public class Entry implements MenuComponent {
     protected String text;
     private Command command;
     private String shortcut;
-    public Entry(String a_text,Command a_Command,String a_Shortcut){
+    private Integer numEntry;
+
+    public Entry(int a_NumEntry,String a_text, Command a_Command, String a_Shortcut){
 
         this.text = a_text;
         this.command=a_Command;
         this.shortcut=a_Shortcut;
+        this.numEntry = a_NumEntry;
     }
 
     @Override
@@ -33,5 +35,10 @@ public class Entry implements MenuComponent {
     @Override
     public String getShortcut() {
         return this.shortcut;
+    }
+
+    @Override
+    public Integer getNumber() {
+        return (this.numEntry);
     }
 }

@@ -8,4 +8,5 @@ public interface MenuComponent {
     public Command getCommand();
     public boolean isMenu();
     public String getShortcut();
+    Integer getNumber();
 }

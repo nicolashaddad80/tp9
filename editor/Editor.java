@@ -12,7 +12,7 @@ public class Editor {
     /**
      * Attibuts
      */
-    protected Menu currentMenu = new Menu("Main Menu","");
+    protected Menu currentMenu = new Menu(0,"Main Menu","");
     protected Line line;
 
     protected LineComm[] lineCommandsTable = new LineComm[20];
@@ -46,23 +46,24 @@ public class Editor {
 
 
 
-        subMenuList[i++]=new Entry("Placer le curseur au debut de la ligne    ", this.lineCommandsTable[c++],"o");
-        subMenuList[i++]=new Entry("Avancer le curseur d une position a droite",this.lineCommandsTable[c++] ,"l");
-        subMenuList[i++]=new Entry("Reculer le curseur d une position a gauche",this.lineCommandsTable[c++] ,"h");
-        Menu cursorSubMenu = new Menu("Cursor Operations Sub Menu                 ","C");
+        subMenuList[i++]=new Entry(i,"Placer le curseur au debut de la ligne    ", this.lineCommandsTable[c++],"o");
+        subMenuList[i++]=new Entry(i,"Avancer le curseur d une position a droite",this.lineCommandsTable[c++] ,"l");
+        subMenuList[i++]=new Entry(i,"Reculer le curseur d une position a gauche",this.lineCommandsTable[c++] ,"h");
+
+        //filling main menu
+
+        mainMenuList[j++]=new Entry(j,"Ajouter un caractere au debut de la ligne",this.lineCommandsTable[c++] ,"I");
+        mainMenuList[j++]=new Entry(j,"Ajouter un caractere a la fin de la ligne",this.lineCommandsTable[c++] ,"A");
+        Menu cursorSubMenu = new Menu(j+1,"Cursor Operations Sub Menu                 ","C");
         for (int k = 0; k < subMenuList.length; k++) {
             cursorSubMenu.add(subMenuList[k]);
         }
-        //filling main menu
-
-        mainMenuList[j++]=new Entry("Ajouter un caractere au debut de la ligne",this.lineCommandsTable[c++] ,"I");
-        mainMenuList[j++]=new Entry("Ajouter un caractere a la fin de la ligne",this.lineCommandsTable[c++] ,"A");
         mainMenuList[j++]=cursorSubMenu;
-        mainMenuList[j++]=new Entry("Remplacer le caractere sous le curseur   ", this.lineCommandsTable[c++],"r");
-        mainMenuList[j++]=new Entry("Supprimer le caractere sous le curseur   ",this.lineCommandsTable[c++] ,"x");
-        mainMenuList[j++]=new Entry("Ajouter un caractere avant le curseur    ",this.lineCommandsTable[c++] ,"i");
-        mainMenuList[j++]=new Entry("Ajouter un caractere apres le curseur    ",this.lineCommandsTable[c++] ,"a");
-        mainMenuList[j++]=new Entry("Supprimer tous les caracteres de la ligne",this.lineCommandsTable[c++] ,"dd");
+        mainMenuList[j++]=new Entry(j,"Remplacer le caractere sous le curseur   ", this.lineCommandsTable[c++],"r");
+        mainMenuList[j++]=new Entry(j,"Supprimer le caractere sous le curseur   ",this.lineCommandsTable[c++] ,"x");
+        mainMenuList[j++]=new Entry(j,"Ajouter un caractere avant le curseur    ",this.lineCommandsTable[c++] ,"i");
+        mainMenuList[j++]=new Entry(j,"Ajouter un caractere apres le curseur    ",this.lineCommandsTable[c++] ,"a");
+        mainMenuList[j++]=new Entry(j,"Supprimer tous les caracteres de la ligne",this.lineCommandsTable[c++] ,"dd");
 
 
         for (int k = 0; k < mainMenuList.length; k++) {
