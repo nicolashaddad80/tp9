@@ -69,7 +69,7 @@ public class Menu extends Entry implements Printable {
                 if (entry.getCommand().isExecutable()) {
                     menuElementsString = menuElementsString + ANSI_GREEN + entryKey + ANSI_RESET;
                 } else {
-                    menuElementsString = menuElementsString + ANSI_RED + "X" + ANSI_RESET;
+                    menuElementsString = menuElementsString + ANSI_RED + "-" + ANSI_RESET;
                 }
                 menuElementsString = menuElementsString +") " + entry.toString()+'\n';
             }
@@ -86,7 +86,7 @@ public class Menu extends Entry implements Printable {
                 if (entry.getCommand().isExecutable()) {
                     menuElementsString = menuElementsString + ANSI_GREEN + entryKey + ANSI_RESET;
                 } else {
-                    menuElementsString = menuElementsString + ANSI_RED + "X" + ANSI_RESET;
+                    menuElementsString = menuElementsString + ANSI_RED + "-" + ANSI_RESET;
                 }
                 menuElementsString = menuElementsString +") " + entry.toString()+'\n';
             }
