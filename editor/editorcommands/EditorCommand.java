@@ -12,7 +12,7 @@ abstract public class EditorCommand implements Command {
     }
 
     @Override
-    public boolean isCancellable() {
+    public final boolean isCancellable() {
         return false;
     }
 
