@@ -12,15 +12,15 @@ public class LineTab implements Line {
      *
      */
     private class LinePrinter implements Printer {
-        private PrintStream menuPrinterPort;
+        private PrintStream linePrinterPort;
 
         public LinePrinter(PrintStream a_LinePrinterPort) {
-            this.menuPrinterPort = a_LinePrinterPort;
+            this.linePrinterPort = a_LinePrinterPort;
         }
 
         @Override
         public void print() {
-            this.menuPrinterPort.print(afficher());
+            this.linePrinterPort.print(afficher());
         }
     }
 
