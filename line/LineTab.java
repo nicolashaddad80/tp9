@@ -1,14 +1,35 @@
 package fr.cnam.tp9.line;
 
-public class LineTab implements Line{
-    //some constants to manage output text colors
-    private static final String ANSI_WHITE_BACKGROUND = "\u001B[47m";
+import fr.cnam.tp9.printer.Printable;
+import fr.cnam.tp9.printer.Printer;
+import fr.cnam.tp9.textformating.TextColor;
 
-    private static final String ANSI_RESET = "\u001B[0m";
-    private static final String ANSI_BLACK = "\u001B[30m";
-    private static final String ANSI_RED = "\u001B[31m";
-    private static final String ANSI_BLUE = "\u001B[34m";
+import java.io.PrintStream;
 
+public class LineTab implements Line {
+
+    /** Private classes
+     *
+     */
+    private class LinePrinter implements Printer {
+        private PrintStream menuPrinterPort;
+
+        public LinePrinter(PrintStream a_LinePrinterPort) {
+            this.menuPrinterPort = a_LinePrinterPort;
+        }
+
+        @Override
+        public void print() {
+            this.menuPrinterPort.print(afficher());
+        }
+    }
+
+    ;
+
+    /**
+     * Attributes
+     */
+    private  PrintStream lineOutStream;
 
     /**
      * Tableau de stockage des carastères de la ligne
@@ -20,13 +41,43 @@ public class LineTab implements Line{
      */
 
    protected int cursorPosition=0;
+    private Printer linePrinter;
 
     /**
      * Constructeur de notre ligne  "ligne vide a la créationé
      */
-    public LineTab(){
+    public LineTab(PrintStream a_lineOutStream){
         this.carTable=new char[0];
         this.cursorPosition=0;
+        this.lineOutStream=a_lineOutStream;
+        this.linePrinter=new LinePrinter(this.lineOutStream);
+    }
+
+    @Override
+    public Printer getPrinter() {
+        return this.linePrinter;
+    }
+
+    private String afficher(){
+        String lineString="--------------------------------------------------------\n\t\t\t"+ TextColor.GREEN.set +"Je suis la ligne a editer:\n"+TextColor.DEFAULT.set;
+        if(this.getLength()==0) {
+            lineString=lineString+TextColor.RED.set +'~' + TextColor.DEFAULT.set;
+        }
+        else {
+            for (int i = 0; i < this.getCursorPos()-1; i++) {
+
+                lineString=lineString+TextColor.BLUE.set+this.carTable[i]+ TextColor.DEFAULT.set;
+            }
+            lineString=lineString+TextColor.RED.set +"["+ TextColor.DEFAULT.set+TextColor.BLACK.set+TextColor.Highlight.set +(this.carTable[this.getCursorPos()-1])+ TextColor.DEFAULT.set+TextColor.RED.set +"]"+ TextColor.DEFAULT.set;
+
+            for (int i = this.getCursorPos(); i < this.getLength(); i++) {
+
+                lineString=lineString+TextColor.BLUE.set+this.carTable[i]+ TextColor.DEFAULT.set;
+            }
+        }
+        lineString=lineString+'\n';
+
+        return lineString;
     }
 
     /**
@@ -319,18 +370,18 @@ public class LineTab implements Line{
      */
     public void print(){
         if(this.getLength()==0) {
-            System.out.print(ANSI_RED +'~' + ANSI_RESET);
+            System.out.print(TextColor.RED.set +'~' + TextColor.DEFAULT.set);
         }
         else {
             for (int i = 0; i < this.getCursorPos()-1; i++) {
 
-                System.out.print(ANSI_BLUE+this.carTable[i]+ ANSI_RESET);
+                System.out.print(TextColor.BLUE.set+this.carTable[i]+ TextColor.DEFAULT.set);
             }
-            System.out.print(ANSI_RED +"["+ ANSI_RESET+ANSI_BLACK+ANSI_WHITE_BACKGROUND +(this.carTable[this.getCursorPos()-1])+ ANSI_RESET+ANSI_RED +"]"+ ANSI_RESET);
+            System.out.print(TextColor.RED.set +"["+ TextColor.DEFAULT.set+TextColor.BLACK.set+TextColor.Highlight.set +(this.carTable[this.getCursorPos()-1])+ TextColor.DEFAULT.set+TextColor.RED.set +"]"+ TextColor.DEFAULT.set);
 
             for (int i = this.getCursorPos(); i < this.getLength(); i++) {
 
-                System.out.print(ANSI_BLUE+this.carTable[i]+ ANSI_RESET);
+                System.out.print(TextColor.BLUE.set+this.carTable[i]+ TextColor.DEFAULT.set);
             }
         }
         System.out.print("\n");
@@ -339,8 +390,9 @@ public class LineTab implements Line{
 
     @Override
     public Line clone(){
-        LineTab clone_Line=new LineTab();
+        LineTab clone_Line=new LineTab(this.lineOutStream);
         clone_Line.cursorPosition=this.cursorPosition;
+
         clone_Line.carTable= new char[this.getLength()];
         System.arraycopy(this.carTable, 0, clone_Line.carTable, 0, this.getLength());
 

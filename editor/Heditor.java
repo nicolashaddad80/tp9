@@ -8,13 +8,15 @@ import fr.cnam.tp9.editor.editorhistory.LineCommandHistory;
 import fr.cnam.tp9.line.Line;
 import fr.cnam.tp9.menu.Entry;
 
+import java.io.PrintStream;
+
 public class Heditor extends Editor implements HisEditor {
 
     private CommandHistory undoHistory;
     private CommandHistory redoHistory;
 
-    public Heditor(Line a_Line) {
-        super(a_Line);
+    public Heditor(Line a_Line, PrintStream a_heditorOutStream) {
+        super(a_Line,a_heditorOutStream);
         this.undoHistory = new LineCommandHistory();
         this.redoHistory = new LineCommandHistory();
         this.currentMenu.add(new Entry(-1,"Undo", new UndoCommand(this), "-"));

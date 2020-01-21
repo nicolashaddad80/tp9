@@ -8,25 +8,29 @@ import fr.cnam.tp9.menu.Entry;
 import fr.cnam.tp9.menu.Menu;
 import fr.cnam.tp9.menu.MenuComponent;
 
+import java.io.PrintStream;
+
 public class Editor {
     /**
      * Attibuts
      */
-    protected Menu currentMenu = new Menu(0,"Main Menu","");
+    protected Menu currentMenu;
     protected Line line;
-
     protected LineComm[] lineCommandsTable = new LineComm[20];
-    protected int nbLineCommands =0;
+    protected int nbLineCommands = 0;
 
-    public Editor(Line a_Line) {
+    protected PrintStream a_editorOutStream;
 
-        this.line = new LineTab();
+    public Editor(Line a_Line, PrintStream a_editorOutStream) {
+        this.a_editorOutStream = a_editorOutStream;
+        this.currentMenu = new Menu(0, "Menu Principal", "", a_editorOutStream);
+        this.line = a_Line;
         this.fillMenu();
     }
 
     private void fillMenu() {
         //filling the Menu
-        int i = 0, j = 0, c=0;
+        int i = 0, j = 0, c = 0;
         MenuComponent[] mainMenuList = new MenuComponent[8];
         MenuComponent[] subMenuList = new MenuComponent[3];
 
@@ -45,25 +49,24 @@ public class Editor {
         //Creating and filling CursorSubMenu
 
 
-
-        subMenuList[i++]=new Entry(i,"Placer le curseur au debut de la ligne    ", this.lineCommandsTable[c++],"o");
-        subMenuList[i++]=new Entry(i,"Avancer le curseur d une position a droite",this.lineCommandsTable[c++] ,"l");
-        subMenuList[i++]=new Entry(i,"Reculer le curseur d une position a gauche",this.lineCommandsTable[c++] ,"h");
+        subMenuList[i++]=new Entry(i, "Placer le curseur au debut de la ligne    ", this.lineCommandsTable[c++], "o");
+        subMenuList[i++]=new Entry(i, "Avancer le curseur d une position a droite", this.lineCommandsTable[c++], "l");
+        subMenuList[i++]=new Entry(i, "Reculer le curseur d une position a gauche", this.lineCommandsTable[c++], "h");
 
         //filling main menu
 
-        mainMenuList[j++]=new Entry(j,"Ajouter un caractere au debut de la ligne",this.lineCommandsTable[c++] ,"I");
-        mainMenuList[j++]=new Entry(j,"Ajouter un caractere a la fin de la ligne",this.lineCommandsTable[c++] ,"A");
-        Menu cursorSubMenu = new Menu(j+1,"Cursor Operations Sub Menu                 ","C");
+        mainMenuList[j++]=new Entry(j, "Ajouter un caractere au debut de la ligne", this.lineCommandsTable[c++], "I");
+        mainMenuList[j++] = new Entry(j, "Ajouter un caractere a la fin de la ligne", this.lineCommandsTable[c++], "A");
+        Menu cursorSubMenu = new Menu(j + 1, "Menu Curseur                              ", "C", a_editorOutStream);
         for (int k = 0; k < subMenuList.length; k++) {
             cursorSubMenu.add(subMenuList[k]);
         }
         mainMenuList[j++]=cursorSubMenu;
-        mainMenuList[j++]=new Entry(j,"Remplacer le caractere sous le curseur   ", this.lineCommandsTable[c++],"r");
-        mainMenuList[j++]=new Entry(j,"Supprimer le caractere sous le curseur   ",this.lineCommandsTable[c++] ,"x");
-        mainMenuList[j++]=new Entry(j,"Ajouter un caractere avant le curseur    ",this.lineCommandsTable[c++] ,"i");
-        mainMenuList[j++]=new Entry(j,"Ajouter un caractere apres le curseur    ",this.lineCommandsTable[c++] ,"a");
-        mainMenuList[j++]=new Entry(j,"Supprimer tous les caracteres de la ligne",this.lineCommandsTable[c++] ,"dd");
+        mainMenuList[j++]=new Entry(j, "Remplacer le caractere sous le curseur   ", this.lineCommandsTable[c++], "r");
+        mainMenuList[j++]=new Entry(j, "Supprimer le caractere sous le curseur   ", this.lineCommandsTable[c++], "x");
+        mainMenuList[j++]=new Entry(j, "Ajouter un caractere avant le curseur    ", this.lineCommandsTable[c++], "i");
+        mainMenuList[j++]=new Entry(j, "Ajouter un caractere apres le curseur    ", this.lineCommandsTable[c++], "a");
+        mainMenuList[j++]=new Entry(j, "Supprimer tous les caracteres de la ligne", this.lineCommandsTable[c++], "dd");
 
 
         for (int k = 0; k < mainMenuList.length; k++) {
@@ -83,29 +86,29 @@ public class Editor {
 
 
         do {
-            this.line.print();
-            //System.out.print(this.currentMenu.afficher());
+            //this.line.print();
 
-            currentMenu.getPrinter().print();
+            this.line.getPrinter().print();
+
+            this.currentMenu.getPrinter().print();
 
             MenuComponent choice = this.currentMenu.proposer();
 
             //si le choix de l'utilisation est un sous menu
             if (choice.isMenu()) {
-                this.currentMenu= (Menu) choice;
-            }
-            else { //sinon le choix de l'utilisateur est forcement une entry
-                    this.execute(choice.getCommand());
-                   //delegate to a proxy in further version
+                this.currentMenu = (Menu) choice;
+            } else { //sinon le choix de l'utilisateur est forcement une entry
+                this.execute(choice.getCommand());
+                //delegate to a proxy in further version
 
             }
             // L'utilisateur n'a pas choisi de quitter l'editeur
         } while (!this.currentMenu.choiceIsQuit());
     }
 
-    protected void execute(Command a_Command){
+    protected void execute(Command a_Command) {
 
-        if(a_Command.isExecutable()){
+        if (a_Command.isExecutable()) {
 
             a_Command.executer();
         }

@@ -4,12 +4,6 @@ package fr.cnam.tp9.menu;
 import fr.cnam.tp9.command.Command;
 
 public class Entry implements MenuComponent {
-
-    protected static final String ANSI_RESET = "\u001B[0m";
-    protected  static final String ANSI_GREEN = "\u001B[32m";
-    protected  static final String ANSI_RED = "\u001B[31m";
-
-
     protected String text;
     private Command command;
     private String shortcut;
@@ -35,7 +29,7 @@ public class Entry implements MenuComponent {
 
     @Override
     public String toString(){
-        return (this.text+"\t\t["+ANSI_GREEN +this.shortcut+ ANSI_RESET+"]");
+        return (this.text);
 
     }
 

@@ -3,28 +3,34 @@ package fr.cnam.tp9.menu;
 import fr.cnam.tp9.menu.menucommands.*;
 import fr.cnam.tp9.printer.Printable;
 import fr.cnam.tp9.printer.Printer;
+import fr.cnam.tp9.textformating.TextColor;
 
 import java.io.PrintStream;
 import java.util.*;
 
 public class Menu extends Entry implements Printable {
+    /**
+     * Private classes
+     */
+    private class MenuPrinter implements Printer {
+        private PrintStream menuPrinterPort;
+
+        public MenuPrinter(PrintStream a_MenuPrinterPort) {
+            this.menuPrinterPort = a_MenuPrinterPort;
+        }
+
+        @Override
+        public void print() {
+            this.menuPrinterPort.print(afficher());
+        }
+    }
+
+    ;
 
 
     /**
      * Attributes
      */
-
-    private class MenuPrinter  implements Printer {
-        private PrintStream menuPrinterPort;
-        public MenuPrinter(PrintStream a_MenuPrinterPort){
-            this.menuPrinterPort=a_MenuPrinterPort;
-        }
-        @Override
-        public void print() {
-            this.menuPrinterPort.print(afficher());
-        }
-    };
-
 
 
     private Hashtable<Integer, MenuComponent> entree = new Hashtable<>(20);
@@ -32,13 +38,12 @@ public class Menu extends Entry implements Printable {
 
     private Menu parent = this;
     private MenuComponent choice = this;
-    private MenuPrinter menuPrinter = new MenuPrinter(System.out);
+    private MenuPrinter menuPrinter;
 
-    public Menu(int a_MenuNum, String a_text, String a_Shortcut) {
+    public Menu(int a_MenuNum, String a_text, String a_Shortcut, PrintStream a_menuOutStream) {
         super(a_MenuNum, a_text, new NoopCommand(), a_Shortcut);
-
+        this.menuPrinter = new MenuPrinter(a_menuOutStream);
         this.add(new Entry(0, "Quitter", new ExitCommand(), "Q"));
-
     }
 
     /**
@@ -51,13 +56,11 @@ public class Menu extends Entry implements Printable {
     }
 
     public String afficher() {
-        String menuElementsString = "--------------------------------------------------------\n" + this.text + '\n' + "--------------------------------------------------------\n";
+        String menuElementsString = "--------------------------------------------------------\n\t\t\t\t" + TextColor.GREEN.set + this.text + TextColor.DEFAULT.set + '\n' + "--------------------------------------------------------\n";
 
 
         Vector sortedEntry = new Vector(entree.keySet());
         Collections.sort(sortedEntry);
-
-
 
 
         Iterator it = sortedEntry.iterator();
@@ -65,13 +68,18 @@ public class Menu extends Entry implements Printable {
         while (it.hasNext()) {
             Integer entryKey = (Integer) it.next();
             MenuComponent entry = entree.get(entryKey);
+
             if (entryKey.intValue() > 0) {
                 if (entry.getCommand().isExecutable()) {
-                    menuElementsString = menuElementsString + ANSI_GREEN + entryKey + ANSI_RESET;
+
+                    menuElementsString = menuElementsString + TextColor.GREEN.set + entryKey + TextColor.DEFAULT.set;
+                    menuElementsString = menuElementsString + ") " + entry.toString() + "\t\t[" + TextColor.GREEN.set + entry.getShortcut() + TextColor.DEFAULT.set + "]\n";
                 } else {
-                    menuElementsString = menuElementsString + ANSI_RED + "-" + ANSI_RESET;
+                    menuElementsString = menuElementsString + TextColor.RED.set + "-" + TextColor.DEFAULT.set;
+                    menuElementsString = menuElementsString + ") " + entry.toString() + "\t\t[" + TextColor.RED.set + entry.getShortcut() + TextColor.DEFAULT.set + "]\n";
+
                 }
-                menuElementsString = menuElementsString +") " + entry.toString()+'\n';
+
             }
 
         }
@@ -84,16 +92,18 @@ public class Menu extends Entry implements Printable {
             MenuComponent entry = entree.get(entryKey);
             if (entryKey.intValue() <= 0) {
                 if (entry.getCommand().isExecutable()) {
-                    menuElementsString = menuElementsString + ANSI_GREEN + entryKey + ANSI_RESET;
+                    menuElementsString = menuElementsString + TextColor.GREEN.set + entryKey + TextColor.DEFAULT.set;
+                    menuElementsString = menuElementsString + ") " + entry.toString() + "\t\t[" + TextColor.GREEN.set + entry.getShortcut() + TextColor.DEFAULT.set + "]\n";
                 } else {
-                    menuElementsString = menuElementsString + ANSI_RED + "-" + ANSI_RESET;
+                    menuElementsString = menuElementsString + TextColor.RED.set + "-" + TextColor.DEFAULT.set;
+                    menuElementsString = menuElementsString + ") " + entry.toString() + "\t\t[" + TextColor.RED.set + entry.getShortcut() + TextColor.DEFAULT.set + "]\n";
                 }
-                menuElementsString = menuElementsString +") " + entry.toString()+'\n';
+
             }
 
         }
 
-        menuElementsString = menuElementsString +"--------------------------------------------------------\n";
+        menuElementsString = menuElementsString + "--------------------------------------------------------\n";
 
         return menuElementsString;
     }
@@ -128,7 +138,7 @@ public class Menu extends Entry implements Printable {
                     }
 
                 } catch (Exception e1) {
-                    System.out.println("Exception trown but muted for the moment");
+                    System.out.println("Exception should be trown  but muted for the moment");
                 }
 
             } finally {

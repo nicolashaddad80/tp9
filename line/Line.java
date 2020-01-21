@@ -1,12 +1,14 @@
 package fr.cnam.tp9.line;
 
+import fr.cnam.tp9.printer.Printable;
+
 /**
  * Spécification d’une ligne de texte.
  *
  * @author Anaël Megna
  * @version 1.0
  */
-public interface Line extends Cloneable {
+public interface Line extends Cloneable, Printable {
     /**
      * Obtient le nombre de caractères dans une ligne.
      *

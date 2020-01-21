@@ -9,7 +9,7 @@ public abstract class  LineComm implements Command {
     protected Line line;
 
     @Override
-    public boolean isCancellable() {
+    public final boolean isCancellable() {
         return true;
     }
 
