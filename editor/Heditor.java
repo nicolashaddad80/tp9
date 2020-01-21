@@ -3,8 +3,8 @@ package fr.cnam.tp9.editor;
 import fr.cnam.tp9.command.Command;
 import fr.cnam.tp9.editor.editorcommands.RedoCommand;
 import fr.cnam.tp9.editor.editorcommands.UndoCommand;
-import fr.cnam.tp9.editor.editorhistory.CommandHistory;
-import fr.cnam.tp9.editor.editorhistory.LineCommandHistory;
+import fr.cnam.tp9.history.CommandHistory;
+import fr.cnam.tp9.history.LineCommandHistory;
 import fr.cnam.tp9.line.Line;
 import fr.cnam.tp9.menu.Entry;
 
@@ -12,24 +12,24 @@ import java.io.PrintStream;
 
 public class Heditor extends Editor implements HisEditor {
 
-    private CommandHistory undoHistory;
-    private CommandHistory redoHistory;
+    private CommandHistory <Line> undoHistory;
+    private CommandHistory <Line> redoHistory;
 
     public Heditor(Line a_Line, PrintStream a_heditorOutStream) {
         super(a_Line,a_heditorOutStream);
-        this.undoHistory = new LineCommandHistory();
-        this.redoHistory = new LineCommandHistory();
+        this.undoHistory = new LineCommandHistory<Line>();
+        this.redoHistory = new LineCommandHistory<Line>();
         this.currentMenu.add(new Entry(-1,"Undo", new UndoCommand(this), "-"));
         this.currentMenu.add(new Entry(-2,"Redo", new RedoCommand(this), "+"));
     }
 
     @Override
-    public CommandHistory getUndoHistory() {
+    public CommandHistory<Line> getUndoHistory() {
         return this.undoHistory;
     }
 
     @Override
-    public CommandHistory getRedoHistory() {
+    public CommandHistory<Line> getRedoHistory() {
         return this.redoHistory;
     }
 

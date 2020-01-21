@@ -1,6 +1,6 @@
 package fr.cnam.tp9.editor;
 
-import fr.cnam.tp9.editor.editorhistory.CommandHistory;
+import fr.cnam.tp9.history.CommandHistory;
 
 public interface HisEditor {
     void undo();
