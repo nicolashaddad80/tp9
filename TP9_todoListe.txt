@@ -1,0 +1,30 @@
+
+0) Urgent:
+_________________
+1)//TODO V4.2: Rearchitecture Unod/Redo
+2)//TODO V4.2:Changer l'agencement des menu.
+
+I)Niveau Architecture:
+______________________
+1)//TODO V4.2:Trouver une solution pour rajouter un Printer (celui de la line de préférence a AddCommand".
+
+2)Ajouter un Proxy a Editor
+
+3)Rajouter un navigateur a Editor
+4)Rajouter un muxer a editor
+5)Rajouter un loader a editor.
+
+
+II)Niveau fonctionnel:
+________________________
+1)//TODO V5.0:les exceptions
+
+
+
+III)Niveau documnentations:
+_____________________________
+1)la javadoc
+2)commenter tous le code
+3)documenter les exceptions
+4)documenter les packages
+5)Puis faire la release Finale on la nommera v5.0

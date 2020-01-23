@@ -12,6 +12,8 @@ import java.io.PrintStream;
 import java.util.*;
 
 public class MenuImp extends EntryImp implements Menu {
+
+
     /**
      * Private classes
      */
