@@ -1,10 +1,10 @@
 package fr.cnam.tp9.specification.editor;
 
-import fr.cnam.tp9.history.CommandHistory;
+import fr.cnam.tp9.specification.history.History;
 
 public interface HisEditor extends Editor{
     void undo();
     void redo();
-    CommandHistory getRedoHistory();
-    CommandHistory getUndoHistory();
+    History getRedoHistory();
+    History getUndoHistory();
 }

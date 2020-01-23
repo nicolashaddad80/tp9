@@ -1,6 +1,6 @@
-package fr.cnam.tp9.history;
+package fr.cnam.tp9.specification.history;
 
-public interface CommandHistory<T> {
+public interface History<T> {
     public void push(T a_Element);
     public T pull();
     public boolean isEmpty();

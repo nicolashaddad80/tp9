@@ -3,8 +3,8 @@ package fr.cnam.tp9.editor;
 import fr.cnam.tp9.specification.command.Command;
 import fr.cnam.tp9.editor.editorcommands.RedoCommand;
 import fr.cnam.tp9.editor.editorcommands.UndoCommand;
-import fr.cnam.tp9.history.CommandHistory;
-import fr.cnam.tp9.history.LineCommandHistory;
+import fr.cnam.tp9.specification.history.History;
+import fr.cnam.tp9.history.HistoryImp;
 import fr.cnam.tp9.specification.editor.HisEditor;
 import fr.cnam.tp9.specification.line.Line;
 import fr.cnam.tp9.line.linecommands.LineComm;
@@ -14,24 +14,24 @@ import java.io.PrintStream;
 
 public class HistoryEditor extends SimpleEditor implements HisEditor {
 
-    private CommandHistory <Line> undoHistory;
-    private CommandHistory <Line> redoHistory;
+    private History<Line> undoHistory;
+    private History<Line> redoHistory;
 
     public HistoryEditor(Line a_Line, PrintStream a_heditorOutStream) {
         super(a_Line,a_heditorOutStream);
-        this.undoHistory = new LineCommandHistory<Line>();
-        this.redoHistory = new LineCommandHistory<Line>();
+        this.undoHistory = new HistoryImp<Line>();
+        this.redoHistory = new HistoryImp<Line>();
         this.currentMenu.add(new EntryImp(-1,"Undo", new UndoCommand(this), "-"));
         this.currentMenu.add(new EntryImp(-2,"Redo", new RedoCommand(this), "+"));
     }
 
     @Override
-    public CommandHistory<Line> getUndoHistory() {
+    public History<Line> getUndoHistory() {
         return this.undoHistory;
     }
 
     @Override
-    public CommandHistory<Line> getRedoHistory() {
+    public History<Line> getRedoHistory() {
         return this.redoHistory;
     }
 

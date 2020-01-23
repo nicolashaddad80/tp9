@@ -1,11 +1,13 @@
 package fr.cnam.tp9.history;
 
+import fr.cnam.tp9.specification.history.History;
+
 import java.util.Stack;
 
-public class LineCommandHistory<T> implements CommandHistory<T> {
+public class HistoryImp<T> implements History<T> {
 
     private Stack<T> linesStack;
-    public  LineCommandHistory(){
+    public HistoryImp(){
         this.linesStack= new Stack<T>();
    }
 
