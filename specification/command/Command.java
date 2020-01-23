@@ -1,4 +1,4 @@
-package fr.cnam.tp9.command;
+package fr.cnam.tp9.specification.command;
 
 public  interface Command {
     /**

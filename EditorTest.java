@@ -1,7 +1,7 @@
 package fr.cnam.tp9;
 
 import fr.cnam.tp9.editor.Heditor;
-import fr.cnam.tp9.line.Line;
+import fr.cnam.tp9.specification.line.Line;
 import fr.cnam.tp9.line.LineTab;
 
 

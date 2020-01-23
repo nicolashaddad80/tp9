@@ -1,12 +1,12 @@
 package fr.cnam.tp9.editor;
 
 
-import fr.cnam.tp9.command.Command;
-import fr.cnam.tp9.line.*;
+import fr.cnam.tp9.specification.command.Command;
 import fr.cnam.tp9.line.linecommands.*;
 import fr.cnam.tp9.menu.Entry;
 import fr.cnam.tp9.menu.Menu;
 import fr.cnam.tp9.menu.MenuComponent;
+import fr.cnam.tp9.specification.line.Line;
 
 import java.io.PrintStream;
 

@@ -1,6 +1,6 @@
 package fr.cnam.tp9.menu;
 
-import fr.cnam.tp9.command.Command;
+import fr.cnam.tp9.specification.command.Command;
 
 public interface MenuComponent {
 

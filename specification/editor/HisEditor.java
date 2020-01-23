@@ -1,4 +1,4 @@
-package fr.cnam.tp9.editor;
+package fr.cnam.tp9.specification.editor;
 
 import fr.cnam.tp9.history.CommandHistory;
 

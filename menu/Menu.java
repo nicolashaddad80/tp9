@@ -1,8 +1,8 @@
 package fr.cnam.tp9.menu;
 
 import fr.cnam.tp9.menu.menucommands.*;
-import fr.cnam.tp9.printer.Printable;
-import fr.cnam.tp9.printer.Printer;
+import fr.cnam.tp9.specification.printer.Printable;
+import fr.cnam.tp9.specification.printer.Printer;
 import fr.cnam.tp9.textformating.TextColor;
 
 import java.io.PrintStream;

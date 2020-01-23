@@ -1,7 +1,7 @@
 package fr.cnam.tp9.menu;
 
 
-import fr.cnam.tp9.command.Command;
+import fr.cnam.tp9.specification.command.Command;
 
 public class Entry implements MenuComponent {
     protected String text;
