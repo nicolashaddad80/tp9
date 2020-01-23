@@ -16,7 +16,7 @@ public class Editor {
      */
     protected Menu currentMenu;
     protected Line line;
-    protected LineComm[] lineCommandsTable = new LineComm[20];
+    protected Command[] lineCommandsTable = new LineComm[20];
     protected int nbLineCommands = 0;
 
     protected PrintStream a_editorOutStream;

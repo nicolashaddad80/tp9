@@ -6,6 +6,7 @@ import fr.cnam.tp9.editor.editorcommands.UndoCommand;
 import fr.cnam.tp9.history.CommandHistory;
 import fr.cnam.tp9.history.LineCommandHistory;
 import fr.cnam.tp9.line.Line;
+import fr.cnam.tp9.line.linecommands.LineComm;
 import fr.cnam.tp9.menu.Entry;
 
 import java.io.PrintStream;
@@ -60,6 +61,6 @@ public class Heditor extends Editor implements HisEditor {
 
     private void restoreLine(Line a_Line) {
         this.line = a_Line;
-        for (int i = 0; i < this.nbLineCommands; i++) this.lineCommandsTable[i].setLine(a_Line);
+        for (int i = 0; i < this.nbLineCommands; i++) ((LineComm)this.lineCommandsTable[i]).restoreContext(a_Line);
     }
 }
