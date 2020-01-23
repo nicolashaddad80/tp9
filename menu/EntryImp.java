@@ -2,14 +2,15 @@ package fr.cnam.tp9.menu;
 
 
 import fr.cnam.tp9.specification.command.Command;
+import fr.cnam.tp9.specification.menu.Entry;
 
-public class Entry implements MenuComponent {
+public class EntryImp implements Entry {
     protected String text;
     private Command command;
     private String shortcut;
     private Integer numEntry;
 
-    public Entry(int a_NumEntry,String a_text, Command a_Command, String a_Shortcut){
+    public EntryImp(int a_NumEntry, String a_text, Command a_Command, String a_Shortcut){
 
         this.text = a_text;
         this.command=a_Command;

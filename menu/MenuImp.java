@@ -1,6 +1,7 @@
 package fr.cnam.tp9.menu;
 
 import fr.cnam.tp9.menu.menucommands.*;
+import fr.cnam.tp9.specification.menu.Entry;
 import fr.cnam.tp9.specification.printer.Printable;
 import fr.cnam.tp9.specification.printer.Printer;
 import fr.cnam.tp9.textformating.TextColor;
@@ -8,7 +9,7 @@ import fr.cnam.tp9.textformating.TextColor;
 import java.io.PrintStream;
 import java.util.*;
 
-public class Menu extends Entry implements Printable {
+public class MenuImp extends EntryImp implements Printable {
     /**
      * Private classes
      */
@@ -33,17 +34,17 @@ public class Menu extends Entry implements Printable {
      */
 
 
-    private Hashtable<Integer, MenuComponent> entree = new Hashtable<>(20);
-    private Hashtable<String, MenuComponent> shortcutTable = new Hashtable<>(20);
+    private Hashtable<Integer, Entry> entree = new Hashtable<>(20);
+    private Hashtable<String, Entry> shortcutTable = new Hashtable<>(20);
 
-    private Menu parent = this;
-    private MenuComponent choice = this;
+    private MenuImp parent = this;
+    private Entry choice = this;
     private MenuPrinter menuPrinter;
 
-    public Menu(int a_MenuNum, String a_text, String a_Shortcut, PrintStream a_menuOutStream) {
+    public MenuImp(int a_MenuNum, String a_text, String a_Shortcut, PrintStream a_menuOutStream) {
         super(a_MenuNum, a_text, new NoopCommand(), a_Shortcut);
         this.menuPrinter = new MenuPrinter(a_menuOutStream);
-        this.add(new Entry(0, "Quitter", new ExitCommand(), "Q"));
+        this.add(new EntryImp(0, "Quitter", new ExitCommand(), "Q"));
     }
 
     /**
@@ -67,7 +68,7 @@ public class Menu extends Entry implements Printable {
 
         while (it.hasNext()) {
             Integer entryKey = (Integer) it.next();
-            MenuComponent entry = entree.get(entryKey);
+            Entry entry = entree.get(entryKey);
 
             if (entryKey.intValue() > 0) {
                 if (entry.getCommand().isExecutable()) {
@@ -89,7 +90,7 @@ public class Menu extends Entry implements Printable {
 
         while (it.hasNext()) {
             Integer entryKey = (Integer) it.next();
-            MenuComponent entry = entree.get(entryKey);
+            Entry entry = entree.get(entryKey);
             if (entryKey.intValue() <= 0) {
                 if (entry.getCommand().isExecutable()) {
                     menuElementsString = menuElementsString + TextColor.GREEN.set + entryKey + TextColor.DEFAULT.set;
@@ -108,7 +109,7 @@ public class Menu extends Entry implements Printable {
         return menuElementsString;
     }
 
-    public MenuComponent proposer() {
+    public Entry proposer() {
         System.out.println("Veuillez choisir la commande :");
         boolean ok = false;
 
@@ -130,7 +131,7 @@ public class Menu extends Entry implements Printable {
                 try {
                     shortcut = scanner.nextLine();
                     if (this.shortcutTable.containsKey(shortcut)) {
-                        MenuComponent tempChoice = this.shortcutTable.get(shortcut);
+                        Entry tempChoice = this.shortcutTable.get(shortcut);
                         if (tempChoice.getCommand().isExecutable()) {
                             ok = true;
                             this.choice = tempChoice;
@@ -155,11 +156,11 @@ public class Menu extends Entry implements Printable {
 
     }
 
-    public void add(MenuComponent menuComp) {
+    public void add(Entry menuComp) {
         if (menuComp.isMenu()) {
-            Entry back = new Entry(this.entree.size() + 1, "Retour", new MenuUpCommand(), "U");
-            ((Menu) menuComp).add(back);
-            ((Menu) menuComp).parent = this;
+            EntryImp back = new EntryImp(this.entree.size() + 1, "Retour", new MenuUpCommand(), "U");
+            ((MenuImp) menuComp).add(back);
+            ((MenuImp) menuComp).parent = this;
 
         }
         this.entree.put(menuComp.getNumber(), menuComp);

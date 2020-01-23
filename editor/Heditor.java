@@ -8,7 +8,7 @@ import fr.cnam.tp9.history.LineCommandHistory;
 import fr.cnam.tp9.specification.editor.HisEditor;
 import fr.cnam.tp9.specification.line.Line;
 import fr.cnam.tp9.line.linecommands.LineComm;
-import fr.cnam.tp9.menu.Entry;
+import fr.cnam.tp9.menu.EntryImp;
 
 import java.io.PrintStream;
 
@@ -21,8 +21,8 @@ public class Heditor extends Editor implements HisEditor {
         super(a_Line,a_heditorOutStream);
         this.undoHistory = new LineCommandHistory<Line>();
         this.redoHistory = new LineCommandHistory<Line>();
-        this.currentMenu.add(new Entry(-1,"Undo", new UndoCommand(this), "-"));
-        this.currentMenu.add(new Entry(-2,"Redo", new RedoCommand(this), "+"));
+        this.currentMenuImp.add(new EntryImp(-1,"Undo", new UndoCommand(this), "-"));
+        this.currentMenuImp.add(new EntryImp(-2,"Redo", new RedoCommand(this), "+"));
     }
 
     @Override
