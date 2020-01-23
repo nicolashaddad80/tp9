@@ -1,5 +1,6 @@
 package fr.cnam.tp9.menu;
 
+import fr.cnam.tp9.Printer.AbsPrinter;
 import fr.cnam.tp9.menu.menucommands.*;
 import fr.cnam.tp9.specification.menu.Entry;
 import fr.cnam.tp9.specification.menu.Menu;
@@ -10,20 +11,20 @@ import fr.cnam.tp9.textformating.TextColor;
 import java.io.PrintStream;
 import java.util.*;
 
-public class MenuImp extends EntryImp  implements Menu {
+public class MenuImp extends EntryImp implements Menu {
     /**
      * Private classes
      */
-    private class MenuPrinter implements Printer {
-        private PrintStream menuPrinterPort;
+    private class MenuPrinter extends AbsPrinter {
+
 
         public MenuPrinter(PrintStream a_MenuPrinterPort) {
-            this.menuPrinterPort = a_MenuPrinterPort;
+            super(a_MenuPrinterPort);
         }
 
         @Override
         public void print() {
-            this.menuPrinterPort.print(afficher());
+            this.printerOutPort.print(afficher());
         }
     }
 
