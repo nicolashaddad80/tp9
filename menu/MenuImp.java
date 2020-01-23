@@ -2,6 +2,7 @@ package fr.cnam.tp9.menu;
 
 import fr.cnam.tp9.menu.menucommands.*;
 import fr.cnam.tp9.specification.menu.Entry;
+import fr.cnam.tp9.specification.menu.Menu;
 import fr.cnam.tp9.specification.printer.Printable;
 import fr.cnam.tp9.specification.printer.Printer;
 import fr.cnam.tp9.textformating.TextColor;
@@ -9,7 +10,7 @@ import fr.cnam.tp9.textformating.TextColor;
 import java.io.PrintStream;
 import java.util.*;
 
-public class MenuImp extends EntryImp implements Printable {
+public class MenuImp extends EntryImp  implements Menu {
     /**
      * Private classes
      */
