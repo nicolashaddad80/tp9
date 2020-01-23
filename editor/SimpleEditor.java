@@ -15,7 +15,7 @@ import fr.cnam.tp9.menu.MenuImp;
 
 import java.io.PrintStream;
 
-public class Editor {
+public class SimpleEditor {
     /**
      * Attibuts
      */
@@ -26,7 +26,7 @@ public class Editor {
 
     protected PrintStream a_editorOutStream;
 
-    public Editor(Line a_Line, PrintStream a_editorOutStream) {
+    public SimpleEditor(Line a_Line, PrintStream a_editorOutStream) {
         this.a_editorOutStream = a_editorOutStream;
         this.currentMenu = new MenuImp(0, "Menu Principal", "", a_editorOutStream);
         this.line = a_Line;

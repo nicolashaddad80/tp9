@@ -12,12 +12,12 @@ import fr.cnam.tp9.menu.EntryImp;
 
 import java.io.PrintStream;
 
-public class Heditor extends Editor implements HisEditor {
+public class HistoryEditor extends SimpleEditor implements HisEditor {
 
     private CommandHistory <Line> undoHistory;
     private CommandHistory <Line> redoHistory;
 
-    public Heditor(Line a_Line, PrintStream a_heditorOutStream) {
+    public HistoryEditor(Line a_Line, PrintStream a_heditorOutStream) {
         super(a_Line,a_heditorOutStream);
         this.undoHistory = new LineCommandHistory<Line>();
         this.redoHistory = new LineCommandHistory<Line>();
