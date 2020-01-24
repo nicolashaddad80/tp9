@@ -7,7 +7,7 @@ import fr.cnam.tp9.specification.line.Line;
 
 public abstract class  LineComm implements Command, Cancelable <Line> {
 
-    protected Line line;
+    protected static Line line;
 
 
     public LineComm(Line a_Line) {
