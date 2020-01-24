@@ -1,8 +1,8 @@
 package fr.cnam.tp9.line.linecommands;
 
 
-import fr.cnam.tp9.command.Cancelable;
-import fr.cnam.tp9.command.Command;
+import fr.cnam.tp9.command.specification.Cancelable;
+import fr.cnam.tp9.command.specification.Command;
 import fr.cnam.tp9.line.specification.Line;
 
 public abstract class  LineComm implements Command, Cancelable <Line> {

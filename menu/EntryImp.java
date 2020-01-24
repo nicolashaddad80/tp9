@@ -1,7 +1,7 @@
 package fr.cnam.tp9.menu;
 
 
-import fr.cnam.tp9.command.Command;
+import fr.cnam.tp9.command.specification.Command;
 import fr.cnam.tp9.menu.specification.Entry;
 
 public class EntryImp implements Entry {
