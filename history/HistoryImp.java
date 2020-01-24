@@ -1,6 +1,6 @@
 package fr.cnam.tp9.history;
 
-import fr.cnam.tp9.specification.history.History;
+import fr.cnam.tp9.history.specification.History;
 
 import java.util.Stack;
 

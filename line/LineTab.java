@@ -1,8 +1,8 @@
 package fr.cnam.tp9.line;
 
 import fr.cnam.tp9.Printer.AbsPrinter;
-import fr.cnam.tp9.specification.printer.Printer;
-import fr.cnam.tp9.specification.line.Line;
+import fr.cnam.tp9.Printer.specification.Printer;
+import fr.cnam.tp9.line.specification.Line;
 import fr.cnam.tp9.textformating.TextColor;
 
 import java.io.PrintStream;

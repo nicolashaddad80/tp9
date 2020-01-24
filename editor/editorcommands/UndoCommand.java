@@ -1,6 +1,6 @@
 package fr.cnam.tp9.editor.editorcommands;
 
-import fr.cnam.tp9.specification.editor.HisEditor;
+import fr.cnam.tp9.editor.specification.HisEditor;
 
 public class UndoCommand extends EditorCommand {
 

@@ -1,11 +1,11 @@
 package fr.cnam.tp9.editor;
 
 
-import fr.cnam.tp9.specification.command.Command;
-import fr.cnam.tp9.specification.editor.Editor;
-import fr.cnam.tp9.specification.menu.Menu;
-import fr.cnam.tp9.specification.menu.Entry;
-import fr.cnam.tp9.specification.line.Line;
+import fr.cnam.tp9.command.Command;
+import fr.cnam.tp9.editor.specification.Editor;
+import fr.cnam.tp9.menu.specification.Menu;
+import fr.cnam.tp9.menu.specification.Entry;
+import fr.cnam.tp9.line.specification.Line;
 
 
 import fr.cnam.tp9.line.linecommands.*;

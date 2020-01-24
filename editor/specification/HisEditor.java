@@ -1,6 +1,6 @@
-package fr.cnam.tp9.specification.editor;
+package fr.cnam.tp9.editor.specification;
 
-import fr.cnam.tp9.specification.history.History;
+import fr.cnam.tp9.history.specification.History;
 
 public interface HisEditor extends Editor{
     void undo();

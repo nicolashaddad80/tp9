@@ -1,6 +1,6 @@
 package fr.cnam.tp9.Printer;
 
-import fr.cnam.tp9.specification.printer.Printer;
+import fr.cnam.tp9.Printer.specification.Printer;
 
 import java.io.PrintStream;
 

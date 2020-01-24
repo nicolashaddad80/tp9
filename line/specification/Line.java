@@ -1,6 +1,6 @@
-package fr.cnam.tp9.specification.line;
+package fr.cnam.tp9.line.specification;
 
-import fr.cnam.tp9.specification.printer.Printable;
+import fr.cnam.tp9.Printer.specification.Printable;
 
 /**
  * Spécification d’une ligne de texte.

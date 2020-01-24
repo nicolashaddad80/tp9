@@ -1,6 +1,6 @@
-package fr.cnam.tp9.specification.menu;
+package fr.cnam.tp9.menu.specification;
 
-import fr.cnam.tp9.specification.command.Command;
+import fr.cnam.tp9.command.Command;
 
 public interface Entry {
 

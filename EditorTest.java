@@ -2,9 +2,8 @@ package fr.cnam.tp9;
 
 
 
-import fr.cnam.tp9.specification.editor.Editor;
-import fr.cnam.tp9.specification.editor.HisEditor;
-import fr.cnam.tp9.specification.line.Line;
+import fr.cnam.tp9.editor.specification.Editor;
+import fr.cnam.tp9.line.specification.Line;
 
 import fr.cnam.tp9.editor.HistoryEditor;
 import fr.cnam.tp9.line.LineTab;

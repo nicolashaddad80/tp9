@@ -1,4 +1,4 @@
-package fr.cnam.tp9.specification.history;
+package fr.cnam.tp9.history.specification;
 
 public interface History<T> {
     public void push(T a_Element);

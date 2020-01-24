@@ -1,4 +1,4 @@
-package fr.cnam.tp9.specification.printer;
+package fr.cnam.tp9.Printer.specification;
 
 public interface Printable {
 

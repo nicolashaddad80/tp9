@@ -1,12 +1,12 @@
 package fr.cnam.tp9.editor;
 
-import fr.cnam.tp9.specification.command.Command;
+import fr.cnam.tp9.command.Command;
 import fr.cnam.tp9.editor.editorcommands.RedoCommand;
 import fr.cnam.tp9.editor.editorcommands.UndoCommand;
-import fr.cnam.tp9.specification.history.History;
+import fr.cnam.tp9.history.specification.History;
 import fr.cnam.tp9.history.HistoryImp;
-import fr.cnam.tp9.specification.editor.HisEditor;
-import fr.cnam.tp9.specification.line.Line;
+import fr.cnam.tp9.editor.specification.HisEditor;
+import fr.cnam.tp9.line.specification.Line;
 import fr.cnam.tp9.line.linecommands.LineComm;
 import fr.cnam.tp9.menu.EntryImp;
 

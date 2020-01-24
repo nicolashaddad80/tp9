@@ -1,7 +1,7 @@
 package fr.cnam.tp9.line.linecommands;
 
 
-import fr.cnam.tp9.specification.line.Line;
+import fr.cnam.tp9.line.specification.Line;
 
 public class DeleteCommand extends LineComm {
 
