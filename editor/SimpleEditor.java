@@ -2,6 +2,7 @@ package fr.cnam.tp9.editor;
 
 
 import fr.cnam.tp9.specification.command.Command;
+import fr.cnam.tp9.specification.editor.Editor;
 import fr.cnam.tp9.specification.menu.Menu;
 import fr.cnam.tp9.specification.menu.Entry;
 import fr.cnam.tp9.specification.line.Line;
@@ -15,7 +16,7 @@ import fr.cnam.tp9.menu.MenuImp;
 
 import java.io.PrintStream;
 
-public class SimpleEditor {
+public class SimpleEditor implements Editor {
     /**
      * Attibuts
      */

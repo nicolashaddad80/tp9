@@ -1,18 +1,22 @@
 
 0) Urgent:
 _________________
-1)//TODO V4.2: Rearchitecture Unod/Redo
-2)//TODO V4.2:Changer l'agencement des menu.
+1)//TODO V4.1: Import all in MagicDraw-Demo
+2)//TODO V4.1: Migrate to MagicDraw-Renault
+3)//TODO V4.1: Changer l'agencement des menu.
+4)//TODO V4.1: Release 4.1
+
 
 I)Niveau Architecture:
 ______________________
-1)//TODO V4.2:Trouver une solution pour rajouter un Printer (celui de la line de préférence a AddCommand".
+1)//TODO V4.2: Rearchitecture Unod/Redo
+2)//TODO V4.2:Trouver une solution pour rajouter un Printer (celui de la line de préférence a AddCommand".
 
-2)Ajouter un Proxy a Editor
+3)Ajouter un Proxy a Editor
 
-3)Rajouter un navigateur a Editor
-4)Rajouter un muxer a editor
-5)Rajouter un loader a editor.
+4)Rajouter un navigateur a Editor
+5)Rajouter un muxer a editor
+6)Rajouter un loader a editor.
 
 
 II)Niveau fonctionnel:
