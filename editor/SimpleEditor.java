@@ -1,40 +1,34 @@
 package fr.cnam.tp9.editor;
 
-
-import fr.cnam.tp9.command.specification.Command;
-import fr.cnam.tp9.editor.specification.Editor;
-import fr.cnam.tp9.menu.specification.Menu;
+import java.io.PrintStream;
 import fr.cnam.tp9.menu.specification.Entry;
 import fr.cnam.tp9.line.specification.Line;
-
-
-import fr.cnam.tp9.line.linecommands.*;
+import fr.cnam.tp9.editor.specification.Editor;
+import fr.cnam.tp9.command.specification.Command;
+import fr.cnam.tp9.menu.specification.Menu;
 import fr.cnam.tp9.menu.EntryImp;
 import fr.cnam.tp9.menu.MenuImp;
-
-
-
-import java.io.PrintStream;
+import fr.cnam.tp9.line.linecommands.*;
 
 public class SimpleEditor implements Editor {
     /**
-     * Attibuts
-     */
-    protected Menu currentMenu;
+	 * Attibuts
+	 */
+	protected Menu currentMenu;
     protected Line line;
     protected Command[] lineCommandsTable = new LineComm[20];
     protected int nbLineCommands = 0;
 
     protected PrintStream a_editorOutStream;
 
-    public SimpleEditor(Line a_Line, PrintStream a_editorOutStream) {
+    public SimpleEditor( Line a_Line, PrintStream a_editorOutStream ) {
         this.a_editorOutStream = a_editorOutStream;
         this.currentMenu = new MenuImp(0, "Menu Principal", "", a_editorOutStream);
         this.line = a_Line;
         this.fillMenu();
     }
 
-    private void fillMenu() {
+    private void fillMenu( ) {
         //filling the Menu
         int i = 0, j = 0, c = 0;
         Entry[] mainMenuList = new Entry[8];
@@ -82,11 +76,9 @@ public class SimpleEditor implements Editor {
     }
 
     /**
-     * Methodes
-     */
-
-
-    public void editer() {
+	 * Methodes
+	 */
+	public void editer( ) {
 
         //Launching Editor
 
@@ -112,7 +104,7 @@ public class SimpleEditor implements Editor {
         } while (!this.currentMenu.choiceIsQuit());
     }
 
-    protected void execute(Command a_Command) {
+    protected void execute( Command a_Command ) {
 
         if (a_Command.isExecutable()) {
 

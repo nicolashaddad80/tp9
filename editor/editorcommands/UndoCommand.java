@@ -4,16 +4,16 @@ import fr.cnam.tp9.editor.specification.HisEditor;
 
 public class UndoCommand extends EditorCommand {
 
-    public UndoCommand(HisEditor a_Hiseditor) {
+    public UndoCommand( HisEditor a_Hiseditor ) {
         super(a_Hiseditor);
     }
     @Override
-    public void executer() {
+	public void executer( ) {
         this.editor.undo();
     }
 
     @Override
-    public boolean isExecutable() {
+	public boolean isExecutable( ) {
         return (!this.editor.getUndoHistory().isEmpty());
     }
 }

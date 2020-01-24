@@ -1,8 +1,7 @@
 package fr.cnam.tp9.menu;
 
-
-import fr.cnam.tp9.command.specification.Command;
 import fr.cnam.tp9.menu.specification.Entry;
+import fr.cnam.tp9.command.specification.Command;
 
 public class EntryImp implements Entry {
     protected String text;
@@ -10,7 +9,7 @@ public class EntryImp implements Entry {
     private String shortcut;
     private Integer numEntry;
 
-    public EntryImp(int a_NumEntry, String a_text, Command a_Command, String a_Shortcut){
+    public EntryImp( int a_NumEntry, String a_text, Command a_Command, String a_Shortcut ){
 
         this.text = a_text;
         this.command=a_Command;
@@ -19,28 +18,28 @@ public class EntryImp implements Entry {
     }
 
     @Override
-    public Command getCommand(){
+	public Command getCommand( ){
         return this.command;
     }
 
     @Override
-    public boolean isMenu() {
+	public boolean isMenu( ) {
         return false;
     }
 
     @Override
-    public String toString(){
+	public String toString( ){
         return (this.text);
 
     }
 
     @Override
-    public String getShortcut() {
+	public String getShortcut( ) {
         return this.shortcut;
     }
 
     @Override
-    public Integer getNumber() {
+	public Integer getNumber( ) {
         return (this.numEntry);
     }
 }
