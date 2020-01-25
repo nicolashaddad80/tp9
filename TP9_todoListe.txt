@@ -10,10 +10,12 @@ _________________
 
 I)Niveau Architecture:
 ______________________
-1)//TODO V4.2: Rearchitecture Unod/Redo
-2)//TODO V4.2:Trouver une solution pour rajouter un Printer a AddCommands (celui de la line de préférence a AddCommand".
+//TODO V4.2: 1) Rearchitecture Unod/Redo
+//TODO V4.2: 2) Trouver une solution pour rajouter un Printer a AddCommands (celui de la line de préférence a AddCommand".
+//TODO V4.2: 3) moove filleMenu methode from SimpleEditor to SimpleEditorLauncher
+//TODO V4.2: 3) Parametrer l'Editor au lieu de le lui imposer a travailler sur une line
 
-3)Ajouter un Proxy a Editor
+4)Ajouter un Proxy a Editor
 
 4)Rajouter un navigateur a Editor
 5)Rajouter un muxer a editor
@@ -24,7 +26,9 @@ II)Niveau fonctionnel:
 ________________________
 1)//TODO V5.0:les exceptions
 
+III) Niveau cleaning code:
 
+//TODO V4.2: 1)use Set to store Entries in SimpleEditorLauncher, and the create a methode whith a loop to fille menu
 
 III)Niveau documnentations:
 _____________________________
