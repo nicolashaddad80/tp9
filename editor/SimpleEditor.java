@@ -7,8 +7,8 @@ import fr.cnam.tp9.editor.specification.Editor;
 import fr.cnam.tp9.command.specification.Command;
 import fr.cnam.tp9.menu.specification.Menu;
 import fr.cnam.tp9.menu.EntryImp;
-import fr.cnam.tp9.line.linecommands.*;
 import fr.cnam.tp9.menu.MenuImp;
+import fr.cnam.tp9.line.linecommands.*;
 
 public class SimpleEditor implements Editor {
     /**

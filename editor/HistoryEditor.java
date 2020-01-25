@@ -2,6 +2,7 @@ package fr.cnam.tp9.editor;
 
 import java.io.PrintStream;
 import fr.cnam.tp9.editor.specification.HisEditor;
+import fr.cnam.tp9.line.specification.ClonableLine;
 import fr.cnam.tp9.line.specification.Line;
 import fr.cnam.tp9.line.linecommands.LineComm;
 import fr.cnam.tp9.command.specification.Command;
@@ -15,16 +16,24 @@ public class HistoryEditor extends SimpleEditor implements HisEditor {
 
     private History<Line> undoHistory;
     private History<Line> redoHistory;
-
-    public HistoryEditor( Line a_Line, PrintStream a_heditorOutStream ) {
-        super(a_Line,a_heditorOutStream);
+/*
+    public HistoryEditor( ClonableLine a_ClonableLine, PrintStream a_heditorOutStream ) {
+        super(a_ClonableLine,a_heditorOutStream);
         this.undoHistory = new HistoryImp<Line>();
         this.redoHistory = new HistoryImp<Line>();
         this.currentMenu.add(new EntryImp(-1,"Undo", new UndoCommand(this), "-"));
         this.currentMenu.add(new EntryImp(-2,"Redo", new RedoCommand(this), "+"));
     }
+*/
+    
+	public HistoryEditor( ClonableLine a_ClonableLine, PrintStream a_heditorOutStream )
+	{
+        super(a_ClonableLine, a_heditorOutStream);
 
-    @Override
+    }
+
+	
+	@Override
 	public History<Line> getUndoHistory( ) {
         return this.undoHistory;
     }
