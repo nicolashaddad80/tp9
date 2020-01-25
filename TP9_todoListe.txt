@@ -1,0 +1,49 @@
+
+0) Urgent:
+_________________
+1)//: Import all in MagicDraw-Demo
+2)//: Migrate to MagicDraw-Renault
+3)//TODO V4.1: Changer l'agencement des menu.
+4)//TODO V4.1: Create and Complete UML Diagrams
+5)//TODO V4.1: Release 4.1
+
+
+I)Niveau Architecture:
+______________________
+1)//TODO V4.2: Rearchitecture Unod/Redo
+2)//TODO V4.2:Trouver une solution pour rajouter un Printer a AddCommands (celui de la line de préférence a AddCommand".
+
+3)Ajouter un Proxy a Editor
+
+4)Rajouter un navigateur a Editor
+5)Rajouter un muxer a editor
+6)Rajouter un loader a editor.
+
+
+II)Niveau fonctionnel:
+________________________
+1)//TODO V5.0:les exceptions
+
+
+
+III)Niveau documnentations:
+_____________________________
+1)la javadoc
+2)commenter tous le code
+3)documenter les exceptions
+4)documenter les packages
+5)Puis faire la release Finale on la nommera v5.0
+
+
+
+Annex:
+_____________________
+Release Proccess:
+
+1) Release Arch pdf
+2) Release the release
+        Optional:
+            1.Release Arch HTML
+            2.Push HTML to Apach Server
+3) Publish
+

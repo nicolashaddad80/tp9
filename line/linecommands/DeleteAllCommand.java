@@ -1,15 +1,14 @@
 package fr.cnam.tp9.line.linecommands;
 
-
-import fr.cnam.tp9.line.Line;
+import fr.cnam.tp9.line.specification.Line;
 
 public class DeleteAllCommand extends LineComm {
 
-    public DeleteAllCommand(Line a_Line) {
+    public DeleteAllCommand( Line a_Line ) {
         super(a_Line);
     }
 
-    public void executer() {
+    public void executer( ) {
 
         while (this.line.getLength()>0) {
             line.delete();
@@ -17,7 +16,7 @@ public class DeleteAllCommand extends LineComm {
     }
 
     @Override
-    public final boolean isExecutable(){
+	public final boolean isExecutable( ){
         return this.line.getLength()>0;
     }
 }

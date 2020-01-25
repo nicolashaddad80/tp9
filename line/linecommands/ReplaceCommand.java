@@ -1,22 +1,20 @@
 package fr.cnam.tp9.line.linecommands;
 
-
-import fr.cnam.tp9.line.linecommands.AddCommand;
-import fr.cnam.tp9.line.Line;
+import fr.cnam.tp9.line.specification.Line;
 
 public class ReplaceCommand extends AddCommand {
 
 
-    public ReplaceCommand(Line a_Line) {
+    public ReplaceCommand( Line a_Line ) {
         super(a_Line);
     }
 
-    public void executer() {
+    public void executer( ) {
         line.replace(this.getCarToInsert());
     }
 
     @Override
-    public final boolean isExecutable(){
+	public final boolean isExecutable( ){
         return this.line.getCursorPos()>0;
     }
 }

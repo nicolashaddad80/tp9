@@ -1,20 +1,20 @@
 package fr.cnam.tp9.menu.menucommands;
 
-import fr.cnam.tp9.command.Command;
+import fr.cnam.tp9.command.specification.Command;
 
 public class NoopCommand implements Command {
 
     @Override
-    public void executer(){
+	public void executer( ){
     }
 
     @Override
-    public boolean isCancellable() {
+	public final boolean isCancellable( ) {
         return false;
     }
 
     @Override
-    public  boolean isExecutable(){
+	public boolean isExecutable( ){
         return true;
     }
 

@@ -1,20 +1,20 @@
 package fr.cnam.tp9.line.linecommands;
 
-import fr.cnam.tp9.line.Line;
+import fr.cnam.tp9.line.specification.Line;
 
 public class AddAfterCommand extends AddCommand {
 
 
-    public AddAfterCommand(Line a_Line) {
+    public AddAfterCommand( Line a_Line ) {
         super(a_Line);
     }
 
-    public void executer(){
+    public void executer( ){
         line.addAfter(this.getCarToInsert());
     }
 
     @Override
-    public final boolean isExecutable(){
+	public final boolean isExecutable( ){
         return this.line.getCursorPos()>0;
     }
 }

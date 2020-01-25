@@ -1,23 +1,27 @@
 package fr.cnam.tp9.line.linecommands;
 
+import fr.cnam.tp9.command.specification.Cancelable;
+import fr.cnam.tp9.line.specification.Line;
+import fr.cnam.tp9.command.specification.Command;
 
-import fr.cnam.tp9.command.Command;
-import fr.cnam.tp9.line.Line;
+public abstract class LineComm implements Command, Cancelable<Line> {
 
-public abstract class  LineComm implements Command {
+    protected static Line line;
 
-    protected Line line;
+
+    public LineComm( Line a_Line ) {
+        line = a_Line;
+    }
+
 
     @Override
-    public boolean isCancellable() {
+	public final boolean isCancellable( ) {
         return true;
     }
 
-    public LineComm(Line a_Line){
-        line=a_Line;
-    }
-
-    public void setLine(Line a_Line){
-        this.line=a_Line;
+    @Override
+	public void restoreContext( Line previousContext ) {
+        this.line = previousContext;
     }
 }
+
