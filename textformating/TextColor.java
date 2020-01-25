@@ -2,11 +2,11 @@ package fr.cnam.tp9.textformating;
 
 public enum TextColor {
 
-    Highlight( ANSIColorCode.ANSI_WHITE_BACKGROUND ),
-    DEFAULT( ANSIColorCode.ANSI_RESET ),
-    RED( ANSIColorCode.ANSI_RED ),
-    BLUE( ANSIColorCode.ANSI_BLUE ),
-    GREEN( ANSIColorCode.ANSI_GREEN ),
+    Highlight( fr.cnam.tp9.textformating.ANSIColorCode.ANSI_WHITE_BACKGROUND ),
+    DEFAULT( fr.cnam.tp9.textformating.ANSIColorCode.ANSI_RESET ),
+    RED( fr.cnam.tp9.textformating.ANSIColorCode.ANSI_RED ),
+    BLUE( fr.cnam.tp9.textformating.ANSIColorCode.ANSI_BLUE ),
+    GREEN( fr.cnam.tp9.textformating.ANSIColorCode.ANSI_GREEN ),
     BLACK( ANSIColorCode.ANSI_BLACK );
 
     public final String set;

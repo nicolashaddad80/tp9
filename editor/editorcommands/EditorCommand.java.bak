@@ -1,18 +1,18 @@
 package fr.cnam.tp9.editor.editorcommands;
 
-import fr.cnam.tp9.command.specification.Command;
 import fr.cnam.tp9.editor.specification.HisEditor;
+import fr.cnam.tp9.command.specification.Command;
 
-abstract public class EditorCommand implements Command {
+public abstract class EditorCommand implements Command {
     public HisEditor editor;
     public boolean executable = false;
 
-    public EditorCommand(HisEditor a_Editor){
+    public EditorCommand( HisEditor a_Editor ){
         this.editor=a_Editor;
     }
 
     @Override
-    public final boolean isCancellable() {
+	public final boolean isCancellable( ) {
         return false;
     }
 

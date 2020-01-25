@@ -3,9 +3,9 @@
 _________________
 1)//: Import all in MagicDraw-Demo
 2)//: Migrate to MagicDraw-Renault
-3)//TODO V4.1: Changer l'agencement des menu.
-4)//TODO V4.1: Create and Complete UML Diagrams
-5)//TODO V4.1: Release 4.1
+3)//TODO V4.3: Changer l'agencement des menu.
+4)//TODO V4.3: Create and Complete UML Diagrams
+5)//TODO V4.3: Release 4.3
 
 
 I)Niveau Architecture:
@@ -13,7 +13,7 @@ ______________________
 //TODO V4.2: 1) Rearchitecture Unod/Redo
 //TODO V4.2: 2) Trouver une solution pour rajouter un Printer a AddCommands (celui de la line de préférence a AddCommand".
 //TODO V4.2: 3) moove filleMenu methode from SimpleEditor to SimpleEditorLauncher
-//TODO V4.2: 3) Parametrer l'Editor au lieu de le lui imposer a travailler sur une line
+//TODO V4.2: 4) Parametrer l'Editor au lieu de le lui imposer a travailler sur une line
 
 4)Ajouter un Proxy a Editor
 
@@ -28,7 +28,7 @@ ________________________
 
 III) Niveau cleaning code:
 
-//TODO V4.2: 1)use Set to store Entries in SimpleEditorLauncher, and the create a methode whith a loop to fille menu
+//TODO V4.3: 1)use Set to store Entries in SimpleEditorLauncher, and the create a methode whith a loop to fille menu
 
 III)Niveau documnentations:
 _____________________________

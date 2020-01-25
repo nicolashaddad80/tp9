@@ -8,7 +8,7 @@ import fr.cnam.tp9.Printer.specification.Printable;
  * @author Anaël Megna
  * @version 1.0
  */
-public interface Line extends Cloneable, Printable {
+public interface Line extends Printable {
     /**
 	 * Obtient le nombre de caractères dans une ligne.
 	 * 

@@ -2,6 +2,7 @@ package fr.cnam.tp9.editor;
 
 import java.io.PrintStream;
 import fr.cnam.tp9.editor.specification.HisEditor;
+import fr.cnam.tp9.line.specification.ClonableLine;
 import fr.cnam.tp9.line.specification.Line;
 import fr.cnam.tp9.line.linecommands.LineComm;
 import fr.cnam.tp9.command.specification.Command;
@@ -15,16 +16,24 @@ public class HistoryEditor extends SimpleEditor implements HisEditor {
 
     private History<Line> undoHistory;
     private History<Line> redoHistory;
-
-    public HistoryEditor( Line a_Line, PrintStream a_heditorOutStream ) {
-        super(a_Line,a_heditorOutStream);
+/*
+    public HistoryEditor( ClonableLine a_ClonableLine, PrintStream a_heditorOutStream ) {
+        super(a_ClonableLine,a_heditorOutStream);
         this.undoHistory = new HistoryImp<Line>();
         this.redoHistory = new HistoryImp<Line>();
         this.currentMenu.add(new EntryImp(-1,"Undo", new UndoCommand(this), "-"));
         this.currentMenu.add(new EntryImp(-2,"Redo", new RedoCommand(this), "+"));
     }
+*/
+    
+	public HistoryEditor( ClonableLine a_ClonableLine, PrintStream a_heditorOutStream )
+	{
+        super(a_ClonableLine, a_heditorOutStream);
 
-    @Override
+    }
+
+	
+	@Override
 	public History<Line> getUndoHistory( ) {
         return this.undoHistory;
     }
@@ -36,31 +45,48 @@ public class HistoryEditor extends SimpleEditor implements HisEditor {
 
     @Override
 	public void redo( ) {
-
+/*
         Line previousLine = this.redoHistory.pull();
         this.undoHistory.push(this.line.clone());
         this.restoreLine(previousLine);
+
+ */
     }
 
     @Override
 	public void undo( ) {
+        /*
         Line previousLine = this.undoHistory.pull();
         this.redoHistory.push(this.line.clone());
         this.restoreLine(previousLine);
+
+         */
     }
 
 
     @Override
 	protected void execute( Command a_Command ) {
+        /*
         if (a_Command.isCancellable()) {
             this.undoHistory.push(this.line.clone());
 
         }
         super.execute(a_Command);
-    }
 
+         */
+    }
+/*
     private void restoreLine( Line a_Line ) {
         this.line = a_Line;
         for (int i = 0; i < this.nbLineCommands; i++) ((LineComm)this.lineCommandsTable[i]).restoreContext(a_Line);
     }
+
+ */
+
+	private void restoreLine( Line a_Line )
+	{
+		
+	}
+	
+	
 }
