@@ -7,8 +7,8 @@ import fr.cnam.tp9.editor.specification.Editor;
 import fr.cnam.tp9.command.specification.Command;
 import fr.cnam.tp9.menu.specification.Menu;
 import fr.cnam.tp9.menu.EntryImp;
-import fr.cnam.tp9.menu.MenuImp;
 import fr.cnam.tp9.line.linecommands.*;
+import fr.cnam.tp9.menu.MenuImp;
 
 public class SimpleEditor implements Editor {
     /**
@@ -16,18 +16,21 @@ public class SimpleEditor implements Editor {
 	 */
 	protected Menu currentMenu;
     protected Line line;
-    protected Command[] lineCommandsTable = new LineComm[20];
+   // protected Command[] lineCommandsTable = new fr.cnam.tp9gen.line.linecommands.LineComm[20];
     protected int nbLineCommands = 0;
 
     protected PrintStream a_editorOutStream;
 
-    public SimpleEditor( Line a_Line, PrintStream a_editorOutStream ) {
+    
+	//protected Command[] lineCommandsTable = new fr.cnam.tp9gen.line.linecommands.LineComm[20];
+	
+	public SimpleEditor( Line a_Line, PrintStream a_editorOutStream ) {
         this.a_editorOutStream = a_editorOutStream;
         this.currentMenu = new MenuImp(0, "Menu Principal", "", a_editorOutStream);
         this.line = a_Line;
-        this.fillMenu();
+       // this.fillMenu();
     }
-
+/*
     private void fillMenu( ) {
         //filling the Menu
         int i = 0, j = 0, c = 0;
@@ -35,6 +38,7 @@ public class SimpleEditor implements Editor {
         Entry[] subMenuList = new Entry[3];
 
         //Creating Commands:
+
         this.lineCommandsTable[nbLineCommands++]=new MoveBeginningCommand(this.line);
         this.lineCommandsTable[nbLineCommands++]=new MoveRightCommand(this.line);
         this.lineCommandsTable[nbLineCommands++]=new MoveLeftCommand(this.line);
@@ -75,6 +79,8 @@ public class SimpleEditor implements Editor {
 
     }
 
+ */
+
     /**
 	 * Methodes
 	 */
@@ -111,5 +117,12 @@ public class SimpleEditor implements Editor {
             a_Command.executer();
         }
     }
+
+	private void fillMenu( )
+	{
+		
+	}
+	
+	
 }
 

@@ -4,13 +4,13 @@ import fr.cnam.tp9.command.specification.Command;
 
 public interface Entry {
 
-    String toString();
+    String toString( );
 
-    Command getCommand();
+    Command getCommand( );
 
-    boolean isMenu();
+    boolean isMenu( );
 
-    String getShortcut();
+    String getShortcut( );
 
-    Integer getNumber();
+    Integer getNumber( );
 }

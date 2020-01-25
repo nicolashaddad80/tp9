@@ -34,8 +34,8 @@ public class MenuImp extends EntryImp implements Menu {
     /**
 	 * Attributes
 	 */
-	private Hashtable<Integer,Entry> entree = new Hashtable<>(20);
-    private Hashtable<String,Entry> shortcutTable = new Hashtable<>(20);
+	private Hashtable<Integer,Entry> entree = new Hashtable<Integer,Entry>(20);
+    private Hashtable<String,Entry> shortcutTable = new Hashtable<String,Entry>(20);
 
     private fr.cnam.tp9.menu.MenuImp parent = this;
     private Entry choice = this;
