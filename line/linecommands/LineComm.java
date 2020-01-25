@@ -1,10 +1,9 @@
 package fr.cnam.tp9.line.linecommands;
 
-import fr.cnam.tp9.command.specification.Cancelable;
 import fr.cnam.tp9.line.specification.Line;
 import fr.cnam.tp9.command.specification.Command;
 
-public abstract class LineComm implements Command, Cancelable<Line> {
+public abstract class LineComm implements Command {
 
     protected static Line line;
 
@@ -19,9 +18,5 @@ public abstract class LineComm implements Command, Cancelable<Line> {
         return true;
     }
 
-    @Override
-	public void restoreContext( Line previousContext ) {
-        this.line = previousContext;
-    }
 }
 
