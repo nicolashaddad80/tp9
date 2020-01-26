@@ -16,6 +16,8 @@ public class HistoryEditor extends SimpleEditor implements HisEditor {
     private History<Line> undoHistory;
     private History<Line> redoHistory;
 
+    public int toto=0;
+
     public HistoryEditor( Menu a_Menu, ClonableLine a_ClonableLine ) {
         super(a_Menu,a_ClonableLine);
         this.undoHistory = new HistoryImp<Line>();
