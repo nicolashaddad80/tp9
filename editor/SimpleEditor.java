@@ -52,7 +52,7 @@ public class SimpleEditor implements Editor {
     }
 
     //TODO Arch++:delegate to a proxy in further version
-    protected void execute( Command a_Command ) {
+    protected final void execute( Command a_Command ) {
 
         if (a_Command.isExecutable()) {
 

@@ -4,7 +4,6 @@ import fr.cnam.tp9.command.specification.Cancelable;
 import fr.cnam.tp9.editor.specification.HisEditor;
 import fr.cnam.tp9.line.specification.ClonableLine;
 import fr.cnam.tp9.line.specification.Line;
-import fr.cnam.tp9.command.specification.Command;
 import fr.cnam.tp9.editor.editorcommands.UndoCommand;
 import fr.cnam.tp9.editor.editorcommands.RedoCommand;
 import fr.cnam.tp9.history.specification.History;
@@ -59,24 +58,7 @@ public class HistoryEditor extends SimpleEditor implements HisEditor {
     }
 
 
-    @Override
-	protected void execute( Command a_Command ) {
-        /*
-        if (a_Command.isCancellable()) {
-            this.undoHistory.push(this.line.clone());
 
-        }
-        super.execute(a_Command);
-
-         */
-    }
-/*
-    private void restoreLine( Line a_Line ) {
-        this.line = a_Line;
-        for (int i = 0; i < this.nbLineCommands; i++) ((LineComm)this.lineCommandsTable[i]).restoreContext(a_Line);
-    }
-
- */
 
 
 
