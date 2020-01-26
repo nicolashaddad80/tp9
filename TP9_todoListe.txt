@@ -10,9 +10,10 @@ _________________
 
 I)Niveau Architecture:
 ______________________
-//TODO V4.2: 1) Rearchitecture Unod/Redo
+//TODO V4.2: 1) Refactor Simple Editor need to pass him Menu through constructor param. DO ARCHITECTURE First then Auto generate code then complete
+//TODO V4.2: 1) Implement Unod/Redo
 //TODO V4.2: 2) Trouver une solution pour rajouter un Printer a AddCommands (celui de la line de préférence a AddCommand".
-//TODO V4.2: 3) moove filleMenu methode from SimpleEditor to SimpleEditorLauncher
+//TODO V4.2: 3) moove fille() Menu methode from SimpleEditor to SimpleEditorTest
 //TODO V4.2: 4) Parametrer l'Editor au lieu de le lui imposer a travailler sur une line
 
 4)Ajouter un Proxy a Editor
