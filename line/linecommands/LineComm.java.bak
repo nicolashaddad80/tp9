@@ -14,18 +14,5 @@ public abstract class LineComm implements Command {
     }
 
 
-    @Override
-	public final boolean isCancellable( ) {
-        return true;
-    }
-
-/*
-	public void restoreContext( Line previousContext ) {
-
-        this.line = previousContext;
-
-
-    }
-    */
 }
 

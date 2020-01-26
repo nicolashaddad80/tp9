@@ -7,16 +7,16 @@ import fr.cnam.tp9.command.specification.Command;
 import fr.cnam.tp9.editor.editorcommands.UndoCommand;
 import fr.cnam.tp9.editor.editorcommands.RedoCommand;
 import fr.cnam.tp9.history.specification.History;
+import fr.cnam.tp9.menu.specification.Menu;
 import fr.cnam.tp9.menu.EntryImp;
 import fr.cnam.tp9.history.HistoryImp;
-import fr.cnam.tp9.menu.specification.Menu;
 
 public class HistoryEditor extends SimpleEditor implements HisEditor {
 
     private History<Line> undoHistory;
     private History<Line> redoHistory;
 
-    public HistoryEditor(Menu a_Menu, ClonableLine a_ClonableLine) {
+    public HistoryEditor( Menu a_Menu, ClonableLine a_ClonableLine ) {
         super(a_Menu,a_ClonableLine);
         this.undoHistory = new HistoryImp<Line>();
         this.redoHistory = new HistoryImp<Line>();
@@ -76,4 +76,11 @@ public class HistoryEditor extends SimpleEditor implements HisEditor {
  */
 
 
+
+	private void restoreLine( Line a_Line )
+	{
+		
+	}
+	
+	
 }

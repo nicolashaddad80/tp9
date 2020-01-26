@@ -1,35 +1,27 @@
 package fr.cnam.tp9.editor;
 
-import java.io.PrintStream;
 import fr.cnam.tp9.editor.specification.HisEditor;
 import fr.cnam.tp9.line.specification.ClonableLine;
 import fr.cnam.tp9.line.specification.Line;
-import fr.cnam.tp9.line.linecommands.LineComm;
 import fr.cnam.tp9.command.specification.Command;
 import fr.cnam.tp9.editor.editorcommands.UndoCommand;
 import fr.cnam.tp9.editor.editorcommands.RedoCommand;
 import fr.cnam.tp9.history.specification.History;
 import fr.cnam.tp9.menu.EntryImp;
 import fr.cnam.tp9.history.HistoryImp;
+import fr.cnam.tp9.menu.specification.Menu;
 
 public class HistoryEditor extends SimpleEditor implements HisEditor {
 
     private History<Line> undoHistory;
     private History<Line> redoHistory;
-/*
-    public HistoryEditor( ClonableLine a_ClonableLine, PrintStream a_heditorOutStream ) {
-        super(a_ClonableLine,a_heditorOutStream);
+
+    public HistoryEditor(Menu a_Menu, ClonableLine a_ClonableLine) {
+        super(a_Menu,a_ClonableLine);
         this.undoHistory = new HistoryImp<Line>();
         this.redoHistory = new HistoryImp<Line>();
         this.currentMenu.add(new EntryImp(-1,"Undo", new UndoCommand(this), "-"));
         this.currentMenu.add(new EntryImp(-2,"Redo", new RedoCommand(this), "+"));
-    }
-*/
-    
-	public HistoryEditor( ClonableLine a_ClonableLine, PrintStream a_heditorOutStream )
-	{
-        super(a_ClonableLine, a_heditorOutStream);
-
     }
 
 	
@@ -83,10 +75,5 @@ public class HistoryEditor extends SimpleEditor implements HisEditor {
 
  */
 
-	private void restoreLine( Line a_Line )
-	{
-		
-	}
-	
-	
+
 }
