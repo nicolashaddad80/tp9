@@ -1,4 +1,4 @@
-package fr.cnam.tp9;
+package fr.cnam.tp9.editor;
 
 import java.io.PrintStream;
 import fr.cnam.tp9.menu.specification.Entry;

@@ -1,7 +1,7 @@
-package fr.cnam.tp9;
+package fr.cnam.tp9.tests;
 
 
-import fr.cnam.tp9.editor.specification.HisEditor;
+import fr.cnam.tp9.editor.HistLineEditorLauncher;
 
 public class HistoryEditorTest {
 

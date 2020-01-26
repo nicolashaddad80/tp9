@@ -1,4 +1,6 @@
-package fr.cnam.tp9;
+package fr.cnam.tp9.tests;
+
+import fr.cnam.tp9.editor.SimpleLineEditorLauncher;
 
 public class SimpleEditorTest {
 
