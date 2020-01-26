@@ -109,6 +109,7 @@ public class MenuImp extends EntryImp implements Menu {
     }
 
     public Entry proposer( ) {
+
         System.out.println("Veuillez choisir la commande :");
         boolean ok = false;
 
