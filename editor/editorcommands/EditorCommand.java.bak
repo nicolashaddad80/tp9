@@ -11,9 +11,5 @@ public abstract class EditorCommand implements Command {
         this.editor=a_Editor;
     }
 
-    @Override
-	public final boolean isCancellable( ) {
-        return false;
-    }
 
 }

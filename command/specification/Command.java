@@ -10,5 +10,4 @@ public interface Command {
 	 */
 	void executer( );
     boolean isExecutable( );
-    boolean isCancellable( );
 }

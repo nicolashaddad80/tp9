@@ -25,4 +25,14 @@ public abstract class CancelableLinComm extends LineComm implements Cancelable
 	}
 	
 	
+
+	/**
+	 * to check if a command is cancellable inorder to save its context and to allow the invoker to save it in its commands history
+	 */
+	public boolean isCancellable( )
+	{
+		return false;
+	}
+	
+	
 }
