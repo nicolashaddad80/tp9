@@ -11,6 +11,7 @@ public class AddBeginningCommand extends AddCommand {
 
     public void executer( ){
         line.addBeginning(this.getCarToInsert());
+        line.getPrinter().print();
     }
 
     @Override

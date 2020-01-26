@@ -12,7 +12,7 @@ public abstract class AddCommand extends LineComm {
     protected char getCarToInsert( ){
 
         Scanner myCharReader = new Scanner(System.in);
-        System.out.println("Tapez le caractere a rajouter");
+        System.out.println("Tapez un caractere ");
         return myCharReader.next().charAt(0);
     }
 

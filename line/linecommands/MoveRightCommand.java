@@ -10,6 +10,7 @@ public class MoveRightCommand extends LineComm {
 
     public void executer( ) {
         line.moveRight();
+        line.getPrinter().print();
     }
 
     @Override

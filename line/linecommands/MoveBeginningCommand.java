@@ -8,8 +8,10 @@ public class MoveBeginningCommand extends LineComm {
         super(a_Line);
     }
 
+
     public void executer( ) {
         line.moveBeginning();
+        line.getPrinter().print();
     }
 
 

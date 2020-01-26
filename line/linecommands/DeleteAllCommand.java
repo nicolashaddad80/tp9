@@ -13,6 +13,7 @@ public class DeleteAllCommand extends LineComm {
         while (this.line.getLength()>0) {
             line.delete();
         }
+        line.getPrinter().print();
     }
 
     @Override

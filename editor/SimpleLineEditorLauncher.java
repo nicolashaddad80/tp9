@@ -26,7 +26,7 @@ public class SimpleLineEditorLauncher {
          */
         this.myMenu = new MenuImp(0, "Menu Principal", "", menuPrinterOutputPort);
         this.myLineTab = new LineTab(linePrinterOutputPort);
-        this.mySimpleEditor = new SimpleEditor(myMenu, myLineTab);
+        this.mySimpleEditor = new SimpleEditor(myMenu);
 
         /* Filing menu and put there desired Commands
          */
@@ -34,7 +34,7 @@ public class SimpleLineEditorLauncher {
 
     }
 
-    private void fillMenu( ) {
+    private void fillMenu() {
 
         Command[] lineCommandsTable = new LineComm[20];
 
@@ -87,6 +87,7 @@ public class SimpleLineEditorLauncher {
 
 
     public void start( ) {
+        this.myLineTab.getPrinter().print();
         this.mySimpleEditor.editer();
     }
 }

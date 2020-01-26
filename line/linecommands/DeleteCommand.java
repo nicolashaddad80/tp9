@@ -10,6 +10,7 @@ public class DeleteCommand extends LineComm {
 
     public void executer( ) {
         line.delete();
+        line.getPrinter().print();
     }
 
     @Override

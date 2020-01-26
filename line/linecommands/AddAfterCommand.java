@@ -11,6 +11,7 @@ public class AddAfterCommand extends AddCommand {
 
     public void executer( ){
         line.addAfter(this.getCarToInsert());
+        line.getPrinter().print();
     }
 
     @Override

@@ -11,6 +11,7 @@ public class AddEndCommand extends AddCommand {
 
     public void executer( ){
         line.addEnd(this.getCarToInsert());
+        line.getPrinter().print();
     }
 
     @Override

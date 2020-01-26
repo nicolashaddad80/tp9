@@ -19,8 +19,8 @@ public class HistoryEditor extends SimpleEditor implements HisEditor {
 
     public int toto = 0;
 
-    public HistoryEditor( Menu a_Menu, ClonableLine a_ClonableLine ) {
-        super(a_Menu,a_ClonableLine);
+    public HistoryEditor( Menu a_Menu ) {
+        super(a_Menu);
         this.undoHistory = new HistoryImp<Cancelable>();
         this.redoHistory = new HistoryImp<Cancelable>();
         this.currentMenu.add(new EntryImp(-1,"Undo", new UndoCommand(this), "-"));

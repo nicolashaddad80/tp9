@@ -1,6 +1,6 @@
 package fr.cnam.tp9.line.linecommands;
 
-import fr.cnam.tp9.command.specification.Cancelable;
+
 import fr.cnam.tp9.line.specification.Line;
 import fr.cnam.tp9.command.specification.Command;
 

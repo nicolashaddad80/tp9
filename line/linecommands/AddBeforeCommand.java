@@ -11,6 +11,7 @@ public class AddBeforeCommand extends AddCommand {
 
     public void executer( ){
         line.addBefore(this.getCarToInsert());
+        line.getPrinter().print();
     }
 
     @Override

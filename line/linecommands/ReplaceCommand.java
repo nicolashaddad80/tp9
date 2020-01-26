@@ -11,6 +11,7 @@ public class ReplaceCommand extends AddCommand {
 
     public void executer( ) {
         line.replace(this.getCarToInsert());
+        line.getPrinter().print();
     }
 
     @Override
