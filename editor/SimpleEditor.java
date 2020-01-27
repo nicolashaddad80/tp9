@@ -48,7 +48,6 @@ public class SimpleEditor implements Editor {
 
     //TODO Arch++:delegate to a proxy in further version
     protected void execute( Command a_Command ) {
-        System.err.println("Executer de SimpleEditor");
         if (a_Command.isExecutable()) {
 
             a_Command.executer();
