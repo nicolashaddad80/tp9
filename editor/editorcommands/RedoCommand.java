@@ -16,4 +16,9 @@ public class RedoCommand extends EditorCommand {
 	public boolean isExecutable( ) {
         return (!this.editor.getRedoHistory().isEmpty());
     }
+
+    @Override
+    public void undo() {
+
+    }
 }

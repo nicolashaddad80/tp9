@@ -31,7 +31,7 @@ public abstract class CancelableLinComm extends LineComm implements Cancelable
 	 */
 	public boolean isCancellable( )
 	{
-		return false;
+		return true;
 	}
 	
 	

@@ -13,12 +13,6 @@ public class SimpleEditor implements Editor {
 	 */
 	protected Menu currentMenu;
 
-
-    
-	protected int nbLineCommands = 0;
-	
-	
-	protected PrintStream a_editorOutStream;
 	
 	/**
 	 * Constructor
@@ -35,6 +29,7 @@ public class SimpleEditor implements Editor {
 	/**
 	 * Methodes
 	 */
+
 	public void editer( ) {
         do {
 
@@ -52,8 +47,8 @@ public class SimpleEditor implements Editor {
     }
 
     //TODO Arch++:delegate to a proxy in further version
-    protected final void execute( Command a_Command ) {
-
+    protected void execute( Command a_Command ) {
+        System.err.println("Executer de SimpleEditor");
         if (a_Command.isExecutable()) {
 
             a_Command.executer();

@@ -14,6 +14,12 @@ public class UndoCommand extends EditorCommand {
 
     @Override
 	public boolean isExecutable( ) {
-        return (!this.editor.getUndoHistory().isEmpty());
+
+        return (!(this.editor.getUndoHistory().isEmpty()));
+    }
+
+    @Override
+    public void undo() {
+
     }
 }

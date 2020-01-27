@@ -1,7 +1,6 @@
 package fr.cnam.tp9.editor;
 
-import fr.cnam.tp9.command.specification.Command;
-
+import fr.cnam.tp9.command.specification.Cancelable;
 import fr.cnam.tp9.editor.specification.HisEditor;
 import fr.cnam.tp9.line.ClonableLineTab;
 import fr.cnam.tp9.line.linecommands.*;
@@ -38,7 +37,7 @@ public class HistLineEditorLauncher {
 
     private void fillMenu() {
 
-        Command[] lineCommandsTable = new CancelableLinComm[20];
+        Cancelable[] lineCommandsTable = new CancelableLinComm[20];
 
         //filling the Menu
         int i = 0, j = 0, c = 0, nbLineCommands = 0;
