@@ -1,19 +1,17 @@
-package fr.cnam.tp9.line.linecommands;
+package fr.cnam.tp9.line.linecommands.simplelinComm;
 
 import fr.cnam.tp9.line.specification.Line;
 
-public class MoveBeginningCommand extends LineComm {
+public class MoveLeftCommand extends LineComm {
 
-    public MoveBeginningCommand( Line a_Line ) {
+    public MoveLeftCommand( Line a_Line ) {
         super(a_Line);
     }
 
-
     public void executer( ) {
-        line.moveBeginning();
+        line.moveLeft();
         line.getPrinter().print();
     }
-
 
     @Override
 	public final boolean isExecutable( ){

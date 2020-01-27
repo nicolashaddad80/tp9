@@ -1,16 +1,16 @@
-package fr.cnam.tp9.line.linecommands;
+package fr.cnam.tp9.line.linecommands.simplelinComm;
 
 import fr.cnam.tp9.line.specification.Line;
 
-public class AddBeginningCommand extends AddCommand {
+public class AddEndCommand extends AddCommand {
 
 
-    public AddBeginningCommand( Line a_Line ) {
+    public AddEndCommand( Line a_Line ) {
         super(a_Line);
     }
 
     public void executer( ){
-        line.addBeginning(this.getCarToInsert());
+        line.addEnd(this.getCarToInsert());
         line.getPrinter().print();
     }
 

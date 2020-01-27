@@ -1,12 +1,8 @@
 package fr.cnam.tp9.editor;
 
 import fr.cnam.tp9.command.specification.Cancelable;
-import fr.cnam.tp9.command.specification.Command;
 import fr.cnam.tp9.editor.specification.HisEditor;
-import fr.cnam.tp9.line.ClonableLineTab;
-import fr.cnam.tp9.line.linecommands.CanceAddBeginningCommand;
 import fr.cnam.tp9.line.specification.ClonableLine;
-import fr.cnam.tp9.line.specification.Line;
 import fr.cnam.tp9.editor.editorcommands.UndoCommand;
 import fr.cnam.tp9.editor.editorcommands.RedoCommand;
 import fr.cnam.tp9.history.specification.History;

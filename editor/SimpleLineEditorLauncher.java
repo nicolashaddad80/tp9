@@ -1,15 +1,15 @@
 package fr.cnam.tp9.editor;
 
 import java.io.PrintStream;
+
+import fr.cnam.tp9.line.linecommands.simplelinComm.*;
 import fr.cnam.tp9.menu.specification.Entry;
 import fr.cnam.tp9.line.specification.Line;
 import fr.cnam.tp9.line.LineTab;
 import fr.cnam.tp9.editor.specification.Editor;
 import fr.cnam.tp9.command.specification.Command;
-import fr.cnam.tp9.editor.SimpleEditor;
 import fr.cnam.tp9.menu.specification.Menu;
 import fr.cnam.tp9.menu.EntryImp;
-import fr.cnam.tp9.line.linecommands.*;
 import fr.cnam.tp9.menu.MenuImp;
 
 public class SimpleLineEditorLauncher {
