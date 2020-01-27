@@ -71,11 +71,11 @@ public class HistoryEditor extends SimpleEditor implements HisEditor {
             if (a_Command.isExecutable()) {
 
                 a_Command.executer();
-                //TODO V4.2 if the command is Cancellable save command here for undo it later if the user chooses Undo from Menu
+                /* if the command is Cancellable save command here for undo it later if the user chooses Undo from Menu
+                 */
                 if (a_Command.isCancellable()) {
-                    System.out.println("Stacking Command in undoHistory to be undone up to user selection");
                     this.undoHistory.push(a_Command);
-                }else System.err.println("not Stacking");
+                }
             }
         }
     }

@@ -9,14 +9,14 @@ import fr.cnam.tp9.history.HistoryImp;
 import fr.cnam.tp9.history.specification.History;
 import fr.cnam.tp9.line.specification.ClonableLine;
 import fr.cnam.tp9.command.specification.Cancelable;
-import fr.cnam.tp9.line.specification.Line;
 
-public abstract class CancelableLinComm extends LineComm implements Cancelable
+
+public abstract class CancelableLinComm  implements Cancelable
 {
 
 
 
-	private History<ClonableLine> undoLineHistory;
+	protected static  History<ClonableLine> undoLineHistory;
 	protected static ClonableLine clonableLine;
 
 	/**
@@ -26,7 +26,7 @@ public abstract class CancelableLinComm extends LineComm implements Cancelable
 
 	public CancelableLinComm( ClonableLine a_clonableLine )
 	{
-		super(a_clonableLine);
+		clonableLine=a_clonableLine;
 
 		undoLineHistory=new HistoryImp<ClonableLine>();
 	}
@@ -34,12 +34,14 @@ public abstract class CancelableLinComm extends LineComm implements Cancelable
 
     public void undo( )
 	{
-		
+
+		this.clonableLine=this.undoLineHistory.pull();
+		this.clonableLine.getPrinter().print();
 	}
 
 	@Override
 	public void executer() {
-		//Current Coding Cursor
+
 		/*
 		saving line context
 		 */

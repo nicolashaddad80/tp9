@@ -19,4 +19,8 @@ public abstract class CanceAddCommand extends CancelableLinComm {
         return myCharReader.next().charAt(0);
     }
 
+    @Override
+    public void executer() {
+        super.executer();
+    }
 }

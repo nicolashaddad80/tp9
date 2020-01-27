@@ -11,13 +11,14 @@ public class CanceMoveBeginningCommand extends CancelableLinComm {
     }
 
     public void executer( ) {
-        line.moveBeginning();
-        line.getPrinter().print();
+        //Current Coding Cursor
+        CancelableLinComm.clonableLine.moveBeginning();
+        CancelableLinComm.clonableLine.getPrinter().print();
     }
 
 
     @Override
 	public final boolean isExecutable( ){
-        return this.line.getCursorPos()>1;
+        return CancelableLinComm.clonableLine.getCursorPos()>1;
     }
 }

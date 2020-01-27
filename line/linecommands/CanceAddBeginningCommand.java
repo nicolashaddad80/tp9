@@ -13,8 +13,11 @@ public class CanceAddBeginningCommand extends CanceAddCommand {
     }
 
     public void executer( ){
-        line.addBeginning(this.getCarToInsert());
-        line.getPrinter().print();
+
+        //CancelableLinComm.undoLineHistory.push(CancelableLinComm.clonableLine.lineClone());
+        super.executer();
+        CancelableLinComm.clonableLine.addBeginning(this.getCarToInsert());
+        CancelableLinComm.clonableLine.getPrinter().print();
     }
 
     @Override
