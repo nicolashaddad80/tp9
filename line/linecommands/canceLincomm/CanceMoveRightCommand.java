@@ -4,22 +4,21 @@ import fr.cnam.tp9.line.linecommands.simplelinComm.LineComm;
 import fr.cnam.tp9.line.specification.ClonableLine;
 import fr.cnam.tp9.line.specification.Line;
 
-public class CanceMoveBeginningCommand extends CancelableLinComm {
+public class CanceMoveRightCommand extends CancelableLinComm {
 
-    public CanceMoveBeginningCommand(ClonableLine a_Line ) {
+    public CanceMoveRightCommand(ClonableLine a_Line ) {
         super(a_Line);
     }
 
 
     public void executer( ) {
         super.executer();
-        CancelableLinComm.clonableLine.moveBeginning();
+        CancelableLinComm.clonableLine.moveRight();
         CancelableLinComm.clonableLine.getPrinter().print();
     }
 
-
     @Override
 	public final boolean isExecutable( ){
-        return CancelableLinComm.clonableLine.getCursorPos()>1;
+        return CancelableLinComm.clonableLine.getCursorPos()<CancelableLinComm.clonableLine.getLength();
     }
 }

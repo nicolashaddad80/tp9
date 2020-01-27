@@ -1,5 +1,5 @@
 /**
- * @(#) CancelableLinComm.java
+ * @(#) CanceLinComm.java
  */
 
 package fr.cnam.tp9.line.linecommands.canceLincomm;
