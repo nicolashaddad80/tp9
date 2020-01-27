@@ -44,12 +44,11 @@ public class HistoryEditor extends SimpleEditor implements HisEditor {
 
     @Override
     public void undo() {
-        /*
-        Line previousLine = this.undoHistory.pull();
-        this.redoHistory.push(this.line.clone());
-        this.restoreLine(previousLine);
 
-         */
+
+        Cancelable previousCommand = this.undoHistory.pull();
+        previousCommand.undo();
+
     }
 
     @Override
