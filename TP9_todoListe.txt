@@ -3,9 +3,9 @@
 _________________
 1)//: Import all in MagicDraw-Demo
 2)//: Migrate to MagicDraw-Renault
-3)//TODO V4.3: Changer l'agencement des menu.
-4)//TODO V4.3: Create and Complete UML Diagrams
-5)//TODO V4.3: Release 4.3
+3)//TODO V4.2: Changer l'agencement des menu.
+4)//TODO V4.2: Create and Complete UML Diagrams
+5)//TODO V4.2: Release 4.3
 
 
 I)Niveau Architecture:
@@ -15,8 +15,8 @@ DONE: Refactor Simple Editor need to pass him Menu through constructor param. DO
 DONE: Implement Undo
 
 DONE: use LinCom  commands to use Lincom.line instead of this.line
+
 Current coding cursor
-TODO V4.2: update Undo Sequence Diagram
 TODO V4.2: Implement Redo
 
 
@@ -32,7 +32,7 @@ TODO V4.2: 1) Factoriser code de getChar pour AddCommand et CanceAddCommand
 TODO V4.2:  Modifier MoopCommand pour permettre a quit command demettre a jour choice is quit attribut dans menuimp pour eviter instance of.
 TODO V4.2: Chercher a eliminer le max de castes
 
-TODO V4.2: Clean *.bak before release
+
 
 TODO V4.2: 1) Class Static avec une methode static pour remplire le menu.
 TODO V4.2: 2) Trouver une solution pour rajouter un Printer a AddCommands (celui de la line de préférence a AddCommand".
@@ -41,15 +41,17 @@ TODO V4.2: Nice To have  3) Create recursive data type to give as argue to fille
 TODO V4.2: Review LinComm all sone classes, they should use rignt syntaxe to use teh statis atribut Line.
 TODO V4.2: 4) Parametrer l'Editor au lieu de le lui imposer a travailler sur une line
 
-TODO V4.2: Rajouter un loader a editorLAncher.
+TODO V4.2: Clean *.bak before release
+TODO V4.2: Clean and refactore Code
+TODO V4.2: Clean *.bak before release
 TODO V4.2: Release 4.2
-Cancelled due to short time moove to //Todo Arch++:  Idea Parametrize Enty and or Menu to support new cancellable Commands
+TODO V4.2 ++: Rajouter un loader a editorLancher.
 
+TODO Arch++:  Idea Parametrize Enty and or Menu to support new cancellable Commands
+TODO Arch++: Ajouter un Proxy a Editor
 
-//TODO Arch++: Ajouter un Proxy a Editor
-
-//TODO Arch++: Rajouter un navigateur a Editor
-//TODO Arch++: Rajouter un muxer a editor
+TODO Arch++: Rajouter un navigateur a Editor
+TODO Arch++: Rajouter un muxer a editor
 
 
 II)Niveau fonctionnel:
@@ -58,7 +60,7 @@ ________________________
 
 III) Niveau cleaning code:
 
-//TODO V4.3: 1)use Set to store Entries in SimpleEditorLauncher, and the create a methode whith a loop to fille menu
+TODO V4.3: 1)use Set to store Entries in SimpleEditorLauncher, and the create a methode whith a loop to fille menu
 
 III)Niveau documnentations:
 _____________________________
@@ -73,7 +75,8 @@ _____________________________
 Annex:
 _____________________
 Release Proccess:
-
+TODO ArchV4.2: update Undo Sequence Diagram
+TODO ArchV4.2:: update Undo Sequence Diagram
 1) Release Arch pdf
 2) Release the release
         Optional:
