@@ -1,19 +1,14 @@
 package fr.cnam.tp9.editor.specification;
 
 import fr.cnam.tp9.command.specification.Cancelable;
-import fr.cnam.tp9.line.specification.ClonableLine;
 import fr.cnam.tp9.history.specification.History;
 
-public interface HisEditor extends Editor{
-    void undo( );
-    void redo( );
+public interface HisEditor extends Editor {
+    void undo();
 
-    History<Cancelable> getRedoHistory( );
-    History<Cancelable> getUndoHistory( );
+    void redo();
 
+    History<Cancelable> getRedoHistory();
 
-
-	void updateContext( ClonableLine a_previousLine );
-	
-	
+    History<Cancelable> getUndoHistory();
 }

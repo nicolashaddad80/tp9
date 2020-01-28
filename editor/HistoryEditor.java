@@ -6,8 +6,6 @@ import fr.cnam.tp9.editor.editorcommands.UndoCommand;
 import fr.cnam.tp9.editor.specification.HisEditor;
 import fr.cnam.tp9.history.HistoryImp;
 import fr.cnam.tp9.history.specification.History;
-import fr.cnam.tp9.line.linecommands.cancelinecomm.CancelableLinComm;
-import fr.cnam.tp9.line.specification.ClonableLine;
 import fr.cnam.tp9.menu.EntryImp;
 import fr.cnam.tp9.menu.specification.Entry;
 import fr.cnam.tp9.menu.specification.Menu;
@@ -108,11 +106,4 @@ public class HistoryEditor extends SimpleEditor implements HisEditor {
             }
         } while (!this.currentMenu.choiceIsQuit());
     }
-
-
-    public void updateContext(ClonableLine a_previousLine) {
-
-    }
-
-
 }
