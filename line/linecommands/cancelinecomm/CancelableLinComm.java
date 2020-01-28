@@ -22,28 +22,32 @@ public abstract class CancelableLinComm implements Cancelable {
 
 
     public void undo() {
-		ClonableLine lastExecutedLine = CancelableLinComm.undoLineHistory.pull();
+        ClonableLine lastExecutedLine = CancelableLinComm.undoLineHistory.pull();
         CancelableLinComm.redoLineHistory.push(CancelableLinComm.clonableLine.lineClone());
-		CancelableLinComm.clonableLine =lastExecutedLine;
-		CancelableLinComm.clonableLine.getPrinter().print();
+        CancelableLinComm.clonableLine = lastExecutedLine;
+        CancelableLinComm.clonableLine.getPrinter().print();
     }
 
     @Override
     public void redo() {
-        //Current Coding Cursor
-		ClonableLine lastUndoneLine = CancelableLinComm.redoLineHistory.pull();
+
+        ClonableLine lastUndoneLine = CancelableLinComm.redoLineHistory.pull();
         CancelableLinComm.undoLineHistory.push(CancelableLinComm.clonableLine.lineClone());
-		CancelableLinComm.clonableLine = lastUndoneLine;
-		CancelableLinComm.clonableLine.getPrinter().print();
+        CancelableLinComm.clonableLine = lastUndoneLine;
+        CancelableLinComm.clonableLine.getPrinter().print();
     }
 
     @Override
     public void executer() {
 
-		/*
-		saving line context
-		 */
+        //Pullback all RedoHistory to UndoHistory
+        //Current Coding Cursor
+        while (!CancelableLinComm.redoLineHistory.isEmpty()) {
+            CancelableLinComm.undoLineHistory.push(CancelableLinComm.redoLineHistory.pull());
+        }
 
+        if(!CancelableLinComm.redoLineHistory.isEmpty()) System.err.println("!!!!!!C'est pa normal, la pile de redo doit etre vide!!!!!!");
+        //saving current line context
         CancelableLinComm.undoLineHistory.push(clonableLine.lineClone());
     }
 

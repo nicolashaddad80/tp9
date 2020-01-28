@@ -1,0 +1,673 @@
+Test Results Undo/Redo after BugFix#2 Merge
+
+
+"C:\Program Files\Java\jdk-13.0.1\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.2.3\lib\idea_rt.jar=50733:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2019.2.3\bin" -Dfile.encoding=UTF-8 -classpath "C:\Users\az01993\OneDrive - Alliance\Documents\Perso\CNAM_2019_2020\NFP121\tps\out\production\tps;C:\Users\az01993\OneDrive - Alliance\Documents\Perso\CNAM_2019_2020\NFP121\tps\lib\hamcrest-core-1.3.jar;C:\Users\az01993\OneDrive - Alliance\Documents\Perso\CNAM_2019_2020\NFP121\tps\lib\junit-4.12-extended-1.0.3.jar;C:\Users\az01993\OneDrive - Alliance\Documents\Perso\CNAM_2019_2020\NFP121\tps\lib\junit-4.12.jar" fr.cnam.tp9.tests.HistoryEditorTest
+--------------------------------------------------------
+			Je suis la ligne a editer:
+~
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+-) Remplacer le caractere sous le curseur   		[r]
+-) Supprimer le caractere sous le curseur   		[x]
+-) Ajouter un caractere avant le curseur    		[i]
+-) Ajouter un caractere apres le curseur    		[a]
+-) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-) Undo		[-]
+-) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+1
+Tapez un caractere 
+A
+--------------------------------------------------------
+			Je suis la ligne a editer:
+[A]
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+B
+Il faut choisir une commande valide:
+2
+Tapez un caractere 
+B
+--------------------------------------------------------
+			Je suis la ligne a editer:
+[A]B
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+3
+--------------------------------------------------------
+				Menu Curseur                              
+--------------------------------------------------------
+-) Placer le curseur au debut de la ligne    		[o]
+2) Avancer le curseur d une position a droite		[l]
+-) Reculer le curseur d une position a gauche		[h]
+6) Retour		[U]
+0) Quitter		[Q]
+--------------------------------------------------------
+Veuillez choisir la commande :
+2
+--------------------------------------------------------
+			Je suis la ligne a editer:
+A[B]
+--------------------------------------------------------
+				Menu Curseur                              
+--------------------------------------------------------
+1) Placer le curseur au debut de la ligne    		[o]
+-) Avancer le curseur d une position a droite		[l]
+3) Reculer le curseur d une position a gauche		[h]
+6) Retour		[U]
+0) Quitter		[Q]
+--------------------------------------------------------
+Veuillez choisir la commande :
+1
+--------------------------------------------------------
+			Je suis la ligne a editer:
+[A]B
+--------------------------------------------------------
+				Menu Curseur                              
+--------------------------------------------------------
+-) Placer le curseur au debut de la ligne    		[o]
+2) Avancer le curseur d une position a droite		[l]
+-) Reculer le curseur d une position a gauche		[h]
+6) Retour		[U]
+0) Quitter		[Q]
+--------------------------------------------------------
+Veuillez choisir la commande :
+2
+--------------------------------------------------------
+			Je suis la ligne a editer:
+A[B]
+--------------------------------------------------------
+				Menu Curseur                              
+--------------------------------------------------------
+1) Placer le curseur au debut de la ligne    		[o]
+-) Avancer le curseur d une position a droite		[l]
+3) Reculer le curseur d une position a gauche		[h]
+6) Retour		[U]
+0) Quitter		[Q]
+--------------------------------------------------------
+Veuillez choisir la commande :
+3
+--------------------------------------------------------
+			Je suis la ligne a editer:
+[A]B
+--------------------------------------------------------
+				Menu Curseur                              
+--------------------------------------------------------
+-) Placer le curseur au debut de la ligne    		[o]
+2) Avancer le curseur d une position a droite		[l]
+-) Reculer le curseur d une position a gauche		[h]
+6) Retour		[U]
+0) Quitter		[Q]
+--------------------------------------------------------
+Veuillez choisir la commande :
+U
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+4
+Tapez un caractere 
+R
+--------------------------------------------------------
+			Je suis la ligne a editer:
+[R]B
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+5
+--------------------------------------------------------
+			Je suis la ligne a editer:
+[B]
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+3
+--------------------------------------------------------
+				Menu Curseur                              
+--------------------------------------------------------
+-) Placer le curseur au debut de la ligne    		[o]
+-) Avancer le curseur d une position a droite		[l]
+-) Reculer le curseur d une position a gauche		[h]
+6) Retour		[U]
+0) Quitter		[Q]
+--------------------------------------------------------
+Veuillez choisir la commande :
+6
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+7
+Tapez un caractere 
+G
+--------------------------------------------------------
+			Je suis la ligne a editer:
+[B]G
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+6
+Tapez un caractere 
+J
+--------------------------------------------------------
+			Je suis la ligne a editer:
+J[B]G
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+_
+Il faut choisir une commande valide:
+8
+--------------------------------------------------------
+			Je suis la ligne a editer:
+~
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+-) Remplacer le caractere sous le curseur   		[r]
+-) Supprimer le caractere sous le curseur   		[x]
+-) Ajouter un caractere avant le curseur    		[i]
+-) Ajouter un caractere apres le curseur    		[a]
+-) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+1
+Tapez un caractere 
+R
+--------------------------------------------------------
+			Je suis la ligne a editer:
+[R]
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+-
+--------------------------------------------------------
+			Je suis la ligne a editer:
+~
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+-) Remplacer le caractere sous le curseur   		[r]
+-) Supprimer le caractere sous le curseur   		[x]
+-) Ajouter un caractere avant le curseur    		[i]
+-) Ajouter un caractere apres le curseur    		[a]
+-) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-2) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
++
+--------------------------------------------------------
+			Je suis la ligne a editer:
+[R]
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+-
+--------------------------------------------------------
+			Je suis la ligne a editer:
+~
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+-) Remplacer le caractere sous le curseur   		[r]
+-) Supprimer le caractere sous le curseur   		[x]
+-) Ajouter un caractere avant le curseur    		[i]
+-) Ajouter un caractere apres le curseur    		[a]
+-) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-2) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+-
+--------------------------------------------------------
+			Je suis la ligne a editer:
+J[B]G
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-2) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
++
+--------------------------------------------------------
+			Je suis la ligne a editer:
+~
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+-) Remplacer le caractere sous le curseur   		[r]
+-) Supprimer le caractere sous le curseur   		[x]
+-) Ajouter un caractere avant le curseur    		[i]
+-) Ajouter un caractere apres le curseur    		[a]
+-) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-2) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
++
+--------------------------------------------------------
+			Je suis la ligne a editer:
+[R]
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+-
+--------------------------------------------------------
+			Je suis la ligne a editer:
+~
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+-) Remplacer le caractere sous le curseur   		[r]
+-) Supprimer le caractere sous le curseur   		[x]
+-) Ajouter un caractere avant le curseur    		[i]
+-) Ajouter un caractere apres le curseur    		[a]
+-) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-2) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+-
+--------------------------------------------------------
+			Je suis la ligne a editer:
+J[B]G
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-2) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+-
+--------------------------------------------------------
+			Je suis la ligne a editer:
+[B]G
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-2) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+-
+--------------------------------------------------------
+			Je suis la ligne a editer:
+[B]
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-2) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+-
+--------------------------------------------------------
+			Je suis la ligne a editer:
+[R]B
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-2) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+-
+--------------------------------------------------------
+			Je suis la ligne a editer:
+[A]B
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-2) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+-
+--------------------------------------------------------
+			Je suis la ligne a editer:
+A[B]
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-2) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+-
+--------------------------------------------------------
+			Je suis la ligne a editer:
+[A]B
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-2) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+-
+--------------------------------------------------------
+			Je suis la ligne a editer:
+A[B]
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-2) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+-
+--------------------------------------------------------
+			Je suis la ligne a editer:
+[A]B
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-2) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+-
+--------------------------------------------------------
+			Je suis la ligne a editer:
+[A]
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+4) Remplacer le caractere sous le curseur   		[r]
+5) Supprimer le caractere sous le curseur   		[x]
+6) Ajouter un caractere avant le curseur    		[i]
+7) Ajouter un caractere apres le curseur    		[a]
+8) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-1) Undo		[-]
+-2) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+-
+--------------------------------------------------------
+			Je suis la ligne a editer:
+~
+--------------------------------------------------------
+				Menu Principal
+--------------------------------------------------------
+1) Ajouter un caractere au debut de la ligne		[I]
+2) Ajouter un caractere a la fin de la ligne		[A]
+3) Menu Curseur                              		[C]
+-) Remplacer le caractere sous le curseur   		[r]
+-) Supprimer le caractere sous le curseur   		[x]
+-) Ajouter un caractere avant le curseur    		[i]
+-) Ajouter un caractere apres le curseur    		[a]
+-) Supprimer tous les caracteres de la ligne		[dd]
+0) Quitter		[Q]
+-) Undo		[-]
+-2) Redo		[+]
+--------------------------------------------------------
+Veuillez choisir la commande :
+-
+Il faut choisir une commande valide:

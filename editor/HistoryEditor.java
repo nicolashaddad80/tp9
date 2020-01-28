@@ -6,7 +6,6 @@ import fr.cnam.tp9.editor.editorcommands.UndoCommand;
 import fr.cnam.tp9.editor.specification.HisEditor;
 import fr.cnam.tp9.history.HistoryImp;
 import fr.cnam.tp9.history.specification.History;
-import fr.cnam.tp9.line.specification.ClonableLine;
 import fr.cnam.tp9.menu.EntryImp;
 import fr.cnam.tp9.menu.specification.Entry;
 import fr.cnam.tp9.menu.specification.Menu;
@@ -78,6 +77,11 @@ public class HistoryEditor extends SimpleEditor implements HisEditor {
             /* if the command is Cancellable save command here for undo it later if the user chooses Undo from Menu
              */
             if (a_Command.isCancellable()) {
+                //Pullback all RedoHistory to UndoHistory
+                //Current Coding Cursor
+                while (!this.redoHistory.isEmpty()) {
+                    this.undoHistory.push(this.redoHistory.pull());
+                }
                 this.undoHistory.push(a_Command);
             }
 
@@ -102,21 +106,4 @@ public class HistoryEditor extends SimpleEditor implements HisEditor {
             }
         } while (!this.currentMenu.choiceIsQuit());
     }
-
-
-
-
-/*
-	private void restoreLine( Line a_Line )
-	{
-
-	}
-
-*/
-
-    public void updateContext(ClonableLine a_previousLine) {
-
-    }
-
-
 }
