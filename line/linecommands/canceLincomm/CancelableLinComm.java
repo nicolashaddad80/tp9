@@ -17,6 +17,7 @@ public abstract class CancelableLinComm  implements Cancelable
 
 
 	protected static  History<ClonableLine> undoLineHistory;
+	protected static  History<ClonableLine> redoLineHistory;
 	protected static ClonableLine clonableLine;
 
 	/**
@@ -26,9 +27,10 @@ public abstract class CancelableLinComm  implements Cancelable
 
 	public CancelableLinComm( ClonableLine a_clonableLine )
 	{
-		clonableLine=a_clonableLine;
+		this.clonableLine=a_clonableLine;
 
-		undoLineHistory=new HistoryImp<ClonableLine>();
+		this.undoLineHistory=new HistoryImp<ClonableLine>();
+		this.redoLineHistory=new HistoryImp<ClonableLine>();
 	}
 
 
@@ -36,7 +38,16 @@ public abstract class CancelableLinComm  implements Cancelable
 	{
 
 		this.clonableLine=this.undoLineHistory.pull();
+		this.redoLineHistory.push(this.clonableLine);
 		this.clonableLine.getPrinter().print();
+	}
+
+	@Override
+	public void redo() {
+		//Current Coding Cursor
+		this.clonableLine=this.redoLineHistory.pull();
+		this.undoLineHistory.push(this.clonableLine);
+
 	}
 
 	@Override

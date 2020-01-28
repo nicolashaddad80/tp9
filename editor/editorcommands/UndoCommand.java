@@ -22,4 +22,9 @@ public class UndoCommand extends EditorCommand {
     public void undo() {
 
     }
+
+    @Override
+    public void redo() {
+
+    }
 }

@@ -17,8 +17,15 @@ DONE: Implement Undo
 DONE: use LinCom  commands to use Lincom.line instead of this.line
 
 
-Current coding cursor TODO V4.2: Implement Redo
+Current coding cursor TODO V4.2: Implement Redo:
+TODO _______________________________________________
+TODO Current coding cursor Make Redo executable when at least one undo was run Comment Sequence Diagram:don't loose the command but push it to redo history, undo do the same fore line history
 
+
+
+Don't forget to merge or reflache ? Redo History in undo history if needed once a new line command is executed (redo history flush)
+
+TODO ______________________________________________
 
 TODO V4.2: Change sub menu affectation
 TODO V4.2: Add eHisEditor Undo/Redo Commands to sub Menus

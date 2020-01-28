@@ -24,4 +24,9 @@ public class NoopCommand implements Cancelable {
     public void undo() {
 
     }
+
+    @Override
+    public void redo() {
+
+    }
 }
