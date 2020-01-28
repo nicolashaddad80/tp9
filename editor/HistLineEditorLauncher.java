@@ -4,9 +4,8 @@ import fr.cnam.tp9.command.specification.Cancelable;
 
 import fr.cnam.tp9.editor.specification.HisEditor;
 import fr.cnam.tp9.line.ClonableLineTab;
-import fr.cnam.tp9.line.linecommands.canceLincomm.*;
+import fr.cnam.tp9.line.linecommands.cancelinecomm.*;
 
-import fr.cnam.tp9.line.linecommands.simplelinComm.*;
 import fr.cnam.tp9.line.specification.ClonableLine;
 import fr.cnam.tp9.menu.EntryImp;
 import fr.cnam.tp9.menu.MenuImp;

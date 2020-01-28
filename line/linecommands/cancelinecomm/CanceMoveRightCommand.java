@@ -1,8 +1,6 @@
-package fr.cnam.tp9.line.linecommands.canceLincomm;
+package fr.cnam.tp9.line.linecommands.cancelinecomm;
 
-import fr.cnam.tp9.line.linecommands.simplelinComm.LineComm;
 import fr.cnam.tp9.line.specification.ClonableLine;
-import fr.cnam.tp9.line.specification.Line;
 
 public class CanceMoveRightCommand extends CancelableLinComm {
 
