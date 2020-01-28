@@ -47,6 +47,7 @@ public abstract class CancelableLinComm  implements Cancelable
 		//Current Coding Cursor
 		this.clonableLine=this.redoLineHistory.pull();
 		this.undoLineHistory.push(this.clonableLine);
+		this.clonableLine.getPrinter().print();
 
 	}
 
