@@ -11,12 +11,12 @@ public class ReplaceCommand extends AddCommand {
     }
 
     public void executer( ) {
-        line.replace(this.getCarToInsert());
-        line.getPrinter().print();
+        LineComm.line.replace(this.getCarToInsert());
+        LineComm.line.getPrinter().print();
     }
 
     @Override
 	public final boolean isExecutable( ){
-        return this.line.getCursorPos()>0;
+        return LineComm.line.getCursorPos()>0;
     }
 }

@@ -10,8 +10,8 @@ public class AddEndCommand extends AddCommand {
     }
 
     public void executer( ){
-        line.addEnd(this.getCarToInsert());
-        line.getPrinter().print();
+        LineComm.line.addEnd(this.getCarToInsert());
+        LineComm.line.getPrinter().print();
     }
 
     @Override

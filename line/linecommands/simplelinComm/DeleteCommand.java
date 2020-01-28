@@ -9,12 +9,12 @@ public class DeleteCommand extends LineComm {
     }
 
     public void executer( ) {
-        line.delete();
-        line.getPrinter().print();
+        LineComm.line.delete();
+        LineComm.line.getPrinter().print();
     }
 
     @Override
 	public final boolean isExecutable( ){
-        return this.line.getCursorPos()>0;
+        return LineComm.line.getCursorPos()>0;
     }
 }

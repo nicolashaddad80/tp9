@@ -10,29 +10,42 @@ _________________
 
 I)Niveau Architecture:
 ______________________
-//TODO V4.2: separate in packages Line CanceCommands and Commands
-//TODO V4.2: 1) Refactor Simple Editor need to pass him Menu through constructor param. DO ARCHITECTURE First then Auto generate code then complete
-//TODO V4.2: 1) Implement Unod/Redo
-//TODO V4.2: 1) Factoriser code de getChar pour AddCommand et CanceAddCommand
-//TODO V4.2:  Idea Parametrize Enty and or Menu to support new cancellable Commands
-//TODO V4.2:  Modifier MoopCommand pour permettre a quit command demettre a jour choice is quit attribut dans menuimp pour eviter instance of.
-//TODO V4.2: Chercher a eliminer le max de castes
+DONE: separate in packages Line CanceCommands and Commands
+DONE: Refactor Simple Editor need to pass him Menu through constructor param. DO ARCHITECTURE First then Auto generate code then complete
+DONE: Implement Undo
 
-//TODO V4.2: Clean *.bak before release
-////TODO V4.2: 1) Class Static avec une methode static pour remplire le menu.
-//TODO V4.2: 2) Trouver une solution pour rajouter un Printer a AddCommands (celui de la line de préférence a AddCommand".
-//TODO V4.2: 3) moove fille() Menu methode from SimpleEditor to SimpleEditorTest
-//TODO V4.2: Nice To have  3) Create recursive data type to give as argue to fille menu if possible
-//TODO V4.2: Review LinComm all sone classes, they should use rignt syntaxe to use teh statis atribut Line.
-//TODO V4.2: 4) Parametrer l'Editor au lieu de le lui imposer a travailler sur une line
+Current coding cursor TODO V4.2: use LinCom  commands to use Lincom.line instead of this.line
+TODO V4.2: Implement Redo
+TODO V4.2: Change sub menu affectation
+TODO V4.2: Add eHisEditor Undo/Redo Commands to sub Menus
 
-//TODO V4.2 BUGFIX1: when quit is invoked just after launching (without adding any operation there is issue type between command and cancelable
 
-4)Ajouter un Proxy a Editor
 
-4)Rajouter un navigateur a Editor
-5)Rajouter un muxer a editor
-6)Rajouter un loader a editor.
+
+
+TODO V4.2: 1) Factoriser code de getChar pour AddCommand et CanceAddCommand
+
+TODO V4.2:  Modifier MoopCommand pour permettre a quit command demettre a jour choice is quit attribut dans menuimp pour eviter instance of.
+TODO V4.2: Chercher a eliminer le max de castes
+
+TODO V4.2: Clean *.bak before release
+
+TODO V4.2: 1) Class Static avec une methode static pour remplire le menu.
+TODO V4.2: 2) Trouver une solution pour rajouter un Printer a AddCommands (celui de la line de préférence a AddCommand".
+TODO V4.2: 3) moove fille() Menu methode from SimpleEditor to SimpleEditorTest
+TODO V4.2: Nice To have  3) Create recursive data type to give as argue to fille menu if possible
+TODO V4.2: Review LinComm all sone classes, they should use rignt syntaxe to use teh statis atribut Line.
+TODO V4.2: 4) Parametrer l'Editor au lieu de le lui imposer a travailler sur une line
+
+TODO V4.2: Rajouter un loader a editorLAncher.
+TODO V4.2: Release 4.2
+Cancelled due to short time moove to //Todo Arch++:  Idea Parametrize Enty and or Menu to support new cancellable Commands
+
+
+//TODO Arch++: Ajouter un Proxy a Editor
+
+//TODO Arch++: Rajouter un navigateur a Editor
+//TODO Arch++: Rajouter un muxer a editor
 
 
 II)Niveau fonctionnel:

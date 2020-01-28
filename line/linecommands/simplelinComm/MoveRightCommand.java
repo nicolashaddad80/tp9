@@ -9,12 +9,12 @@ public class MoveRightCommand extends LineComm {
     }
 
     public void executer( ) {
-        line.moveRight();
-        line.getPrinter().print();
+        LineComm.line.moveRight();
+        LineComm.line.getPrinter().print();
     }
 
     @Override
 	public final boolean isExecutable( ){
-        return this.line.getCursorPos()<this.line.getLength();
+        return LineComm.line.getCursorPos()<this.line.getLength();
     }
 }

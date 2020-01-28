@@ -10,14 +10,14 @@ public class DeleteAllCommand extends LineComm {
 
     public void executer( ) {
 
-        while (this.line.getLength()>0) {
-            line.delete();
+        while (LineComm.line.getLength()>0) {
+            LineComm.line.delete();
         }
-        line.getPrinter().print();
+        LineComm.line.getPrinter().print();
     }
 
     @Override
 	public final boolean isExecutable( ){
-        return this.line.getLength()>0;
+        return LineComm.line.getLength()>0;
     }
 }

@@ -10,7 +10,7 @@ public abstract class LineComm implements Command {
 
 
     public LineComm( Line a_Line ) {
-        line = a_Line;
+        LineComm.line = a_Line;
     }
 
 

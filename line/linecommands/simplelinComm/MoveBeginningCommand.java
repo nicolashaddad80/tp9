@@ -10,13 +10,13 @@ public class MoveBeginningCommand extends LineComm {
 
 
     public void executer( ) {
-        line.moveBeginning();
-        line.getPrinter().print();
+        LineComm.line.moveBeginning();
+        LineComm.line.getPrinter().print();
     }
 
 
     @Override
 	public final boolean isExecutable( ){
-        return this.line.getCursorPos()>1;
+        return LineComm.line.getCursorPos()>1;
     }
 }

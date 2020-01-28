@@ -16,6 +16,6 @@ public class AddBeforeCommand extends AddCommand {
 
     @Override
 	public final boolean isExecutable( ){
-        return this.line.getCursorPos()>0;
+        return LineComm.line.getCursorPos()>0;
     }
 }
