@@ -6,7 +6,6 @@ import fr.cnam.tp9.history.HistoryImp;
 import fr.cnam.tp9.history.specification.History;
 import fr.cnam.tp9.line.specification.ClonableLine;
 
-
 public abstract class CancelableLinComm implements Cancelable {
     /**
      * Attributes

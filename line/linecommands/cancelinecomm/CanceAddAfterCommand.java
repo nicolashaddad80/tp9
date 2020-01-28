@@ -17,6 +17,6 @@ public class CanceAddAfterCommand extends CanceAddCommand {
 
     @Override
 	public final boolean isExecutable( ){
-        return this.clonableLine.getCursorPos()>0;
+        return CancelableLinComm.clonableLine.getCursorPos()>0;
     }
 }

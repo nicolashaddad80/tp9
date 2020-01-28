@@ -160,7 +160,7 @@ public class MenuImp extends EntryImp implements Menu {
 
     public void add( Entry menuComp ) {
         if (menuComp.isMenu()) {
-            EntryImp back = new EntryImp(this.entree.size() + 1, "Retour", new MenuUpCommand(), "U");
+            EntryImp back = new EntryImp(((MenuImp) menuComp).entree.size(), "Retour", new MenuUpCommand(), "U");
             ((MenuImp) menuComp).add(back);
             ((MenuImp) menuComp).parent = this;
 
