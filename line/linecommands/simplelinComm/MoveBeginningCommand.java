@@ -1,4 +1,4 @@
-package fr.cnam.tp9.line.linecommands;
+package fr.cnam.tp9.line.linecommands.simplelinComm;
 
 import fr.cnam.tp9.line.specification.Line;
 
@@ -8,8 +8,10 @@ public class MoveBeginningCommand extends LineComm {
         super(a_Line);
     }
 
+
     public void executer( ) {
         line.moveBeginning();
+        line.getPrinter().print();
     }
 
 

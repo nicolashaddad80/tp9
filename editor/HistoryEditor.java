@@ -1,44 +1,54 @@
 package fr.cnam.tp9.editor;
 
+import fr.cnam.tp9.command.specification.Cancelable;
 import fr.cnam.tp9.editor.specification.HisEditor;
 import fr.cnam.tp9.line.specification.ClonableLine;
-import fr.cnam.tp9.line.specification.Line;
-import fr.cnam.tp9.command.specification.Command;
 import fr.cnam.tp9.editor.editorcommands.UndoCommand;
 import fr.cnam.tp9.editor.editorcommands.RedoCommand;
 import fr.cnam.tp9.history.specification.History;
+import fr.cnam.tp9.menu.specification.Entry;
 import fr.cnam.tp9.menu.specification.Menu;
 import fr.cnam.tp9.menu.EntryImp;
 import fr.cnam.tp9.history.HistoryImp;
 
 public class HistoryEditor extends SimpleEditor implements HisEditor {
 
-    private History<Line> undoHistory;
-    private History<Line> redoHistory;
+    private History<Cancelable> undoHistory;
+    private History<Cancelable> redoHistory;
 
-    public int toto=0;
 
-    public HistoryEditor( Menu a_Menu, ClonableLine a_ClonableLine ) {
-        super(a_Menu,a_ClonableLine);
-        this.undoHistory = new HistoryImp<Line>();
-        this.redoHistory = new HistoryImp<Line>();
-        this.currentMenu.add(new EntryImp(-1,"Undo", new UndoCommand(this), "-"));
-        this.currentMenu.add(new EntryImp(-2,"Redo", new RedoCommand(this), "+"));
+    public HistoryEditor(Menu a_Menu) {
+        super(a_Menu);
+
+        this.undoHistory = new HistoryImp<Cancelable>();
+        this.redoHistory = new HistoryImp<Cancelable>();
+
+        this.currentMenu.add(new EntryImp(-1, "Undo", new UndoCommand(this), "-"));
+        this.currentMenu.add(new EntryImp(-2, "Redo", new RedoCommand(this), "+"));
     }
 
-	
-	@Override
-	public History<Line> getUndoHistory( ) {
+
+    @Override
+    public History<Cancelable> getUndoHistory() {
         return this.undoHistory;
     }
 
     @Override
-	public History<Line> getRedoHistory( ) {
+    public History<Cancelable> getRedoHistory() {
         return this.redoHistory;
     }
 
     @Override
-	public void redo( ) {
+    public void undo() {
+
+
+        Cancelable previousCommand = this.undoHistory.pull();
+        previousCommand.undo();
+
+    }
+
+    @Override
+    public void redo() {
 /*
         Line previousLine = this.redoHistory.pull();
         this.undoHistory.push(this.line.clone());
@@ -47,42 +57,58 @@ public class HistoryEditor extends SimpleEditor implements HisEditor {
  */
     }
 
-    @Override
-	public void undo( ) {
-        /*
-        Line previousLine = this.undoHistory.pull();
-        this.redoHistory.push(this.line.clone());
-        this.restoreLine(previousLine);
 
-         */
-    }
+    //TODO Arch++:delegate to a proxy in further version7@
 
 
-    @Override
-	protected void execute( Command a_Command ) {
-        /*
-        if (a_Command.isCancellable()) {
-            this.undoHistory.push(this.line.clone());
+    protected void execute(Cancelable a_Command) {
 
+        if (a_Command.isExecutable()) {
+            if (a_Command.isExecutable()) {
+
+                a_Command.executer();
+                /* if the command is Cancellable save command here for undo it later if the user chooses Undo from Menu
+                 */
+                if (a_Command.isCancellable()) {
+                    this.undoHistory.push(a_Command);
+                }
+            }
         }
-        super.execute(a_Command);
-
-         */
     }
+
+
+    @Override
+    public void editer() {
+        do {
+
+            this.currentMenu.getPrinter().print();
+
+            Entry choice = this.currentMenu.proposer();
+
+            if (choice.isMenu()) {
+                this.currentMenu = (Menu) choice;
+            } else {
+                //TODO Arch++:delegate to a proxy in further version
+                //TODO casting without check but we already know that we aonly instered Cancellable commands, =>TryCatch or Reachitecture to have less Exception to through
+                this.execute((Cancelable)choice.getCommand());
+            }
+        } while (!this.currentMenu.choiceIsQuit());
+    }
+
+
+
+
 /*
-    private void restoreLine( Line a_Line ) {
-        this.line = a_Line;
-        for (int i = 0; i < this.nbLineCommands; i++) ((LineComm)this.lineCommandsTable[i]).restoreContext(a_Line);
-    }
-
- */
-
-
-
 	private void restoreLine( Line a_Line )
 	{
-		
+
 	}
-	
-	
+
+*/
+
+    public void updateContext(ClonableLine a_previousLine) {
+
+    }
+
+
 }

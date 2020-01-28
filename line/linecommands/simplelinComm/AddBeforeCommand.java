@@ -1,4 +1,4 @@
-package fr.cnam.tp9.line.linecommands;
+package fr.cnam.tp9.line.linecommands.simplelinComm;
 
 import fr.cnam.tp9.line.specification.Line;
 
@@ -10,7 +10,8 @@ public class AddBeforeCommand extends AddCommand {
     }
 
     public void executer( ){
-        line.addBefore(this.getCarToInsert());
+        LineComm.line.addBefore(this.getCarToInsert());
+        LineComm.line.getPrinter().print();
     }
 
     @Override

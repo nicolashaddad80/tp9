@@ -1,4 +1,4 @@
-package fr.cnam.tp9.line.linecommands;
+package fr.cnam.tp9.line.linecommands.simplelinComm;
 
 import fr.cnam.tp9.line.specification.Line;
 import java.util.Scanner;
@@ -9,10 +9,10 @@ public abstract class AddCommand extends LineComm {
         super(a_Line);
     }
 
-    protected char getCarToInsert( ){
+    protected final char getCarToInsert( ){
 
         Scanner myCharReader = new Scanner(System.in);
-        System.out.println("Tapez le caractere a rajouter");
+        System.out.println("Tapez un caractere ");
         return myCharReader.next().charAt(0);
     }
 

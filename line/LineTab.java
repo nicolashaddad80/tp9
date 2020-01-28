@@ -28,7 +28,7 @@ public class LineTab implements Line {
     /**
 	 * Attributes
 	 */
-	private PrintStream lineOutStream;
+	protected PrintStream lineOutStream;
 
     /**
 	 * Tableau de stockage des carastères de la ligne
@@ -365,18 +365,4 @@ public class LineTab implements Line {
         }
         System.out.print("\n");
     }
-
-
-    @Override
-	public Line clone( ) {
-        LineTab clone_Line = new LineTab(this.lineOutStream);
-        clone_Line.cursorPosition = this.cursorPosition;
-
-        clone_Line.carTable = new char[this.getLength()];
-        System.arraycopy(this.carTable, 0, clone_Line.carTable, 0, this.getLength());
-
-
-        return clone_Line;
-    }
-
 }

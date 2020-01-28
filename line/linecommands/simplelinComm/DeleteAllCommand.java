@@ -1,4 +1,4 @@
-package fr.cnam.tp9.line.linecommands;
+package fr.cnam.tp9.line.linecommands.simplelinComm;
 
 import fr.cnam.tp9.line.specification.Line;
 
@@ -13,6 +13,7 @@ public class DeleteAllCommand extends LineComm {
         while (this.line.getLength()>0) {
             line.delete();
         }
+        line.getPrinter().print();
     }
 
     @Override

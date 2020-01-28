@@ -1,16 +1,16 @@
-package fr.cnam.tp9;
+package fr.cnam.tp9.editor;
 
 import java.io.PrintStream;
+
+import fr.cnam.tp9.line.linecommands.simplelinComm.*;
 import fr.cnam.tp9.menu.specification.Entry;
 import fr.cnam.tp9.line.specification.Line;
 import fr.cnam.tp9.line.LineTab;
 import fr.cnam.tp9.editor.specification.Editor;
 import fr.cnam.tp9.command.specification.Command;
-import fr.cnam.tp9.editor.SimpleEditor;
 import fr.cnam.tp9.menu.specification.Menu;
 import fr.cnam.tp9.menu.EntryImp;
 import fr.cnam.tp9.menu.MenuImp;
-import fr.cnam.tp9.line.linecommands.*;
 
 public class SimpleLineEditorLauncher {
     PrintStream linePrinterOutputPort = System.out;
@@ -26,7 +26,7 @@ public class SimpleLineEditorLauncher {
          */
         this.myMenu = new MenuImp(0, "Menu Principal", "", menuPrinterOutputPort);
         this.myLineTab = new LineTab(linePrinterOutputPort);
-        this.mySimpleEditor = new SimpleEditor(myMenu, myLineTab);
+        this.mySimpleEditor = new SimpleEditor(myMenu);
 
         /* Filing menu and put there desired Commands
          */
@@ -34,7 +34,7 @@ public class SimpleLineEditorLauncher {
 
     }
 
-    private void fillMenu( ) {
+    private void fillMenu() {
 
         Command[] lineCommandsTable = new LineComm[20];
 
@@ -87,6 +87,7 @@ public class SimpleLineEditorLauncher {
 
 
     public void start( ) {
+        this.myLineTab.getPrinter().print();
         this.mySimpleEditor.editer();
     }
 }

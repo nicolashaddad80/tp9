@@ -4,9 +4,12 @@
 
 package fr.cnam.tp9.line.specification;
 
+import fr.cnam.tp9.line.LineTab;
+
 public interface ClonableLine extends Line
 {
-	ClonableLine lineClone( );
-	
+
+
+	public ClonableLine lineClone( );
 	
 }

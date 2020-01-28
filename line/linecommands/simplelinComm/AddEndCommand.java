@@ -1,4 +1,4 @@
-package fr.cnam.tp9.line.linecommands;
+package fr.cnam.tp9.line.linecommands.simplelinComm;
 
 import fr.cnam.tp9.line.specification.Line;
 
@@ -11,6 +11,7 @@ public class AddEndCommand extends AddCommand {
 
     public void executer( ){
         line.addEnd(this.getCarToInsert());
+        line.getPrinter().print();
     }
 
     @Override
