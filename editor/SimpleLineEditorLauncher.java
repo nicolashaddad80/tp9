@@ -2,7 +2,7 @@ package fr.cnam.tp9.editor;
 
 import java.io.PrintStream;
 
-import fr.cnam.tp9.line.linecommands.simplelinComm.*;
+import fr.cnam.tp9.line.linecommands.simplelinecomm.*;
 import fr.cnam.tp9.menu.specification.Entry;
 import fr.cnam.tp9.line.specification.Line;
 import fr.cnam.tp9.line.LineTab;

@@ -1,6 +1,5 @@
-package fr.cnam.tp9.line.linecommands.simplelinComm;
+package fr.cnam.tp9.line.linecommands.simplelinecomm;
 
-import fr.cnam.tp9.line.linecommands.simplelinComm.AddCommand;
 import fr.cnam.tp9.line.specification.Line;
 
 public class ReplaceCommand extends AddCommand {

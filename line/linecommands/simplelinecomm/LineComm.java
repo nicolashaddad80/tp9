@@ -1,4 +1,4 @@
-package fr.cnam.tp9.line.linecommands.simplelinComm;
+package fr.cnam.tp9.line.linecommands.simplelinecomm;
 
 
 import fr.cnam.tp9.line.specification.Line;

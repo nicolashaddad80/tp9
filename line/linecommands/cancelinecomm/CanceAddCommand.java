@@ -1,4 +1,4 @@
-package fr.cnam.tp9.line.linecommands.canceLincomm;
+package fr.cnam.tp9.line.linecommands.cancelinecomm;
 
 
 import fr.cnam.tp9.line.specification.ClonableLine;
