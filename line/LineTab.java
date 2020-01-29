@@ -22,6 +22,7 @@ public class LineTab implements Line {
      * La position du curseur pointant sur le caractère courant
      */
     protected int cursorPosition;
+
     /**
      * Constructeur de notre ligne  "ligne vide a la créationé
      */

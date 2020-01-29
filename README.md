@@ -1,10 +1,15 @@
 # nfp121-tp9
-CNAM 2019-2020 NFP121 TP9
+CNAM 2019-2020 NFP121 
+====================
+||TP9 Release V4.2||
+===================
+In this Release:
 
 ================================================================================
 0) BUGFIX:
 ================================================================================
 V4.2 BUGFIX Begin____________________________________________________________
+Fixed: Whene inserting new char if Redo is active some thing is strange (iserted extra line or loosed line
 V4.2 BUGFIX End____________________________________________________________
 
 ================================================================================
@@ -20,7 +25,7 @@ DONE: Implement Redo:
 DONE: moove fille() Menu methode from SimpleEditor to SimpleEditorTest
 DONE: Review LinComm all sone classes, they should use rignt syntaxe to use teh statis atribut Line.
 DONE: Rajouter un loader a editorLancher.
-TODO V4.2: Moove Enty point Menus in launchers
+DONE: Moove Enty point Menus in launchers
 DONE V4.2 ARCH End____________________________________________________________
 
 DONE V4.3 ARCH Begin____________________________________________________________
@@ -38,8 +43,16 @@ DONE V4.3 ARCH End___________________________________________________________
 ================================================================================
 II)Niveau fonctionnel:
 ================================================================================
-TODO V4.3: les exceptions
+
+DONE V4.2 Functional Begin____________________________________________________________
+DONE: les exceptions
+DONE V4.2 Functional End____________________________________________________________
+
+DONE V4.2 Functional Begin____________________________________________________________
 TODO V4.3: Rajouter un nombre maximal de retry losque l'utilisateur rentre n'importe quoi
+DONE V4.3 Functional End____________________________________________________________
+
+=============================================================================
 III)Niveau Cleanning Code
 ================================================================================
 TODO V4.2: Clean *.bak before release
@@ -71,4 +84,3 @@ TODO V4.2: Release 4.2
 TODO V4.2: Publish by mailing
 DONE V4.2 Release END____________________________________________________________
 ================================================================================
-

@@ -40,13 +40,12 @@ public abstract class CancelableLinComm implements Cancelable {
     protected final void saveExecContext() {
 
         //Pullback all RedoHistory to UndoHistory
-
         while (!CancelableLinComm.redoLineHistory.isEmpty()) {
-            //Probable nedded BUGFIX need to test more when this pull back is done may be the last line should not be pushed to undo history but just consum with Lincom change condition to .size>1?
+
             CancelableLinComm.undoLineHistory.push(CancelableLinComm.redoLineHistory.pull());
         }
         //saving current line context
-        CancelableLinComm.undoLineHistory.push(clonableLine.lineClone());
+        CancelableLinComm.undoLineHistory.push(CancelableLinComm.clonableLine.lineClone());
     }
 
     /**
