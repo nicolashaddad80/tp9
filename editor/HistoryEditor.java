@@ -36,7 +36,6 @@ public class HistoryEditor extends SimpleEditor implements HisEditor {
     @Override
     public void undo() {
 
-        //Current Coding Cursor
         Cancelable previousCommand = this.undoHistory.pull();
         this.redoHistory.push(previousCommand);
 
@@ -67,7 +66,7 @@ public class HistoryEditor extends SimpleEditor implements HisEditor {
              */
             if (a_Command.isCancellable()) {
                 //Pullback all RedoHistory to UndoHistory
-                //Current Coding Cursor
+
                 while (!this.redoHistory.isEmpty()) {
                     this.undoHistory.push(this.redoHistory.pull());
                 }
@@ -90,7 +89,6 @@ public class HistoryEditor extends SimpleEditor implements HisEditor {
                 this.currentMenu = (Menu) choice;
             } else {
                 //TODO Arch++:delegate to a proxy in further version
-                //TODO casting without check but we already know that we aonly instered Cancellable commands, =>TryCatch or Reachitecture to have less Exception to through
                 this.execute((Cancelable) choice.getCommand());
             }
         } while (this.currentMenu.choiceIsQuit());

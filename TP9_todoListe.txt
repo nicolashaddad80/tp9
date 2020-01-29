@@ -2,7 +2,7 @@
 0) BUGFIX:
 ================================================================================
 V4.2 BUGFIX Begin____________________________________________________________
-V4.2: BUGFIX1: Whene inserting new char if Redo is active some thing is strange (iserted extra line or loosed line
+Fixed: Whene inserting new char if Redo is active some thing is strange (iserted extra line or loosed line
 V4.2 BUGFIX End____________________________________________________________
 
 ================================================================================

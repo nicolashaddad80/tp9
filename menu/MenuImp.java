@@ -23,6 +23,7 @@ public class MenuImp extends EntryImp implements Menu {
     private final fr.cnam.tp9.menu.MenuImp.MenuPrinter menuPrinter;
     private fr.cnam.tp9.menu.MenuImp parent = this;
     private Entry choice = this;
+
     public MenuImp(int a_MenuNum, String a_text, String a_Shortcut, PrintStream a_menuOutStream) {
         super(a_MenuNum, a_text, new NoopCommand(), a_Shortcut);
         this.menuPrinter = new MenuPrinter(a_menuOutStream);
