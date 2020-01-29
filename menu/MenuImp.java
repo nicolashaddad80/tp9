@@ -80,42 +80,46 @@ public class MenuImp extends EntryImp implements Menu {
             it = sortedEntry.iterator();
         }
 
-        while (it.hasNext()) {
-            Integer entryKey = it.next();
-            Entry entry = entree.get(entryKey);
+        if (it != null) {
+            while (it.hasNext()) {
+                Integer entryKey = it.next();
+                Entry entry = entree.get(entryKey);
 
-            if (entryKey.intValue() > 0) {
-                if (entry.getCommand().isExecutable()) {
+                if (entryKey > 0) {
+                    if (entry.getCommand().isExecutable()) {
 
-                    menuElementsString.append(TextColor.GREEN.set).append(entryKey).append(TextColor.DEFAULT.set);
-                    menuElementsString.append(") ").append(entry.toString()).append("\t\t[").append(TextColor.GREEN.set).append(entry.getShortcut()).append(TextColor.DEFAULT.set).append("]\n");
-                } else {
-                    menuElementsString.append(TextColor.RED.set).append("-").append(TextColor.DEFAULT.set);
-                    menuElementsString.append(") ").append(entry.toString()).append("\t\t[").append(TextColor.RED.set).append(entry.getShortcut()).append(TextColor.DEFAULT.set).append("]\n");
+                        menuElementsString.append(TextColor.GREEN.set).append(entryKey).append(TextColor.DEFAULT.set);
+                        menuElementsString.append(") ").append(entry.toString()).append("\t\t[").append(TextColor.GREEN.set).append(entry.getShortcut()).append(TextColor.DEFAULT.set).append("]\n");
+                    } else {
+                        menuElementsString.append(TextColor.RED.set).append("-").append(TextColor.DEFAULT.set);
+                        menuElementsString.append(") ").append(entry.toString()).append("\t\t[").append(TextColor.RED.set).append(entry.getShortcut()).append(TextColor.DEFAULT.set).append("]\n");
+
+                    }
 
                 }
 
             }
-
         }
 
-        Collections.reverse(sortedEntry);
-        it = sortedEntry.iterator();
+        if (sortedEntry != null) {
+            Collections.reverse(sortedEntry);
+            it = sortedEntry.iterator();
+        }
 
-        while (it.hasNext()) {
-            Integer entryKey = (Integer) it.next();
-            Entry entry = entree.get(entryKey);
-            if (entryKey.intValue() <= 0) {
-                if (entry.getCommand().isExecutable()) {
-                    menuElementsString.append(TextColor.GREEN.set).append(entryKey).append(TextColor.DEFAULT.set);
-                    menuElementsString.append(") ").append(entry.toString()).append("\t\t[").append(TextColor.GREEN.set).append(entry.getShortcut()).append(TextColor.DEFAULT.set).append("]\n");
-                } else {
-                    menuElementsString.append(TextColor.RED.set).append("-").append(TextColor.DEFAULT.set);
-                    menuElementsString.append(") ").append(entry.toString()).append("\t\t[").append(TextColor.RED.set).append(entry.getShortcut()).append(TextColor.DEFAULT.set).append("]\n");
+        if (it != null) {
+            while (it.hasNext()) {
+                Integer entryKey = it.next();
+                Entry entry = entree.get(entryKey);
+                if (entryKey <= 0) {
+                    if (entry.getCommand().isExecutable()) {
+                        menuElementsString.append(TextColor.GREEN.set).append(entryKey).append(TextColor.DEFAULT.set);
+                        menuElementsString.append(") ").append(entry.toString()).append("\t\t[").append(TextColor.GREEN.set).append(entry.getShortcut()).append(TextColor.DEFAULT.set).append("]\n");
+                    } else {
+                        menuElementsString.append(TextColor.RED.set).append("-").append(TextColor.DEFAULT.set);
+                        menuElementsString.append(") ").append(entry.toString()).append("\t\t[").append(TextColor.RED.set).append(entry.getShortcut()).append(TextColor.DEFAULT.set).append("]\n");
+                    }
                 }
-
             }
-
         }
 
         menuElementsString.append("--------------------------------------------------------\n");
