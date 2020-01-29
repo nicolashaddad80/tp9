@@ -1,73 +1,83 @@
 package fr.cnam.tp9.menu;
 
-import java.io.PrintStream;
-
+import fr.cnam.tp9.menu.menucommands.ExitCommand;
+import fr.cnam.tp9.menu.menucommands.MenuUpCommand;
+import fr.cnam.tp9.menu.menucommands.NoopCommand;
 import fr.cnam.tp9.menu.specification.Entry;
-import fr.cnam.tp9.printer.AbsPrinter;
-import java.util.*;
-import fr.cnam.tp9.printer.specification.Printer;
-import fr.cnam.tp9.menu.menucommands.*;
 import fr.cnam.tp9.menu.specification.Menu;
+import fr.cnam.tp9.printer.AbsPrinter;
+import fr.cnam.tp9.printer.specification.Printer;
 import fr.cnam.tp9.textformating.TextColor;
+
+import java.io.PrintStream;
+import java.util.*;
 
 public class MenuImp extends EntryImp implements Menu {
 
 
     /**
-	 * Private classes
-	 */
-	private class MenuPrinter extends AbsPrinter {
+     * Private classes
+     */
+    private class MenuPrinter extends AbsPrinter {
 
 
-        public MenuPrinter( PrintStream a_MenuPrinterPort ) {
+        public MenuPrinter(PrintStream a_MenuPrinterPort) {
             super(a_MenuPrinterPort);
         }
 
         @Override
-		public void print( ) {
+        public void print() {
             this.printerOutPort.print(afficher());
         }
     }
 
 
     /**
-	 * Attributes
-	 */
-	private final Hashtable<Integer,Entry> entree = new Hashtable<>(20);
-    private final Hashtable<String,Entry> shortcutTable = new Hashtable<>(20);
+     * Attributes
+     */
+    private final Hashtable<Integer, Entry> entree = new Hashtable<>(20);
+    private final Hashtable<String, Entry> shortcutTable = new Hashtable<>(20);
 
     private fr.cnam.tp9.menu.MenuImp parent = this;
     private Entry choice = this;
     private final fr.cnam.tp9.menu.MenuImp.MenuPrinter menuPrinter;
 
-    public MenuImp( int a_MenuNum, String a_text, String a_Shortcut, PrintStream a_menuOutStream ) {
+    public MenuImp(int a_MenuNum, String a_text, String a_Shortcut, PrintStream a_menuOutStream) {
         super(a_MenuNum, a_text, new NoopCommand(), a_Shortcut);
         this.menuPrinter = new MenuPrinter(a_menuOutStream);
         this.add(new EntryImp(0, "Quitter", new ExitCommand(), "Q"));
     }
 
     /**
-	 * Methods
-	 */
-	@Override
-	public Printer getPrinter( ) {
+     * Methods
+     */
+    @Override
+    public Printer getPrinter() {
         return menuPrinter;
     }
 
-    public String afficher( ) {
+    public String afficher() {
         StringBuilder menuElementsString = new StringBuilder("--------------------------------------------------------\n\t\t\t\t" + TextColor.GREEN.set + this.text + TextColor.DEFAULT.set + '\n' + "--------------------------------------------------------\n");
 
-        //Exception or Check with if
-        Vector sortedEntry = new Vector(entree.keySet());
+        Vector<Integer> sortedEntry = null;
+        try {
+            sortedEntry = new Vector<>(entree.keySet());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        //Exception or Check with if
-        Collections.sort(sortedEntry);
 
+        try {
+            if (sortedEntry != null)
+                Collections.sort(sortedEntry);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
-        Iterator it = sortedEntry.iterator();
+        Iterator<Integer> it = sortedEntry.iterator();
 
         while (it.hasNext()) {
-            Integer entryKey = (Integer) it.next();
+            Integer entryKey = it.next();
             Entry entry = entree.get(entryKey);
 
             if (entryKey.intValue() > 0) {
@@ -109,7 +119,7 @@ public class MenuImp extends EntryImp implements Menu {
         return menuElementsString.toString();
     }
 
-    public Entry proposer( ) {
+    public Entry proposer() {
 
         System.out.println("Veuillez choisir la commande :");
         boolean ok = false;
@@ -157,7 +167,7 @@ public class MenuImp extends EntryImp implements Menu {
 
     }
 
-    public void add( Entry menuComp ) {
+    public void add(Entry menuComp) {
         if (menuComp.isMenu()) {
             EntryImp back = new EntryImp(((MenuImp) menuComp).entree.size(), "Retour", new MenuUpCommand(), "U");
             ((MenuImp) menuComp).add(back);
@@ -169,16 +179,16 @@ public class MenuImp extends EntryImp implements Menu {
     }
 
 
-    public boolean choiceIsQuit( ) {
+    public boolean choiceIsQuit() {
         return !(this.choice.getCommand() instanceof ExitCommand);
     }
 
-    public boolean choiceIsNavigateUp( ) {
+    public boolean choiceIsNavigateUp() {
         return this.choice.getCommand() instanceof MenuUpCommand;
     }
 
     @Override
-	public final boolean isMenu( ) {
+    public final boolean isMenu() {
         return true;
     }
 }
