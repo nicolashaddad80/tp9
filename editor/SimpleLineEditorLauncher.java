@@ -67,8 +67,8 @@ public class SimpleLineEditorLauncher {
         mainMenuList[j++] = new EntryImp(j, "Ajouter un caractere au debut de la ligne", lineCommandsTable[c++], "I");
         mainMenuList[j++] = new EntryImp(j, "Ajouter un caractere a la fin de la ligne", lineCommandsTable[c++], "A");
         Menu cursorSubMenu = new MenuImp(j + 1, "Menu Curseur                              ", "C", menuPrinterOutputPort);
-        for (int k = 0; k < subMenuList.length; k++) {
-            cursorSubMenu.add(subMenuList[k]);
+        for (Entry entry : subMenuList) {
+            cursorSubMenu.add(entry);
         }
         mainMenuList[j++] = (Entry) cursorSubMenu;
         mainMenuList[j++] = new EntryImp(j, "Remplacer le caractere sous le curseur   ", lineCommandsTable[c++], "r");
@@ -78,8 +78,8 @@ public class SimpleLineEditorLauncher {
         mainMenuList[j++] = new EntryImp(j, "Supprimer tous les caracteres de la ligne", lineCommandsTable[c], "dd");
 
 
-        for (int k = 0; k < mainMenuList.length; k++) {
-            this.myMenu.add(mainMenuList[k]);
+        for (Entry entry : mainMenuList) {
+            this.myMenu.add(entry);
         }
 
     }
