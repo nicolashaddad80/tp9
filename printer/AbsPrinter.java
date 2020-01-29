@@ -1,7 +1,7 @@
-package fr.cnam.tp9.Printer;
+package fr.cnam.tp9.printer;
 
 import java.io.PrintStream;
-import fr.cnam.tp9.Printer.specification.Printer;
+import fr.cnam.tp9.printer.specification.Printer;
 
 public abstract class AbsPrinter implements Printer {
     protected PrintStream printerOutPort;

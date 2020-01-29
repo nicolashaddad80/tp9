@@ -2,7 +2,6 @@ package fr.cnam.tp9.editor.editorcommands;
 
 import fr.cnam.tp9.command.specification.Cancelable;
 import fr.cnam.tp9.editor.specification.HisEditor;
-import fr.cnam.tp9.command.specification.Command;
 
 public abstract class EditorCommand implements Cancelable {
     public HisEditor editor;

@@ -11,7 +11,7 @@ public enum TextColor {
 
     public final String set;
 
-    private TextColor( String label ) {
+    TextColor(String label) {
         this.set = label;
     }
 }

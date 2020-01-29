@@ -1,9 +1,9 @@
 package fr.cnam.tp9.line;
 
 import java.io.PrintStream;
-import fr.cnam.tp9.Printer.AbsPrinter;
+import fr.cnam.tp9.printer.AbsPrinter;
 import fr.cnam.tp9.line.specification.Line;
-import fr.cnam.tp9.Printer.specification.Printer;
+import fr.cnam.tp9.printer.specification.Printer;
 import fr.cnam.tp9.textformating.TextColor;
 
 public class LineTab implements Line {
@@ -23,8 +23,6 @@ public class LineTab implements Line {
         }
     }
 
-    ;
-
     /**
 	 * Attributes
 	 */
@@ -33,11 +31,11 @@ public class LineTab implements Line {
     /**
 	 * Tableau de stockage des carastères de la ligne
 	 */
-	protected char[] carTable = null;
+	protected char[] carTable;
     /**
 	 * La position du curseur pointant sur le caractère courant
 	 */
-	protected int cursorPosition = 0;
+	protected int cursorPosition;
     private Printer linePrinter;
 
     /**

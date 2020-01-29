@@ -1,13 +1,9 @@
-/**
- * @(#) ClonableLineTab.java
- */
-
 package fr.cnam.tp9.line;
 
 import java.io.PrintStream;
 import fr.cnam.tp9.line.specification.ClonableLine;
-import fr.cnam.tp9.line.specification.Line;
 
+@SuppressWarnings({"ALL", "JavaDoc"})
 public class ClonableLineTab extends LineTab implements ClonableLine
 {
 	/**
@@ -15,7 +11,8 @@ public class ClonableLineTab extends LineTab implements ClonableLine
 	 * 
 	 * @param a_lineOutStream
 	 */
-	public ClonableLineTab( PrintStream a_lineOutStream ) {
+	@SuppressWarnings("JavaDoc")
+	public ClonableLineTab(PrintStream a_lineOutStream ) {
 		super(a_lineOutStream);
 	}
 

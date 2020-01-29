@@ -4,9 +4,9 @@ import java.io.PrintStream;
 
 import fr.cnam.tp9.command.specification.Command;
 import fr.cnam.tp9.menu.specification.Entry;
-import fr.cnam.tp9.Printer.AbsPrinter;
+import fr.cnam.tp9.printer.AbsPrinter;
 import java.util.*;
-import fr.cnam.tp9.Printer.specification.Printer;
+import fr.cnam.tp9.printer.specification.Printer;
 import fr.cnam.tp9.menu.menucommands.*;
 import fr.cnam.tp9.menu.specification.Menu;
 import fr.cnam.tp9.textformating.TextColor;
@@ -29,8 +29,6 @@ public class MenuImp extends EntryImp implements Menu {
             this.printerOutPort.print(afficher());
         }
     }
-
-    ;
 
 
     /**
@@ -60,8 +58,10 @@ public class MenuImp extends EntryImp implements Menu {
     public String afficher( ) {
         String menuElementsString = "--------------------------------------------------------\n\t\t\t\t" + TextColor.GREEN.set + this.text + TextColor.DEFAULT.set + '\n' + "--------------------------------------------------------\n";
 
-
+        //Exception or Check with if
         Vector sortedEntry = new Vector(entree.keySet());
+
+        //Exception or Check with if
         Collections.sort(sortedEntry);
 
 
@@ -171,7 +171,7 @@ public class MenuImp extends EntryImp implements Menu {
 
 
     public boolean choiceIsQuit( ) {
-        return this.choice.getCommand() instanceof ExitCommand;
+        return !(this.choice.getCommand() instanceof ExitCommand);
     }
 
     public boolean choiceIsNavigateUp( ) {

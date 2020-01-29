@@ -1,12 +1,12 @@
 package fr.cnam.tp9.editor;
 
-import java.io.PrintStream;
 import fr.cnam.tp9.menu.specification.Entry;
 import fr.cnam.tp9.editor.specification.Editor;
 import fr.cnam.tp9.command.specification.Command;
 import fr.cnam.tp9.menu.specification.Menu;
 
 
+@SuppressWarnings("ALL")
 public class SimpleEditor implements Editor {
     /**
 	 * Attibuts
@@ -43,7 +43,7 @@ public class SimpleEditor implements Editor {
                 //TODO Arch++:delegate to a proxy in further version
                 this.execute(choice.getCommand());
             }
-        }while (!this.currentMenu.choiceIsQuit());
+        }while (this.currentMenu.choiceIsQuit());
     }
 
     //TODO Arch++:delegate to a proxy in further version

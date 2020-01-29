@@ -104,6 +104,6 @@ public class HistoryEditor extends SimpleEditor implements HisEditor {
                 //TODO casting without check but we already know that we aonly instered Cancellable commands, =>TryCatch or Reachitecture to have less Exception to through
                 this.execute((Cancelable) choice.getCommand());
             }
-        } while (!this.currentMenu.choiceIsQuit());
+        } while (this.currentMenu.choiceIsQuit());
     }
 }
