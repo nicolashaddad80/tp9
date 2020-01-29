@@ -2,7 +2,6 @@ package fr.cnam.tp9.menu;
 
 import java.io.PrintStream;
 
-import fr.cnam.tp9.command.specification.Command;
 import fr.cnam.tp9.menu.specification.Entry;
 import fr.cnam.tp9.printer.AbsPrinter;
 import java.util.*;
@@ -72,7 +71,7 @@ public class MenuImp extends EntryImp implements Menu {
             Entry entry = entree.get(entryKey);
 
             if (entryKey.intValue() > 0) {
-                if (((Command)entry.getCommand()).isExecutable()) {
+                if (entry.getCommand().isExecutable()) {
 
                     menuElementsString = menuElementsString + TextColor.GREEN.set + entryKey + TextColor.DEFAULT.set;
                     menuElementsString = menuElementsString + ") " + entry.toString() + "\t\t[" + TextColor.GREEN.set + entry.getShortcut() + TextColor.DEFAULT.set + "]\n";

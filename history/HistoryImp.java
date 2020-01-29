@@ -17,7 +17,7 @@ public class HistoryImp<T>  implements History<T> {
 
     @Override
 	public T pull( ) {
-        return (T)this.linesStack.pop();
+        return this.linesStack.pop();
     }
 
     @Override
