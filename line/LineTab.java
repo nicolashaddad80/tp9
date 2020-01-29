@@ -54,24 +54,24 @@ public class LineTab implements Line {
     }
 
     private String afficher( ) {
-        String lineString = "--------------------------------------------------------\n\t\t\t" + TextColor.GREEN.set + "Je suis la ligne a editer:\n" + TextColor.DEFAULT.set;
+        StringBuilder lineString = new StringBuilder("--------------------------------------------------------\n\t\t\t" + TextColor.GREEN.set + "Je suis la ligne a editer:\n" + TextColor.DEFAULT.set);
         if (this.getLength() == 0) {
-            lineString = lineString + TextColor.RED.set + '~' + TextColor.DEFAULT.set;
+            lineString.append(TextColor.RED.set).append('~').append(TextColor.DEFAULT.set);
         } else {
             for (int i = 0; i < this.getCursorPos() - 1; i++) {
 
-                lineString = lineString + TextColor.BLUE.set + this.carTable[i] + TextColor.DEFAULT.set;
+                lineString.append(TextColor.BLUE.set).append(this.carTable[i]).append(TextColor.DEFAULT.set);
             }
-            lineString = lineString + TextColor.RED.set + "[" + TextColor.DEFAULT.set + TextColor.BLACK.set + TextColor.Highlight.set + (this.carTable[this.getCursorPos() - 1]) + TextColor.DEFAULT.set + TextColor.RED.set + "]" + TextColor.DEFAULT.set;
+            lineString.append(TextColor.RED.set).append("[").append(TextColor.DEFAULT.set).append(TextColor.BLACK.set).append(TextColor.Highlight.set).append(this.carTable[this.getCursorPos() - 1]).append(TextColor.DEFAULT.set).append(TextColor.RED.set).append("]").append(TextColor.DEFAULT.set);
 
             for (int i = this.getCursorPos(); i < this.getLength(); i++) {
 
-                lineString = lineString + TextColor.BLUE.set + this.carTable[i] + TextColor.DEFAULT.set;
+                lineString.append(TextColor.BLUE.set).append(this.carTable[i]).append(TextColor.DEFAULT.set);
             }
         }
-        lineString = lineString + '\n';
+        lineString.append('\n');
 
-        return lineString;
+        return lineString.toString();
     }
 
     /**

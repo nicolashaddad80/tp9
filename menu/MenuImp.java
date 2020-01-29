@@ -55,7 +55,7 @@ public class MenuImp extends EntryImp implements Menu {
     }
 
     public String afficher( ) {
-        String menuElementsString = "--------------------------------------------------------\n\t\t\t\t" + TextColor.GREEN.set + this.text + TextColor.DEFAULT.set + '\n' + "--------------------------------------------------------\n";
+        StringBuilder menuElementsString = new StringBuilder("--------------------------------------------------------\n\t\t\t\t" + TextColor.GREEN.set + this.text + TextColor.DEFAULT.set + '\n' + "--------------------------------------------------------\n");
 
         //Exception or Check with if
         Vector sortedEntry = new Vector(entree.keySet());
@@ -73,11 +73,11 @@ public class MenuImp extends EntryImp implements Menu {
             if (entryKey.intValue() > 0) {
                 if (entry.getCommand().isExecutable()) {
 
-                    menuElementsString = menuElementsString + TextColor.GREEN.set + entryKey + TextColor.DEFAULT.set;
-                    menuElementsString = menuElementsString + ") " + entry.toString() + "\t\t[" + TextColor.GREEN.set + entry.getShortcut() + TextColor.DEFAULT.set + "]\n";
+                    menuElementsString.append(TextColor.GREEN.set).append(entryKey).append(TextColor.DEFAULT.set);
+                    menuElementsString.append(") ").append(entry.toString()).append("\t\t[").append(TextColor.GREEN.set).append(entry.getShortcut()).append(TextColor.DEFAULT.set).append("]\n");
                 } else {
-                    menuElementsString = menuElementsString + TextColor.RED.set + "-" + TextColor.DEFAULT.set;
-                    menuElementsString = menuElementsString + ") " + entry.toString() + "\t\t[" + TextColor.RED.set + entry.getShortcut() + TextColor.DEFAULT.set + "]\n";
+                    menuElementsString.append(TextColor.RED.set).append("-").append(TextColor.DEFAULT.set);
+                    menuElementsString.append(") ").append(entry.toString()).append("\t\t[").append(TextColor.RED.set).append(entry.getShortcut()).append(TextColor.DEFAULT.set).append("]\n");
 
                 }
 
@@ -93,20 +93,20 @@ public class MenuImp extends EntryImp implements Menu {
             Entry entry = entree.get(entryKey);
             if (entryKey.intValue() <= 0) {
                 if (entry.getCommand().isExecutable()) {
-                    menuElementsString = menuElementsString + TextColor.GREEN.set + entryKey + TextColor.DEFAULT.set;
-                    menuElementsString = menuElementsString + ") " + entry.toString() + "\t\t[" + TextColor.GREEN.set + entry.getShortcut() + TextColor.DEFAULT.set + "]\n";
+                    menuElementsString.append(TextColor.GREEN.set).append(entryKey).append(TextColor.DEFAULT.set);
+                    menuElementsString.append(") ").append(entry.toString()).append("\t\t[").append(TextColor.GREEN.set).append(entry.getShortcut()).append(TextColor.DEFAULT.set).append("]\n");
                 } else {
-                    menuElementsString = menuElementsString + TextColor.RED.set + "-" + TextColor.DEFAULT.set;
-                    menuElementsString = menuElementsString + ") " + entry.toString() + "\t\t[" + TextColor.RED.set + entry.getShortcut() + TextColor.DEFAULT.set + "]\n";
+                    menuElementsString.append(TextColor.RED.set).append("-").append(TextColor.DEFAULT.set);
+                    menuElementsString.append(") ").append(entry.toString()).append("\t\t[").append(TextColor.RED.set).append(entry.getShortcut()).append(TextColor.DEFAULT.set).append("]\n");
                 }
 
             }
 
         }
 
-        menuElementsString = menuElementsString + "--------------------------------------------------------\n";
+        menuElementsString.append("--------------------------------------------------------\n");
 
-        return menuElementsString;
+        return menuElementsString.toString();
     }
 
     public Entry proposer( ) {
