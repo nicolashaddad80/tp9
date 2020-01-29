@@ -16,32 +16,13 @@ public class MenuImp extends EntryImp implements Menu {
 
 
     /**
-     * Private classes
-     */
-    private class MenuPrinter extends AbsPrinter {
-
-
-        public MenuPrinter(PrintStream a_MenuPrinterPort) {
-            super(a_MenuPrinterPort);
-        }
-
-        @Override
-        public void print() {
-            this.printerOutPort.print(afficher());
-        }
-    }
-
-
-    /**
      * Attributes
      */
     private final Hashtable<Integer, Entry> entree = new Hashtable<>(20);
     private final Hashtable<String, Entry> shortcutTable = new Hashtable<>(20);
-
+    private final fr.cnam.tp9.menu.MenuImp.MenuPrinter menuPrinter;
     private fr.cnam.tp9.menu.MenuImp parent = this;
     private Entry choice = this;
-    private final fr.cnam.tp9.menu.MenuImp.MenuPrinter menuPrinter;
-
     public MenuImp(int a_MenuNum, String a_text, String a_Shortcut, PrintStream a_menuOutStream) {
         super(a_MenuNum, a_text, new NoopCommand(), a_Shortcut);
         this.menuPrinter = new MenuPrinter(a_menuOutStream);
@@ -186,7 +167,6 @@ public class MenuImp extends EntryImp implements Menu {
         this.shortcutTable.put(menuComp.getShortcut(), menuComp);
     }
 
-
     public boolean choiceIsQuit() {
         return !(this.choice.getCommand() instanceof ExitCommand);
     }
@@ -198,5 +178,21 @@ public class MenuImp extends EntryImp implements Menu {
     @Override
     public final boolean isMenu() {
         return true;
+    }
+
+    /**
+     * Private classes
+     */
+    private class MenuPrinter extends AbsPrinter {
+
+
+        public MenuPrinter(PrintStream a_MenuPrinterPort) {
+            super(a_MenuPrinterPort);
+        }
+
+        @Override
+        public void print() {
+            this.printerOutPort.print(afficher());
+        }
     }
 }

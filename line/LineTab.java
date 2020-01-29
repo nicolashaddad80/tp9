@@ -10,25 +10,10 @@ import java.io.PrintStream;
 public class LineTab implements Line {
 
     /**
-     * Private classes
-     */
-    private class LinePrinter extends AbsPrinter {
-
-        public LinePrinter(PrintStream a_LinePrinterPort) {
-            super(a_LinePrinterPort);
-        }
-
-        @Override
-        public void print() {
-            this.printerOutPort.print(afficher());
-        }
-    }
-
-    /**
      * Attributes
      */
     protected final PrintStream lineOutStream;
-
+    private final Printer linePrinter;
     /**
      * Tableau de stockage des carastères de la ligne
      */
@@ -37,8 +22,6 @@ public class LineTab implements Line {
      * La position du curseur pointant sur le caractère courant
      */
     protected int cursorPosition;
-    private final Printer linePrinter;
-
     /**
      * Constructeur de notre ligne  "ligne vide a la créationé
      */
@@ -84,7 +67,6 @@ public class LineTab implements Line {
         return this.carTable.length;
     }
 
-
     /**
      * Obtient la position du curseur sur la ligne.
      *
@@ -94,7 +76,6 @@ public class LineTab implements Line {
         return this.cursorPosition;
 
     }
-
 
     /**
      * Fait avancer le curseur d'une position à droite.
@@ -108,7 +89,6 @@ public class LineTab implements Line {
             this.cursorPosition++;
         }
     }
-
 
     /**
      * Fait avancer le curseur d'une position à gauche.
@@ -124,7 +104,6 @@ public class LineTab implements Line {
 
     }
 
-
     /**
      * Place le curseur sur le premier caractère.
      * Ne fonctionne que si la ligne est non vide.
@@ -138,7 +117,6 @@ public class LineTab implements Line {
             this.cursorPosition = 1;
         }
     }
-
 
     /**
      * Remplace le caractère sous le curseur par le caractère c.
@@ -155,7 +133,6 @@ public class LineTab implements Line {
             this.carTable[this.cursorPosition - 1] = c;
         }
     }
-
 
     /**
      * Supprime le caractère sous le curseur.
@@ -178,7 +155,6 @@ public class LineTab implements Line {
         }
     }
 
-
     /**
      * Ajoute le caractère c avant le curseur.
      * Le curseur reste sur le même caractère.
@@ -200,7 +176,6 @@ public class LineTab implements Line {
 
     }
 
-
     /**
      * Ajoute le caractère c après le curseur.
      * Le curseur reste sur le même caractère.
@@ -221,7 +196,6 @@ public class LineTab implements Line {
         }
     }
 
-
     /**
      * Ajoute le caractère c au début de la ligne.
      * Le curseur reste sur le même caractère.
@@ -240,7 +214,6 @@ public class LineTab implements Line {
         this.carTable = tempTab;
     }
 
-
     /**
      * Ajoute le caractère c à la fin de la ligne.
      * Le curseur reste sur le même caractère.
@@ -258,6 +231,21 @@ public class LineTab implements Line {
         }
 
         this.carTable = tempTab;
+    }
+
+    /**
+     * Private classes
+     */
+    private class LinePrinter extends AbsPrinter {
+
+        public LinePrinter(PrintStream a_LinePrinterPort) {
+            super(a_LinePrinterPort);
+        }
+
+        @Override
+        public void print() {
+            this.printerOutPort.print(afficher());
+        }
     }
 
 

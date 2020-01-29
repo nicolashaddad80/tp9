@@ -1,16 +1,16 @@
 package fr.cnam.tp9.editor;
 
-import java.io.PrintStream;
-
-import fr.cnam.tp9.line.linecommands.simplelinecomm.*;
-import fr.cnam.tp9.menu.specification.Entry;
-import fr.cnam.tp9.line.specification.Line;
-import fr.cnam.tp9.line.LineTab;
-import fr.cnam.tp9.editor.specification.Editor;
 import fr.cnam.tp9.command.specification.Command;
-import fr.cnam.tp9.menu.specification.Menu;
+import fr.cnam.tp9.editor.specification.Editor;
+import fr.cnam.tp9.line.LineTab;
+import fr.cnam.tp9.line.linecommands.simplelinecomm.*;
+import fr.cnam.tp9.line.specification.Line;
 import fr.cnam.tp9.menu.EntryImp;
 import fr.cnam.tp9.menu.MenuImp;
+import fr.cnam.tp9.menu.specification.Entry;
+import fr.cnam.tp9.menu.specification.Menu;
+
+import java.io.PrintStream;
 
 public class SimpleLineEditorLauncher {
     final PrintStream linePrinterOutputPort = System.out;
@@ -20,7 +20,7 @@ public class SimpleLineEditorLauncher {
     final Line myLineTab;
     final Editor mySimpleEditor;
 
-    public SimpleLineEditorLauncher( ) {
+    public SimpleLineEditorLauncher() {
         /* creating needed object to instance an editor
          */
         this.myMenu = new MenuImp(0, "Menu Principal", "", menuPrinterOutputPort);
@@ -31,6 +31,11 @@ public class SimpleLineEditorLauncher {
          */
         this.fillMenu();
 
+    }
+
+    public static void main(String[] Args) {
+        SimpleLineEditorLauncher myLineEditor1 = new SimpleLineEditorLauncher();
+        myLineEditor1.start();
     }
 
     private void fillMenu() {
@@ -84,15 +89,8 @@ public class SimpleLineEditorLauncher {
 
     }
 
-
-    public void start( ) {
+    public void start() {
         this.myLineTab.getPrinter().print();
         this.mySimpleEditor.editer();
-    }
-
-    public static void main( String[] Args )
-    {
-        SimpleLineEditorLauncher myLineEditor1 =  new SimpleLineEditorLauncher();
-        myLineEditor1.start();
     }
 }

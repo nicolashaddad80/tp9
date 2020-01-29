@@ -1,9 +1,8 @@
 package fr.cnam.tp9.line.specification;
 
-public interface ClonableLine extends Line
-{
+public interface ClonableLine extends Line {
 
 
-	ClonableLine lineClone();
-	
+    ClonableLine lineClone();
+
 }

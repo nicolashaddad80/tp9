@@ -7,12 +7,12 @@ import fr.cnam.tp9.history.specification.History;
 import fr.cnam.tp9.line.specification.ClonableLine;
 
 public abstract class CancelableLinComm implements Cancelable {
+    protected static final History<ClonableLine> undoLineHistory = new HistoryImp<>();
+    protected static final History<ClonableLine> redoLineHistory = new HistoryImp<>();
     /**
      * Attributes
      */
     protected static ClonableLine clonableLine;
-    protected static final History<ClonableLine> undoLineHistory = new HistoryImp<>();
-    protected static final History<ClonableLine> redoLineHistory = new HistoryImp<>();
 
 
     public CancelableLinComm(ClonableLine a_clonableLine) {
