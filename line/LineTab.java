@@ -219,8 +219,6 @@ public class LineTab implements Line {
             System.arraycopy(this.carTable, this.getCursorPos(), tempTab, this.getCursorPos() + 1, this.getLength() - this.getCursorPos());
             this.carTable = tempTab;
         }
-
-
     }
 
 
