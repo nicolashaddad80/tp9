@@ -11,8 +11,8 @@ public abstract class CancelableLinComm implements Cancelable {
      * Attributes
      */
     protected static ClonableLine clonableLine;
-    protected static History<ClonableLine> undoLineHistory = new HistoryImp<>();
-    protected static History<ClonableLine> redoLineHistory = new HistoryImp<>();
+    protected static final History<ClonableLine> undoLineHistory = new HistoryImp<>();
+    protected static final History<ClonableLine> redoLineHistory = new HistoryImp<>();
 
 
     public CancelableLinComm(ClonableLine a_clonableLine) {
@@ -41,14 +41,13 @@ public abstract class CancelableLinComm implements Cancelable {
     public void executer() {
 
         //Pullback all RedoHistory to UndoHistory
-        //Current Coding Cursor
+        //Current Coding Cursor BUGFIX#1 Clone?
         while (!CancelableLinComm.redoLineHistory.isEmpty()) {
             CancelableLinComm.undoLineHistory.push(CancelableLinComm.redoLineHistory.pull());
         }
-
-        if(!CancelableLinComm.redoLineHistory.isEmpty()) System.err.println("!!!!!!C'est pa normal, la pile de redo doit etre vide!!!!!!");
         //saving current line context
         CancelableLinComm.undoLineHistory.push(clonableLine.lineClone());
+        //Current Coding Cursor BUGFIX#1 Clone? pusher une line de pluse ?? ou on a pusher une line en trops? La derniere de redo history faut il la pusher dans un do ou juste la consommer comme courante
     }
 
     /**

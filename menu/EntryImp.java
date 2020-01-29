@@ -4,10 +4,10 @@ import fr.cnam.tp9.menu.specification.Entry;
 import fr.cnam.tp9.command.specification.Command;
 
 public class EntryImp implements Entry {
-    protected String text;
-    private Command command;
-    private String shortcut;
-    private Integer numEntry;
+    protected final String text;
+    private final Command command;
+    private final String shortcut;
+    private final Integer numEntry;
 
     public EntryImp( int a_NumEntry, String a_text, Command a_Command, String a_Shortcut ){
 

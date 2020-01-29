@@ -15,6 +15,6 @@ public class MoveRightCommand extends LineComm {
 
     @Override
 	public final boolean isExecutable( ){
-        return LineComm.line.getCursorPos()<this.line.getLength();
+        return LineComm.line.getCursorPos()< LineComm.line.getLength();
     }
 }

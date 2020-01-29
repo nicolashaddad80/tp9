@@ -1,116 +1,133 @@
 package fr.cnam.tp9.menu;
 
-import java.io.PrintStream;
-
-import fr.cnam.tp9.command.specification.Command;
+import fr.cnam.tp9.menu.menucommands.ExitCommand;
+import fr.cnam.tp9.menu.menucommands.MenuUpCommand;
+import fr.cnam.tp9.menu.menucommands.NoopCommand;
 import fr.cnam.tp9.menu.specification.Entry;
-import fr.cnam.tp9.Printer.AbsPrinter;
-import java.util.*;
-import fr.cnam.tp9.Printer.specification.Printer;
-import fr.cnam.tp9.menu.menucommands.*;
 import fr.cnam.tp9.menu.specification.Menu;
+import fr.cnam.tp9.printer.AbsPrinter;
+import fr.cnam.tp9.printer.specification.Printer;
 import fr.cnam.tp9.textformating.TextColor;
+
+import java.io.PrintStream;
+import java.util.*;
 
 public class MenuImp extends EntryImp implements Menu {
 
 
     /**
-	 * Private classes
-	 */
-	private class MenuPrinter extends AbsPrinter {
+     * Private classes
+     */
+    private class MenuPrinter extends AbsPrinter {
 
 
-        public MenuPrinter( PrintStream a_MenuPrinterPort ) {
+        public MenuPrinter(PrintStream a_MenuPrinterPort) {
             super(a_MenuPrinterPort);
         }
 
         @Override
-		public void print( ) {
+        public void print() {
             this.printerOutPort.print(afficher());
         }
     }
 
-    ;
-
 
     /**
-	 * Attributes
-	 */
-	private Hashtable<Integer,Entry> entree = new Hashtable<Integer,Entry>(20);
-    private Hashtable<String,Entry> shortcutTable = new Hashtable<String,Entry>(20);
+     * Attributes
+     */
+    private final Hashtable<Integer, Entry> entree = new Hashtable<>(20);
+    private final Hashtable<String, Entry> shortcutTable = new Hashtable<>(20);
 
     private fr.cnam.tp9.menu.MenuImp parent = this;
     private Entry choice = this;
-    private fr.cnam.tp9.menu.MenuImp.MenuPrinter menuPrinter;
+    private final fr.cnam.tp9.menu.MenuImp.MenuPrinter menuPrinter;
 
-    public MenuImp( int a_MenuNum, String a_text, String a_Shortcut, PrintStream a_menuOutStream ) {
+    public MenuImp(int a_MenuNum, String a_text, String a_Shortcut, PrintStream a_menuOutStream) {
         super(a_MenuNum, a_text, new NoopCommand(), a_Shortcut);
         this.menuPrinter = new MenuPrinter(a_menuOutStream);
         this.add(new EntryImp(0, "Quitter", new ExitCommand(), "Q"));
     }
 
     /**
-	 * Methods
-	 */
-	@Override
-	public Printer getPrinter( ) {
+     * Methods
+     */
+    @Override
+    public Printer getPrinter() {
         return menuPrinter;
     }
 
-    public String afficher( ) {
-        String menuElementsString = "--------------------------------------------------------\n\t\t\t\t" + TextColor.GREEN.set + this.text + TextColor.DEFAULT.set + '\n' + "--------------------------------------------------------\n";
+    public String afficher() {
+        StringBuilder menuElementsString = new StringBuilder("--------------------------------------------------------\n\t\t\t\t" + TextColor.GREEN.set + this.text + TextColor.DEFAULT.set + '\n' + "--------------------------------------------------------\n");
+
+        Vector<Integer> sortedEntry = null;
+        try {
+            sortedEntry = new Vector<>(entree.keySet());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
-        Vector sortedEntry = new Vector(entree.keySet());
-        Collections.sort(sortedEntry);
+        try {
+            if (sortedEntry != null)
+                Collections.sort(sortedEntry);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
 
-        Iterator it = sortedEntry.iterator();
+        Iterator<Integer> it = null;
+        if (sortedEntry != null) {
+            it = sortedEntry.iterator();
+        }
 
-        while (it.hasNext()) {
-            Integer entryKey = (Integer) it.next();
-            Entry entry = entree.get(entryKey);
+        if (it != null) {
+            while (it.hasNext()) {
+                Integer entryKey = it.next();
+                Entry entry = entree.get(entryKey);
 
-            if (entryKey.intValue() > 0) {
-                if (((Command)entry.getCommand()).isExecutable()) {
+                if (entryKey > 0) {
+                    if (entry.getCommand().isExecutable()) {
 
-                    menuElementsString = menuElementsString + TextColor.GREEN.set + entryKey + TextColor.DEFAULT.set;
-                    menuElementsString = menuElementsString + ") " + entry.toString() + "\t\t[" + TextColor.GREEN.set + entry.getShortcut() + TextColor.DEFAULT.set + "]\n";
-                } else {
-                    menuElementsString = menuElementsString + TextColor.RED.set + "-" + TextColor.DEFAULT.set;
-                    menuElementsString = menuElementsString + ") " + entry.toString() + "\t\t[" + TextColor.RED.set + entry.getShortcut() + TextColor.DEFAULT.set + "]\n";
+                        menuElementsString.append(TextColor.GREEN.set).append(entryKey).append(TextColor.DEFAULT.set);
+                        menuElementsString.append(") ").append(entry.toString()).append("\t\t[").append(TextColor.GREEN.set).append(entry.getShortcut()).append(TextColor.DEFAULT.set).append("]\n");
+                    } else {
+                        menuElementsString.append(TextColor.RED.set).append("-").append(TextColor.DEFAULT.set);
+                        menuElementsString.append(") ").append(entry.toString()).append("\t\t[").append(TextColor.RED.set).append(entry.getShortcut()).append(TextColor.DEFAULT.set).append("]\n");
+
+                    }
 
                 }
 
             }
-
         }
 
-        Collections.reverse(sortedEntry);
-        it = sortedEntry.iterator();
+        if (sortedEntry != null) {
+            Collections.reverse(sortedEntry);
+            it = sortedEntry.iterator();
+        }
 
-        while (it.hasNext()) {
-            Integer entryKey = (Integer) it.next();
-            Entry entry = entree.get(entryKey);
-            if (entryKey.intValue() <= 0) {
-                if (entry.getCommand().isExecutable()) {
-                    menuElementsString = menuElementsString + TextColor.GREEN.set + entryKey + TextColor.DEFAULT.set;
-                    menuElementsString = menuElementsString + ") " + entry.toString() + "\t\t[" + TextColor.GREEN.set + entry.getShortcut() + TextColor.DEFAULT.set + "]\n";
-                } else {
-                    menuElementsString = menuElementsString + TextColor.RED.set + "-" + TextColor.DEFAULT.set;
-                    menuElementsString = menuElementsString + ") " + entry.toString() + "\t\t[" + TextColor.RED.set + entry.getShortcut() + TextColor.DEFAULT.set + "]\n";
+        if (it != null) {
+            while (it.hasNext()) {
+                Integer entryKey = it.next();
+                Entry entry = entree.get(entryKey);
+                if (entryKey <= 0) {
+                    if (entry.getCommand().isExecutable()) {
+                        menuElementsString.append(TextColor.GREEN.set).append(entryKey).append(TextColor.DEFAULT.set);
+                        menuElementsString.append(") ").append(entry.toString()).append("\t\t[").append(TextColor.GREEN.set).append(entry.getShortcut()).append(TextColor.DEFAULT.set).append("]\n");
+                    } else {
+                        menuElementsString.append(TextColor.RED.set).append("-").append(TextColor.DEFAULT.set);
+                        menuElementsString.append(") ").append(entry.toString()).append("\t\t[").append(TextColor.RED.set).append(entry.getShortcut()).append(TextColor.DEFAULT.set).append("]\n");
+                    }
                 }
-
             }
-
         }
 
-        menuElementsString = menuElementsString + "--------------------------------------------------------\n";
+        menuElementsString.append("--------------------------------------------------------\n");
 
-        return menuElementsString;
+        return menuElementsString.toString();
     }
 
-    public Entry proposer( ) {
+    public Entry proposer() {
 
         System.out.println("Veuillez choisir la commande :");
         boolean ok = false;
@@ -158,7 +175,7 @@ public class MenuImp extends EntryImp implements Menu {
 
     }
 
-    public void add( Entry menuComp ) {
+    public void add(Entry menuComp) {
         if (menuComp.isMenu()) {
             EntryImp back = new EntryImp(((MenuImp) menuComp).entree.size(), "Retour", new MenuUpCommand(), "U");
             ((MenuImp) menuComp).add(back);
@@ -170,16 +187,16 @@ public class MenuImp extends EntryImp implements Menu {
     }
 
 
-    public boolean choiceIsQuit( ) {
-        return this.choice.getCommand() instanceof ExitCommand;
+    public boolean choiceIsQuit() {
+        return !(this.choice.getCommand() instanceof ExitCommand);
     }
 
-    public boolean choiceIsNavigateUp( ) {
+    public boolean choiceIsNavigateUp() {
         return this.choice.getCommand() instanceof MenuUpCommand;
     }
 
     @Override
-	public final boolean isMenu( ) {
+    public final boolean isMenu() {
         return true;
     }
 }

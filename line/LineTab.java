@@ -1,9 +1,9 @@
 package fr.cnam.tp9.line;
 
 import java.io.PrintStream;
-import fr.cnam.tp9.Printer.AbsPrinter;
+import fr.cnam.tp9.printer.AbsPrinter;
 import fr.cnam.tp9.line.specification.Line;
-import fr.cnam.tp9.Printer.specification.Printer;
+import fr.cnam.tp9.printer.specification.Printer;
 import fr.cnam.tp9.textformating.TextColor;
 
 public class LineTab implements Line {
@@ -23,22 +23,20 @@ public class LineTab implements Line {
         }
     }
 
-    ;
-
     /**
 	 * Attributes
 	 */
-	protected PrintStream lineOutStream;
+	protected final PrintStream lineOutStream;
 
     /**
 	 * Tableau de stockage des carastères de la ligne
 	 */
-	protected char[] carTable = null;
+	protected char[] carTable;
     /**
 	 * La position du curseur pointant sur le caractère courant
 	 */
-	protected int cursorPosition = 0;
-    private Printer linePrinter;
+	protected int cursorPosition;
+    private final Printer linePrinter;
 
     /**
 	 * Constructeur de notre ligne  "ligne vide a la créationé
@@ -56,24 +54,24 @@ public class LineTab implements Line {
     }
 
     private String afficher( ) {
-        String lineString = "--------------------------------------------------------\n\t\t\t" + TextColor.GREEN.set + "Je suis la ligne a editer:\n" + TextColor.DEFAULT.set;
+        StringBuilder lineString = new StringBuilder("--------------------------------------------------------\n\t\t\t" + TextColor.GREEN.set + "Je suis la ligne a editer:\n" + TextColor.DEFAULT.set);
         if (this.getLength() == 0) {
-            lineString = lineString + TextColor.RED.set + '~' + TextColor.DEFAULT.set;
+            lineString.append(TextColor.RED.set).append('~').append(TextColor.DEFAULT.set);
         } else {
             for (int i = 0; i < this.getCursorPos() - 1; i++) {
 
-                lineString = lineString + TextColor.BLUE.set + this.carTable[i] + TextColor.DEFAULT.set;
+                lineString.append(TextColor.BLUE.set).append(this.carTable[i]).append(TextColor.DEFAULT.set);
             }
-            lineString = lineString + TextColor.RED.set + "[" + TextColor.DEFAULT.set + TextColor.BLACK.set + TextColor.Highlight.set + (this.carTable[this.getCursorPos() - 1]) + TextColor.DEFAULT.set + TextColor.RED.set + "]" + TextColor.DEFAULT.set;
+            lineString.append(TextColor.RED.set).append("[").append(TextColor.DEFAULT.set).append(TextColor.BLACK.set).append(TextColor.Highlight.set).append(this.carTable[this.getCursorPos() - 1]).append(TextColor.DEFAULT.set).append(TextColor.RED.set).append("]").append(TextColor.DEFAULT.set);
 
             for (int i = this.getCursorPos(); i < this.getLength(); i++) {
 
-                lineString = lineString + TextColor.BLUE.set + this.carTable[i] + TextColor.DEFAULT.set;
+                lineString.append(TextColor.BLUE.set).append(this.carTable[i]).append(TextColor.DEFAULT.set);
             }
         }
-        lineString = lineString + '\n';
+        lineString.append('\n');
 
-        return lineString;
+        return lineString.toString();
     }
 
     /**
@@ -94,38 +92,6 @@ public class LineTab implements Line {
 	public int getCursorPos( ) {
         return this.cursorPosition;
 
-    }
-
-    /**
-	 * Obtient le caractère à la ième position sur la ligne.
-	 * Ne fonctionne que si i est inférieur à la longueur de la ligne.
-	 * 
-	 * @param i La position du caractère souhaité.
-	 * @return Le caractère à la ième position sur la ligne.
-	 */
-	public char getCharAt( int i ) {
-        if (i > this.getLength() || i < 1) {
-            //Through Exception
-            return 'X'; //to delete when exception code is done
-        } else {
-            return this.carTable[i];
-        }
-
-    }
-
-    /**
-	 * Obtient le caractère actuellement sous le curseur.
-	 * Ne fonctionne que si la ligne est non vide.
-	 * 
-	 * @return Le caractère actuellement sous le curseur.
-	 */
-	public char getCurrentChar( ) {
-        if (this.getLength() == 0) {
-            //Through Exception
-            return 'X'; //to delete when exception code is done
-        } else {
-            return this.carTable[this.cursorPosition - 1];
-        }
     }
 
 
@@ -214,55 +180,6 @@ public class LineTab implements Line {
 
 
     /**
-	 * Supprime le premier caractère de la ligne.
-	 * Ne fonctionne que si la ligne est non vide.
-	 * Le curseur reste sur le même caractère, sauf s'il était sur le dernier caractère.
-	 */
-	public void deleteFirst( ) {
-        //TBD add check or exception when the  line is empty
-
-
-        if (this.getLength() == 0) {
-            //TBD add check or exception when the  line is empty
-        } else {
-            char[] tempTab = new char[this.getLength() - 1];
-            System.arraycopy(this.carTable, 1, tempTab, 0, this.getLength() - 1);
-            this.carTable = tempTab;
-        }
-
-        if (this.cursorPosition > 1) {
-            this.cursorPosition--;
-        }
-        if (this.getLength() == 0) {
-            this.cursorPosition--;
-        }
-
-    }
-
-
-    /**
-	 * Supprime le dernier caractère de la ligne.
-	 * Ne fonctionne que si la ligne est non vide.
-	 * Le curseur reste sur le même caractère, sauf s'il était sur le dernier caractère.
-	 */
-	public void deleteLast( ) {
-        //TBD add check or exception when the  line is empty
-        if (this.getLength() == 0) {
-            //TBD add check or exception when the  line is empty
-        } else {
-            char[] tempTab = new char[this.getLength() - 1];
-            System.arraycopy(this.carTable, 0, tempTab, 0, this.getLength() - 1);
-            this.carTable = tempTab;
-        }
-
-        if (this.cursorPosition > this.getLength()) {
-            this.cursorPosition--;
-        }
-
-    }
-
-
-    /**
 	 * Ajoute le caractère c avant le curseur.
 	 * Le curseur reste sur le même caractère.
 	 * 
@@ -344,25 +261,4 @@ public class LineTab implements Line {
     }
 
 
-    /**
-	 * Affiche la ligne en mettant entre crochets [] le caractère courant.
-	 * Si la ligne est vide, un seul caractère tilde(~) est affiché.
-	 */
-	public void print( ) {
-        if (this.getLength() == 0) {
-            System.out.print(TextColor.RED.set + '~' + TextColor.DEFAULT.set);
-        } else {
-            for (int i = 0; i < this.getCursorPos() - 1; i++) {
-
-                System.out.print(TextColor.BLUE.set + this.carTable[i] + TextColor.DEFAULT.set);
-            }
-            System.out.print(TextColor.RED.set + "[" + TextColor.DEFAULT.set + TextColor.BLACK.set + TextColor.Highlight.set + (this.carTable[this.getCursorPos() - 1]) + TextColor.DEFAULT.set + TextColor.RED.set + "]" + TextColor.DEFAULT.set);
-
-            for (int i = this.getCursorPos(); i < this.getLength(); i++) {
-
-                System.out.print(TextColor.BLUE.set + this.carTable[i] + TextColor.DEFAULT.set);
-            }
-        }
-        System.out.print("\n");
-    }
 }

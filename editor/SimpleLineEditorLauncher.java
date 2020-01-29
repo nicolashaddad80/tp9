@@ -13,13 +13,12 @@ import fr.cnam.tp9.menu.EntryImp;
 import fr.cnam.tp9.menu.MenuImp;
 
 public class SimpleLineEditorLauncher {
-    PrintStream linePrinterOutputPort = System.out;
-    PrintStream editorPrinterOutputPort = System.out;
-    PrintStream menuPrinterOutputPort = System.out;
+    final PrintStream linePrinterOutputPort = System.out;
+    final PrintStream menuPrinterOutputPort = System.out;
 
-    Menu myMenu;
-    Line myLineTab;
-    Editor mySimpleEditor;
+    final Menu myMenu;
+    final Line myLineTab;
+    final Editor mySimpleEditor;
 
     public SimpleLineEditorLauncher( ) {
         /* creating needed object to instance an editor

@@ -16,12 +16,12 @@ import java.io.PrintStream;
 
 public class HistLineEditorLauncher {
 
-    PrintStream linePrinterOutputPort = System.out;
-    PrintStream menuPrinterOutputPort = System.out;
+    final PrintStream linePrinterOutputPort = System.out;
+    final PrintStream menuPrinterOutputPort = System.out;
 
-    Menu myMenu;
-    ClonableLine myClonableLineTab;
-    HisEditor myHisEditor;
+    final Menu myMenu;
+    final ClonableLine myClonableLineTab;
+    final HisEditor myHisEditor;
 
     public HistLineEditorLauncher() {
         /* creating needed object to instance an editor
