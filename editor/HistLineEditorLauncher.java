@@ -57,7 +57,7 @@ public class HistLineEditorLauncher {
         lineCommandsTable[nbLineCommands++] = new CanceDeleteCommand(this.myClonableLineTab);
         lineCommandsTable[nbLineCommands++] = new CanceAddBeforeCommand(this.myClonableLineTab);
         lineCommandsTable[nbLineCommands++] = new CanceAddAfterCommand(this.myClonableLineTab);
-        lineCommandsTable[nbLineCommands++] = new CanceDeleteAllCommand(this.myClonableLineTab);
+        lineCommandsTable[nbLineCommands] = new CanceDeleteAllCommand(this.myClonableLineTab);
         
 
         //Creating and filling CursorSubMenu
@@ -80,7 +80,7 @@ public class HistLineEditorLauncher {
         mainMenuList[j++] = new EntryImp(j, "Supprimer le caractere sous le curseur   ", lineCommandsTable[c++], "x");
         mainMenuList[j++] = new EntryImp(j, "Ajouter un caractere avant le curseur    ", lineCommandsTable[c++], "i");
         mainMenuList[j++] = new EntryImp(j, "Ajouter un caractere apres le curseur    ", lineCommandsTable[c++], "a");
-        mainMenuList[j++] = new EntryImp(j, "Supprimer tous les caracteres de la ligne", lineCommandsTable[c++], "dd");
+        mainMenuList[j++] = new EntryImp(j, "Supprimer tous les caracteres de la ligne", lineCommandsTable[c], "dd");
 
 
         for (int k = 0; k < mainMenuList.length; k++) {

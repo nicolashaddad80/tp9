@@ -53,7 +53,7 @@ public class SimpleLineEditorLauncher {
         lineCommandsTable[nbLineCommands++] = new DeleteCommand(this.myLineTab);
         lineCommandsTable[nbLineCommands++] = new AddBeforeCommand(this.myLineTab);
         lineCommandsTable[nbLineCommands++] = new AddAfterCommand(this.myLineTab);
-        lineCommandsTable[nbLineCommands++] = new DeleteAllCommand(this.myLineTab);
+        lineCommandsTable[nbLineCommands] = new DeleteAllCommand(this.myLineTab);
 
         //Creating and filling CursorSubMenu
 
@@ -75,7 +75,7 @@ public class SimpleLineEditorLauncher {
         mainMenuList[j++] = new EntryImp(j, "Supprimer le caractere sous le curseur   ", lineCommandsTable[c++], "x");
         mainMenuList[j++] = new EntryImp(j, "Ajouter un caractere avant le curseur    ", lineCommandsTable[c++], "i");
         mainMenuList[j++] = new EntryImp(j, "Ajouter un caractere apres le curseur    ", lineCommandsTable[c++], "a");
-        mainMenuList[j++] = new EntryImp(j, "Supprimer tous les caracteres de la ligne", lineCommandsTable[c++], "dd");
+        mainMenuList[j++] = new EntryImp(j, "Supprimer tous les caracteres de la ligne", lineCommandsTable[c], "dd");
 
 
         for (int k = 0; k < mainMenuList.length; k++) {
