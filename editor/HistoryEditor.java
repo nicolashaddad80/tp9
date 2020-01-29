@@ -12,8 +12,8 @@ import fr.cnam.tp9.menu.specification.Menu;
 
 public class HistoryEditor extends SimpleEditor implements HisEditor {
 
-    private History<Cancelable> undoHistory;
-    private History<Cancelable> redoHistory;
+    private final History<Cancelable> undoHistory;
+    private final History<Cancelable> redoHistory;
 
 
     public HistoryEditor(Menu a_Menu) {

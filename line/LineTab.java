@@ -26,7 +26,7 @@ public class LineTab implements Line {
     /**
 	 * Attributes
 	 */
-	protected PrintStream lineOutStream;
+	protected final PrintStream lineOutStream;
 
     /**
 	 * Tableau de stockage des carastères de la ligne
@@ -36,7 +36,7 @@ public class LineTab implements Line {
 	 * La position du curseur pointant sur le caractère courant
 	 */
 	protected int cursorPosition;
-    private Printer linePrinter;
+    private final Printer linePrinter;
 
     /**
 	 * Constructeur de notre ligne  "ligne vide a la créationé

@@ -33,12 +33,12 @@ public class MenuImp extends EntryImp implements Menu {
     /**
 	 * Attributes
 	 */
-	private Hashtable<Integer,Entry> entree = new Hashtable<Integer,Entry>(20);
-    private Hashtable<String,Entry> shortcutTable = new Hashtable<String,Entry>(20);
+	private final Hashtable<Integer,Entry> entree = new Hashtable<Integer,Entry>(20);
+    private final Hashtable<String,Entry> shortcutTable = new Hashtable<String,Entry>(20);
 
     private fr.cnam.tp9.menu.MenuImp parent = this;
     private Entry choice = this;
-    private fr.cnam.tp9.menu.MenuImp.MenuPrinter menuPrinter;
+    private final fr.cnam.tp9.menu.MenuImp.MenuPrinter menuPrinter;
 
     public MenuImp( int a_MenuNum, String a_text, String a_Shortcut, PrintStream a_menuOutStream ) {
         super(a_MenuNum, a_text, new NoopCommand(), a_Shortcut);

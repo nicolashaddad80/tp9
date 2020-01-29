@@ -5,7 +5,7 @@ import java.util.Stack;
 
 public class HistoryImp<T>  implements History<T> {
 
-    private Stack<T> linesStack;
+    private final Stack<T> linesStack;
     public HistoryImp( ){
         this.linesStack= new Stack<T>();
    }
