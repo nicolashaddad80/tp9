@@ -96,5 +96,13 @@ public class HistLineEditorLauncher {
 
     }
 
+
+    public static void main( String[] Args )
+    {
+        HistLineEditorLauncher myHistLineEditor1 =  new HistLineEditorLauncher();
+        myHistLineEditor1.start();
+
+    }
+
 }
 

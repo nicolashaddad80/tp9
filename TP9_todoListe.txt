@@ -17,7 +17,7 @@ DONE: Implement Redo:
 DONE: moove fille() Menu methode from SimpleEditor to SimpleEditorTest
 DONE: Review LinComm all sone classes, they should use rignt syntaxe to use teh statis atribut Line.
 DONE: Rajouter un loader a editorLancher.
-TODO V4.2: Moove Enty point Menus in launchers
+DONE: Moove Enty point Menus in launchers
 DONE V4.2 ARCH End____________________________________________________________
 
 DONE V4.3 ARCH Begin____________________________________________________________
