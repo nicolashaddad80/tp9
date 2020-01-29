@@ -57,7 +57,7 @@ public class HistLineEditorLauncher {
         lineCommandsTable[nbLineCommands++] = new CanceDeleteCommand(this.myClonableLineTab);
         lineCommandsTable[nbLineCommands++] = new CanceAddBeforeCommand(this.myClonableLineTab);
         lineCommandsTable[nbLineCommands++] = new CanceAddAfterCommand(this.myClonableLineTab);
-        lineCommandsTable[nbLineCommands++] = new CanceDeleteAllCommand(this.myClonableLineTab);
+        lineCommandsTable[nbLineCommands] = new CanceDeleteAllCommand(this.myClonableLineTab);
         
 
         //Creating and filling CursorSubMenu
@@ -72,19 +72,20 @@ public class HistLineEditorLauncher {
         mainMenuList[j++] = new EntryImp(j, "Ajouter un caractere au debut de la ligne", lineCommandsTable[c++], "I");
         mainMenuList[j++] = new EntryImp(j, "Ajouter un caractere a la fin de la ligne", lineCommandsTable[c++], "A");
         Menu cursorSubMenu = new MenuImp(j + 1, "Menu Curseur                              ", "C", menuPrinterOutputPort);
-        for (int k = 0; k < subMenuList.length; k++) {
-            cursorSubMenu.add(subMenuList[k]);
+
+        for (Entry entry : subMenuList) {
+            cursorSubMenu.add(entry);
         }
         mainMenuList[j++] = (Entry) cursorSubMenu;
         mainMenuList[j++] = new EntryImp(j, "Remplacer le caractere sous le curseur   ", lineCommandsTable[c++], "r");
         mainMenuList[j++] = new EntryImp(j, "Supprimer le caractere sous le curseur   ", lineCommandsTable[c++], "x");
         mainMenuList[j++] = new EntryImp(j, "Ajouter un caractere avant le curseur    ", lineCommandsTable[c++], "i");
         mainMenuList[j++] = new EntryImp(j, "Ajouter un caractere apres le curseur    ", lineCommandsTable[c++], "a");
-        mainMenuList[j++] = new EntryImp(j, "Supprimer tous les caracteres de la ligne", lineCommandsTable[c++], "dd");
+        mainMenuList[j++] = new EntryImp(j, "Supprimer tous les caracteres de la ligne", lineCommandsTable[c], "dd");
 
 
-        for (int k = 0; k < mainMenuList.length; k++) {
-            this.myMenu.add(mainMenuList[k]);
+        for (Entry entry : mainMenuList) {
+            this.myMenu.add(entry);
         }
 
     }
