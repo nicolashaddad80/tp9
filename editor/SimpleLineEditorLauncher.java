@@ -90,4 +90,10 @@ public class SimpleLineEditorLauncher {
         this.myLineTab.getPrinter().print();
         this.mySimpleEditor.editer();
     }
+
+    public static void main( String[] Args )
+    {
+        SimpleLineEditorLauncher myLineEditor1 =  new SimpleLineEditorLauncher();
+        myLineEditor1.start();
+    }
 }

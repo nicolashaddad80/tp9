@@ -1,9 +1,74 @@
 # nfp121-tp9
 CNAM 2019-2020 NFP121 TP9
 
-This is Version 3.3
-new in this version:
-1-more packaging levels
-2-adding UML design folder
-3-adding statement of work (cahier des charges) folder 
+================================================================================
+0) BUGFIX:
+================================================================================
+V4.2 BUGFIX Begin____________________________________________________________
+V4.2 BUGFIX End____________________________________________________________
+
+================================================================================
+I)Niveau Architecture:
+================================================================================
+
+DONE V4.2 ARCH Begin____________________________________________________________
+DONE: separate in packages Line CanceCommands and Commands
+DONE: Refactor Simple Editor need to pass him Menu through constructor param. DO ARCHITECTURE First then Auto generate code then complete
+DONE: Implement Undo
+DONE: use LinCom  commands to use Lincom.line instead of this.line
+DONE: Implement Redo:
+DONE: moove fille() Menu methode from SimpleEditor to SimpleEditorTest
+DONE: Review LinComm all sone classes, they should use rignt syntaxe to use teh statis atribut Line.
+DONE: Rajouter un loader a editorLancher.
+TODO V4.2: Moove Enty point Menus in launchers
+DONE V4.2 ARCH End____________________________________________________________
+
+DONE V4.3 ARCH Begin____________________________________________________________
+TODO V4.3: 1) Factoriser code de getChar pour AddCommand et CanceAddCommand
+TODO V4.3:  Modifier MoopCommand pour permettre a quit command demettre a jour choice is quit attribut dans menuimp pour eviter instance of.
+TODO V4.3: Chercher a eliminer le max de castes
+TODO V4.3: 2) Trouver une solution pour rajouter un Printer a AddCommands (celui de la line de préférence a AddCommand".
+TODO V4.3: Nice To have   Create recursive data type to give as argue to fille menu if possible
+TODO V4.3:Parametrer l'Editor au lieu de le lui imposer a travailler sur une line
+TODO V4.3: Ajouter un Proxy a Editor
+TODO V4.3: Rajouter un navigateur a Editor
+TODO V4.3: Rajouter un muxer a editor
+DONE V4.3 ARCH End___________________________________________________________
+
+================================================================================
+II)Niveau fonctionnel:
+================================================================================
+TODO V4.3: les exceptions
+TODO V4.3: Rajouter un nombre maximal de retry losque l'utilisateur rentre n'importe quoi
+III)Niveau Cleanning Code
+================================================================================
+TODO V4.2: Clean *.bak before release
+TODO V4.2: Clean and refactore Code
+================================================================================
+IV)Niveau documnentations:
+================================================================================
+DONE V4.2 DOC Begin____________________________________________________________
+TODO V4.2: Create and Complete UML Diagrams
+TODO V4.2: update Undo Sequence Diagram
+DONE V4.2 DOC End____________________________________________________________
+
+DONE V4.3 DOC Begin____________________________________________________________
+TODO V4.3:la javadoc
+TODO V4.3:commenter tous le code
+TODO V4.3:documenter les exceptions
+TODO V4.3:documenter les packages
+TODO V4.3:Puis faire la release Finale
+DONE V4.3 DOC End____________________________________________________________
+================================================================================
+V)Niveau Release: Process
+================================================================================
+DONE V4.2 Release Begin____________________________________________________________
+TODO V4.2:Release Arch pdf
+        Optional:
+            TODO V4.2:1.Release Arch HTML
+            TODO V4.2:2.Push HTML to Apach Server
+TODO V4.2: Release 4.2
+TODO V4.2: Publish by mailing
+DONE V4.2 Release END____________________________________________________________
+================================================================================
 
