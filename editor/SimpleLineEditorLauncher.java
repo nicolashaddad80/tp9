@@ -14,7 +14,6 @@ import fr.cnam.tp9.menu.MenuImp;
 
 public class SimpleLineEditorLauncher {
     final PrintStream linePrinterOutputPort = System.out;
-    PrintStream editorPrinterOutputPort = System.out;
     final PrintStream menuPrinterOutputPort = System.out;
 
     final Menu myMenu;

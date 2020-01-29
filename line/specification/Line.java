@@ -24,23 +24,6 @@ public interface Line extends Printable {
 	int getCursorPos( );
 
     /**
-	 * Obtient le caractère à la ième position sur la ligne.
-	 * Ne fonctionne que si i est inférieur à la longueur de la ligne.
-	 * 
-	 * @param i La position du caractère souhaité.
-	 * @return Le caractère à la ième position sur la ligne.
-	 */
-	char getCharAt( int i );
-
-    /**
-	 * Obtient le caractère actuellement sous le curseur.
-	 * Ne fonctionne que si la ligne est non vide.
-	 * 
-	 * @return Le caractère actuellement sous le curseur.
-	 */
-	char getCurrentChar( );
-
-    /**
 	 * Fait avancer le curseur d'une position à droite.
 	 * Ne fonctionne que si le curseur n'est pas déjà au bout de la ligne.
 	 */
@@ -74,20 +57,6 @@ public interface Line extends Printable {
 	void delete( );
 
     /**
-	 * Supprime le premier caractère de la ligne.
-	 * Ne fonctionne que si la ligne est non vide.
-	 * Le curseur reste sur le même caractère, sauf s'il était sur le dernier caractère.
-	 */
-	void deleteFirst( );
-
-    /**
-	 * Supprime le dernier caractère de la ligne.
-	 * Ne fonctionne que si la ligne est non vide.
-	 * Le curseur reste sur le même caractère, sauf s'il était sur le dernier caractère.
-	 */
-	void deleteLast( );
-
-    /**
 	 * Ajoute le caractère c avant le curseur.
 	 * Le curseur reste sur le même caractère.
 	 * 
@@ -118,12 +87,6 @@ public interface Line extends Printable {
 	 * @param c Le caractère à ajouter.
 	 */
 	void addEnd( char c );
-
-    /**
-	 * Affiche la ligne en mettant entre crochets [] le caractère courant.
-	 * Si la ligne est vide, un seul caractère tilde(~) est affiché.
-	 */
-	void print( );
 
 
 }

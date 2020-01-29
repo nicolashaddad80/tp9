@@ -5,7 +5,6 @@ import fr.cnam.tp9.editor.specification.HisEditor;
 
 public abstract class EditorCommand implements Cancelable {
     public final HisEditor editor;
-    public boolean executable = false;
 
     public EditorCommand( HisEditor a_Editor ){
         this.editor=a_Editor;

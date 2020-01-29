@@ -51,13 +51,6 @@ public class HistoryEditor extends SimpleEditor implements HisEditor {
         this.undoHistory.push(previousUndoneCommand);
 
         previousUndoneCommand.redo();
-
-/*
-        Line previousLine = this.redoHistory.pull();
-        this.undoHistory.push(this.line.clone());
-        this.restoreLine(previousLine);
-
- */
     }
 
 
