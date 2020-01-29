@@ -9,7 +9,7 @@ public class CanceMoveRightCommand extends CancelableLinComm {
     }
 
     public void executer() {
-        super.executer();
+        this.saveExecContext();
         CancelableLinComm.clonableLine.moveRight();
         CancelableLinComm.clonableLine.getPrinter().print();
     }

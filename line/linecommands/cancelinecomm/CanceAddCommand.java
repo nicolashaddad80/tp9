@@ -16,9 +16,4 @@ public abstract class CanceAddCommand extends CancelableLinComm {
         System.out.println("Tapez un caractere ");
         return myCharReader.next().charAt(0);
     }
-
-    @Override
-    public void executer() {
-        super.executer();
-    }
 }

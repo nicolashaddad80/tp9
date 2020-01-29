@@ -9,7 +9,7 @@ public class CanceDeleteCommand extends CancelableLinComm {
     }
 
     public void executer() {
-        super.executer();
+        this.saveExecContext();
         CancelableLinComm.clonableLine.delete();
         CancelableLinComm.clonableLine.getPrinter().print();
     }

@@ -10,4 +10,5 @@ public interface Cancelable extends Command {
 	void undo( );
 	
 	void redo();
+
 }
