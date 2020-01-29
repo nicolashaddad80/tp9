@@ -11,8 +11,8 @@ public abstract class CancelableLinComm implements Cancelable {
      * Attributes
      */
     protected static ClonableLine clonableLine;
-    protected static History<ClonableLine> undoLineHistory = new HistoryImp<>();
-    protected static History<ClonableLine> redoLineHistory = new HistoryImp<>();
+    protected static final History<ClonableLine> undoLineHistory = new HistoryImp<>();
+    protected static final History<ClonableLine> redoLineHistory = new HistoryImp<>();
 
 
     public CancelableLinComm(ClonableLine a_clonableLine) {
