@@ -11,7 +11,7 @@ public class CanceMoveBeginningCommand extends CancelableLinComm {
 
 
     public void executer() {
-        super.executer();
+        this.saveExecContext();
         CancelableLinComm.clonableLine.moveBeginning();
         CancelableLinComm.clonableLine.getPrinter().print();
     }

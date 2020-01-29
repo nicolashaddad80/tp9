@@ -10,7 +10,7 @@ public class CanceAddEndCommand extends CanceAddCommand {
     }
 
     public void executer() {
-        super.executer();
+        this.saveExecContext();
         CancelableLinComm.clonableLine.addEnd(this.getCarToInsert());
         CancelableLinComm.clonableLine.getPrinter().print();
     }

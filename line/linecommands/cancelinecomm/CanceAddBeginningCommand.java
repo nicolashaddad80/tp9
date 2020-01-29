@@ -9,7 +9,7 @@ public class CanceAddBeginningCommand extends CanceAddCommand {
     }
 
     public void executer() {
-        super.executer();
+        this.saveExecContext();
         CancelableLinComm.clonableLine.addBeginning(this.getCarToInsert());
         CancelableLinComm.clonableLine.getPrinter().print();
     }

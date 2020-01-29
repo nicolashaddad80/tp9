@@ -37,17 +37,16 @@ public abstract class CancelableLinComm implements Cancelable {
         CancelableLinComm.clonableLine.getPrinter().print();
     }
 
-    @Override
-    public void executer() {
+    protected final void saveExecContext() {
 
         //Pullback all RedoHistory to UndoHistory
-        //Current Coding Cursor BUGFIX#1 Clone?
+
         while (!CancelableLinComm.redoLineHistory.isEmpty()) {
+            //Probable nedded BUGFIX need to test more when this pull back is done may be the last line should not be pushed to undo history but just consum with Lincom change condition to .size>1?
             CancelableLinComm.undoLineHistory.push(CancelableLinComm.redoLineHistory.pull());
         }
         //saving current line context
         CancelableLinComm.undoLineHistory.push(clonableLine.lineClone());
-        //Current Coding Cursor BUGFIX#1 Clone? pusher une line de pluse ?? ou on a pusher une line en trops? La derniere de redo history faut il la pusher dans un do ou juste la consommer comme courante
     }
 
     /**

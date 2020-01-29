@@ -9,7 +9,7 @@ public class CanceReplaceCommand extends CanceAddCommand {
     }
 
     public void executer() {
-        super.executer();
+        this.saveExecContext();
         CancelableLinComm.clonableLine.replace(this.getCarToInsert());
         CancelableLinComm.clonableLine.getPrinter().print();
     }
