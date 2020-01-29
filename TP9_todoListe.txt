@@ -1,7 +1,13 @@
-0) Urgent:
-_________________
+================================================================================
+0) BUGFIX:
+================================================================================
+V4.2 BUGFIX Begin____________________________________________________________
+V4.2 BUGFIX End____________________________________________________________
+
+================================================================================
 I)Niveau Architecture:
-______________________
+================================================================================
+
 DONE V4.2 ARCH Begin____________________________________________________________
 DONE: separate in packages Line CanceCommands and Commands
 DONE: Refactor Simple Editor need to pass him Menu through constructor param. DO ARCHITECTURE First then Auto generate code then complete
@@ -24,32 +30,35 @@ TODO V4.3:Parametrer l'Editor au lieu de le lui imposer a travailler sur une lin
 TODO V4.3: Ajouter un Proxy a Editor
 TODO V4.3: Rajouter un navigateur a Editor
 TODO V4.3: Rajouter un muxer a editor
-DONE V4.3 ARCH End____________________________________________________________
+DONE V4.3 ARCH End___________________________________________________________
 
+================================================================================
 II)Niveau fonctionnel:
-________________________
-TODO V4.3:les exceptions
-TODO V4.3:Rajouter un nombre maximal de retry losque l'utilisateur rentre n'importe quoi 
-
-Niveau Cleanning Code
+================================================================================
+TODO V4.3: les exceptions
+TODO V4.3: Rajouter un nombre maximal de retry losque l'utilisateur rentre n'importe quoi
+III)Niveau Cleanning Code
 ================================================================================
 TODO V4.2: Clean *.bak before release
 TODO V4.2: Clean and refactore Code
 ================================================================================
-III)Niveau documnentations:
-_____________________________
-1)la javadoc
-2)commenter tous le code
-3)documenter les exceptions
-4)documenter les packages
-5)Puis faire la release Finale on la nommera
+IV)Niveau documnentations:
+================================================================================
 DONE V4.2 DOC Begin____________________________________________________________
 TODO V4.2: Create and Complete UML Diagrams
 TODO V4.2: update Undo Sequence Diagram
 DONE V4.2 DOC End____________________________________________________________
-Annex:
-_____________________
-Release Proccess:
+
+DONE V4.3 DOC Begin____________________________________________________________
+TODO V4.3:la javadoc
+TODO V4.3:commenter tous le code
+TODO V4.3:documenter les exceptions
+TODO V4.3:documenter les packages
+TODO V4.3:Puis faire la release Finale
+DONE V4.3 DOC End____________________________________________________________
+================================================================================
+V)Niveau Release: Process
+================================================================================
 DONE V4.2 Release Begin____________________________________________________________
 TODO V4.2:Release Arch pdf
         Optional:
@@ -58,3 +67,4 @@ TODO V4.2:Release Arch pdf
 TODO V4.2: Release 4.2
 TODO V4.2: Publish by mailing
 DONE V4.2 Release END____________________________________________________________
+================================================================================
