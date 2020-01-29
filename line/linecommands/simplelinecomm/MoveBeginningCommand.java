@@ -4,19 +4,19 @@ import fr.cnam.tp9.line.specification.Line;
 
 public class MoveBeginningCommand extends LineComm {
 
-    public MoveBeginningCommand( Line a_Line ) {
+    public MoveBeginningCommand(Line a_Line) {
         super(a_Line);
     }
 
 
-    public void executer( ) {
+    public void executer() {
         LineComm.line.moveBeginning();
         LineComm.line.getPrinter().print();
     }
 
 
     @Override
-	public final boolean isExecutable( ){
-        return LineComm.line.getCursorPos()>1;
+    public final boolean isExecutable() {
+        return LineComm.line.getCursorPos() > 1;
     }
 }

@@ -1,11 +1,9 @@
 package fr.cnam.tp9.editor;
 
 import fr.cnam.tp9.command.specification.Cancelable;
-
 import fr.cnam.tp9.editor.specification.HisEditor;
 import fr.cnam.tp9.line.ClonableLineTab;
 import fr.cnam.tp9.line.linecommands.cancelinecomm.*;
-
 import fr.cnam.tp9.line.specification.ClonableLine;
 import fr.cnam.tp9.menu.EntryImp;
 import fr.cnam.tp9.menu.MenuImp;
@@ -37,6 +35,12 @@ public class HistLineEditorLauncher {
 
     }
 
+    public static void main(String[] Args) {
+        HistLineEditorLauncher myHistLineEditor1 = new HistLineEditorLauncher();
+        myHistLineEditor1.start();
+
+    }
+
     private void fillMenu() {
 
         Cancelable[] lineCommandsTable = new CancelableLinComm[20];
@@ -58,7 +62,7 @@ public class HistLineEditorLauncher {
         lineCommandsTable[nbLineCommands++] = new CanceAddBeforeCommand(this.myClonableLineTab);
         lineCommandsTable[nbLineCommands++] = new CanceAddAfterCommand(this.myClonableLineTab);
         lineCommandsTable[nbLineCommands] = new CanceDeleteAllCommand(this.myClonableLineTab);
-        
+
 
         //Creating and filling CursorSubMenu
 
@@ -90,18 +94,9 @@ public class HistLineEditorLauncher {
 
     }
 
-
     public void start() {
         this.myClonableLineTab.getPrinter().print();
         this.myHisEditor.editer();
-
-    }
-
-
-    public static void main( String[] Args )
-    {
-        HistLineEditorLauncher myHistLineEditor1 =  new HistLineEditorLauncher();
-        myHistLineEditor1.start();
 
     }
 

@@ -5,12 +5,12 @@ import fr.cnam.tp9.command.specification.Cancelable;
 public class NoopCommand implements Cancelable {
 
     @Override
-	public void executer( ){
+    public void executer() {
     }
 
 
     @Override
-	public boolean isExecutable( ){
+    public boolean isExecutable() {
         return true;
     }
 

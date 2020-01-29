@@ -1,27 +1,29 @@
 package fr.cnam.tp9.history;
 
 import fr.cnam.tp9.history.specification.History;
+
 import java.util.Stack;
 
-public class HistoryImp<T>  implements History<T> {
+public class HistoryImp<T> implements History<T> {
 
     private final Stack<T> linesStack;
-    public HistoryImp( ){
-        this.linesStack= new Stack<>();
-   }
+
+    public HistoryImp() {
+        this.linesStack = new Stack<>();
+    }
 
     @Override
-	public void push( T a_Line ) {
+    public void push(T a_Line) {
         this.linesStack.push(a_Line);
     }
 
     @Override
-	public T pull( ) {
+    public T pull() {
         return this.linesStack.pop();
     }
 
     @Override
-	public boolean isEmpty( ) {
+    public boolean isEmpty() {
         return this.linesStack.isEmpty();
     }
 }
