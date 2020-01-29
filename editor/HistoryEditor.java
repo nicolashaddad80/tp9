@@ -12,16 +12,12 @@ import fr.cnam.tp9.menu.specification.Menu;
 
 public class HistoryEditor extends SimpleEditor implements HisEditor {
 
-    private final History<Cancelable> undoHistory;
-    private final History<Cancelable> redoHistory;
+    private final History<Cancelable> undoHistory = new HistoryImp<>();
+    private final History<Cancelable> redoHistory = new HistoryImp<>();
 
 
     public HistoryEditor(Menu a_Menu) {
         super(a_Menu);
-
-        this.undoHistory = new HistoryImp<Cancelable>();
-        this.redoHistory = new HistoryImp<Cancelable>();
-
         this.currentMenu.add(new EntryImp(-1, "Undo", new UndoCommand(this), "-"));
         this.currentMenu.add(new EntryImp(-2, "Redo", new RedoCommand(this), "+"));
     }

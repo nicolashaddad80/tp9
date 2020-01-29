@@ -7,7 +7,7 @@ public class HistoryImp<T>  implements History<T> {
 
     private final Stack<T> linesStack;
     public HistoryImp( ){
-        this.linesStack= new Stack<T>();
+        this.linesStack= new Stack<>();
    }
 
     @Override
