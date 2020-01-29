@@ -74,7 +74,11 @@ public class MenuImp extends EntryImp implements Menu {
             e.printStackTrace();
         }
 
-        Iterator<Integer> it = sortedEntry.iterator();
+
+        Iterator<Integer> it = null;
+        if (sortedEntry != null) {
+            it = sortedEntry.iterator();
+        }
 
         while (it.hasNext()) {
             Integer entryKey = it.next();
