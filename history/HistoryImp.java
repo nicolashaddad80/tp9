@@ -6,24 +6,24 @@ import java.util.Stack;
 
 public class HistoryImp<T> implements History<T> {
 
-    private final Stack<T> linesStack;
+    private final Stack<T> myStack;
 
     public HistoryImp() {
-        this.linesStack = new Stack<>();
+        this.myStack = new Stack<>();
     }
 
     @Override
     public void push(T a_Line) {
-        this.linesStack.push(a_Line);
+        this.myStack.push(a_Line);
     }
 
     @Override
     public T pull() {
-        return this.linesStack.pop();
+        return this.myStack.pop();
     }
 
     @Override
     public boolean isEmpty() {
-        return this.linesStack.isEmpty();
+        return this.myStack.isEmpty();
     }
 }
